@@ -1,0 +1,346 @@
+/* ==========================================================================
+   Card Components (BEM)
+   A: brandstory-card · B: product-card · C: product-text-card
+   D: event-card · E: store-card
+   ========================================================================== */
+
+/* Shared placeholder */
+.card-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-media--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-grey4);
+  color: var(--color-grey3);
+}
+
+.card-media--placeholder svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* --------------------------------------------------------------------------
+   A — Brand Story Card
+   -------------------------------------------------------------------------- */
+.brandstory-card {
+  position: relative;
+  overflow: hidden;
+  width: var(--brandstory-card-width);
+  max-width: 100%;
+  height: var(--brandstory-card-height);
+  border-radius: 0;
+  background-color: var(--color-grey4);
+}
+
+.brandstory-card__media {
+  position: absolute;
+  inset: 0;
+}
+
+.brandstory-card__body {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+  color: var(--color-primary);
+  background: linear-gradient(to top, rgb(255 255 255 / 90%) 0%, transparent 100%);
+}
+
+.brandstory-card__title {
+  margin: 0;
+  font-size: var(--brandstory-card-fs-title);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-title);
+  color: var(--color-primary);
+}
+
+.brandstory-card__subtitle {
+  margin: 0.5rem 0 0;
+  font-size: var(--brandstory-card-fs-subtitle);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   B — Product Card
+   -------------------------------------------------------------------------- */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: var(--product-card-width);
+  max-width: 100%;
+  height: var(--product-card-height);
+  border: 0.0625rem solid var(--color-primary);
+  border-radius: var(--product-card-radius);
+  background-color: var(--color-white);
+}
+
+.product-card__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.product-card__body {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  background-color: transparent;
+}
+
+.product-card__title {
+  margin: 0;
+  font-size: var(--product-card-fs-title);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-title);
+  color: var(--color-primary);
+}
+
+.product-card__text {
+  margin: 0;
+  font-size: var(--product-card-fs-text);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   C — Product Text Card (Hover overlay / 설명)
+   -------------------------------------------------------------------------- */
+.product-text-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: var(--product-card-width);
+  max-width: 100%;
+  height: var(--product-card-height);
+  border: 0.0625rem solid var(--color-primary);
+  border-radius: var(--product-card-radius);
+  background-color: transparent;
+}
+
+.product-text-card__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.product-text-card__dim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: rgb(0 0 0 / 45%);
+  pointer-events: none;
+}
+
+.product-text-card__body {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  background-color: transparent;
+}
+
+.product-text-card__title {
+  margin: 0;
+  font-size: var(--product-card-fs-title);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-title);
+  color: var(--color-primary);
+}
+
+.product-text-card__text {
+  margin: 0;
+  font-size: var(--product-card-fs-text);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-primary);
+}
+
+.product-text-card__desc {
+  margin: 0;
+  max-width: 18.75rem;
+  font-size: var(--product-text-card-fs-desc);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-primary);
+}
+
+.product-text-card__btn {
+  margin-top: 0.25rem;
+}
+
+/* Product Card Hover Group — B 위에 C 설명 노출 */
+.product-card-group {
+  position: relative;
+  width: var(--product-card-width);
+  max-width: 100%;
+  height: var(--product-card-height);
+}
+
+.product-card-group .product-card,
+.product-card-group .product-text-card {
+  width: 100%;
+  height: 100%;
+}
+
+.product-card-group__hover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.product-card-group:hover .product-card-group__hover,
+.product-card-group:focus-within .product-card-group__hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --------------------------------------------------------------------------
+   D — Event Card
+   -------------------------------------------------------------------------- */
+.event-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: var(--event-card-width);
+  max-width: 100%;
+  height: var(--event-card-height);
+  border: 0.0625rem solid var(--color-grey3);
+  border-radius: var(--event-card-radius);
+  background-color: var(--color-white);
+}
+
+.event-card__media {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: var(--event-card-img-ratio); /* 686 / 420 */
+  overflow: hidden;
+}
+
+.event-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem 2rem;
+}
+
+.event-card__title {
+  margin: 0;
+  font-size: var(--event-card-fs-title);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-title);
+  color: var(--color-black);
+}
+
+.event-card__date {
+  margin: 0;
+  font-size: var(--event-card-fs-date);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-grey2);
+}
+
+/* --------------------------------------------------------------------------
+   E — Store Card
+   -------------------------------------------------------------------------- */
+.store-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: var(--store-card-width);
+  max-width: 100%;
+  height: var(--store-card-height);
+  border: 0.0625rem solid var(--color-primary);
+  border-radius: 0;
+  background-color: var(--color-white);
+}
+
+.store-card__media {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: var(--store-card-img-ratio); /* 402 / 240 */
+  overflow: hidden;
+}
+
+.store-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.store-card__title {
+  margin: 0;
+  font-size: var(--store-card-fs-title);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-title);
+  color: var(--color-black);
+}
+
+.store-card__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.store-card__item {
+  position: relative;
+  padding-left: 1rem;
+  font-size: var(--store-card-fs-text);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-grey1);
+}
+
+.store-card__item + .store-card__item {
+  margin-top: 0.375rem;
+}
+
+.store-card__item::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background-color: currentColor;
+}

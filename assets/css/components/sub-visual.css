@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Sub Visual (공통 — 카테고리 페이지 헤더 하단)
+   Block : sub-visual
+   ========================================================================== */
+
+.sub-visual {
+  width: 100%;
+  max-width: var(--layout-max-width); /* 1920px */
+  margin: 0 auto;
+  padding-top: var(--header-height);
+}
+
+.sub-visual__inner {
+  position: relative;
+  width: 100%;
+  /* 탭바 절반(48px)이 이미지 아래로 걸치도록 여백 */
+  padding-bottom: 3rem;
+}
+
+.sub-visual__media {
+  position: relative;
+  width: 100%;
+  height: 27.5rem; /* 440px */
+  overflow: hidden;
+}
+
+.sub-visual__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sub-visual__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-en); /* SUIT */
+  font-size: clamp(2rem, 5vw, 4rem); /* max 64px */
+  font-weight: 900; /* SUIT Heavy */
+  line-height: 1.2;
+  color: var(--color-point);
+  text-align: center;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Tab bar — 이미지 하단 경계에 절반 걸침 */
+.sub-visual__tabs {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  z-index: 2;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(61.375rem, calc(100% - 2.5rem)); /* 982px */
+  height: 6rem; /* 96px */
+  padding: 0 1.5rem;
+  border: 0.125rem solid var(--color-point); /* 1px */
+  border-radius: 1.875rem; /* 30px */
+  background-color: var(--color-white);
+  transform: translate(-50%, 50%);
+}
+
+.sub-visual__tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem; /* 40px */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sub-visual__tab {
+  font-family: var(--font-ko);
+  font-size: var(--fs-body03);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+  color: var(--color-black);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.sub-visual__tab:hover {
+  color: var(--color-point);
+}
+
+.sub-visual__tab.is-active {
+  font-weight: var(--fw-bold);
+  color: var(--color-point);
+}
+
+@media (max-width: 63.9375rem) {
+  .sub-visual__media {
+    height: 16.25rem; /* 260px */
+  }
+
+  .sub-visual__tabs {
+    height: auto;
+    min-height: 3.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .sub-visual__tab-list {
+    gap: 1rem 1.5rem;
+  }
+
+  .sub-visual__tab {
+    font-size: var(--fs-body04);
+  }
+}

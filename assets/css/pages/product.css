@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Product Page
+   ========================================================================== */
+
+.product-page {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  /* 탭바 하단 ↔ 타이틀 110px */
+  padding: 6.875rem var(--grid-margin) 6rem;
+}
+
+.product-page__title {
+  margin: 0 0 3.75rem; /* 타이틀 ↔ 카드 60px */
+  font-family: var(--font-ko);
+  font-size: var(--fs-body01-1); /* body1 */
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--color-black);
+  text-align: center;
+}
+
+.product-page__panels {
+  min-height: 12rem;
+}
+
+.product-page__panel {
+  display: none;
+}
+
+.product-page__panel.is-active {
+  display: block;
+}
+
+.product-page__placeholder {
+  margin: 0;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body03);
+  color: var(--color-grey2);
+  text-align: center;
+}
+
+/* Grid — Mobile 1 / Tablet 2 / PC 4 · gap 24px */
+.product-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* 24px */
+  justify-items: center;
+  width: 100%;
+  max-width: 104.5rem; /* 400×4 + 24×3 = 1672px */
+  margin: 0 auto;
+}
+
+@media (min-width: 48rem) {
+  .product-page__grid {
+    grid-template-columns: repeat(2, minmax(0, var(--product-card-width)));
+    justify-content: center;
+  }
+}
+
+@media (min-width: 64rem) {
+  .product-page__grid {
+    grid-template-columns: repeat(4, var(--product-card-width));
+  }
+}
+
+/* Card group */
+.product-page .product-card-group {
+  width: 100%;
+  max-width: var(--product-card-width);
+}
+
+/* Default card — 투명 배경 · 이미지 중앙 394×410 */
+.product-page .product-card {
+  width: 100%;
+  max-width: var(--product-card-width);
+  background-color: transparent;
+}
+
+.product-page .product-card__media {
+  position: relative;
+  inset: auto;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.product-page .product-card__media .card-media {
+  width: 24.625rem; /* 394px */
+  height: 25.625rem; /* 410px */
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.product-page .product-card__body {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  flex-shrink: 0;
+  background-color: transparent;
+}
+
+/* Hover card — gelato 배경 */
+.product-page .product-text-card__media .card-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 버튼: hover 비주얼 기본 · 클릭(active)은 outline과 동일 · 클릭 가능 */
+.product-page .product-text-card__btn.btn--state-hover {
+  pointer-events: auto;
+}
+
+.product-page .product-text-card__btn.btn--outline:active:not(:disabled) {
+  border-color: var(--color-darkgreen);
+  background-color: var(--color-darkgreen);
+  color: var(--color-white);
+}

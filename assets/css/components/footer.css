@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Footer Component (BEM)
+   Block : footer
+   ========================================================================== */
+
+.footer {
+  background-color: var(--color-grey5); /* #f8f8f8 */
+  color: var(--color-black);
+}
+
+.footer__inner {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 3rem var(--grid-margin) 2.5rem;
+}
+
+.footer__logo {
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+}
+
+.footer__logo-img {
+  display: block;
+  width: 1.75rem; /* 28px */
+  height: 3.125rem; /* 50px */
+  object-fit: contain;
+}
+
+.footer__row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* 19.2px — 1·2·3문단 간격 */
+  width: 100%;
+}
+
+.footer__policy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-black);
+}
+
+.footer__policy-link {
+  font-weight: var(--fw-regular);
+  color: var(--color-black);
+}
+
+.footer__policy-link--bold {
+  font-weight: var(--fw-bold);
+}
+
+.footer__policy-sep {
+  color: var(--color-black);
+}
+
+.footer__info {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: var(--fw-regular);
+  line-height: 1.7;
+  color: var(--color-black);
+}
+
+.footer__info p {
+  margin: 0;
+}
+
+.footer__info p + p {
+  margin-top: 0.25rem;
+}
+
+.footer__copyright {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: var(--fw-regular);
+  color: var(--color-black);
+}
+
+.footer__sns {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer__sns-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.footer__sns-icon {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+}
+
+@media (min-width: 64rem) {
+  .footer {
+    height: 18.25rem; /* 292px */
+  }
+
+  .footer__inner {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 2.5rem 5rem; /* 40px 80px */
+  }
+
+  .footer__logo-img {
+    width: 1.75rem; /* 28px */
+    height: 3.125rem; /* 50px */
+  }
+
+  .footer__row {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .footer__content {
+    flex: 1 1 auto;
+  }
+
+  .footer__sns {
+    flex-shrink: 0;
+  }
+
+  .footer__info {
+    font-size: 0.875rem;
+  }
+
+  .footer__copyright {
+    font-size: 0.8125rem;
+  }
+}

@@ -1,0 +1,334 @@
+/* ==========================================================================
+   Button Component (BEM)
+   Block : btn
+   States : default · :hover · :active(click) · :disabled
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-icon-gap);
+  min-width: 0;
+  border: var(--btn-border-width) solid transparent;
+  border-radius: var(--btn-radius);
+  font-family: var(--font-ko);
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn:focus-visible {
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: 0.125rem;
+}
+
+/* Size */
+.btn--lg {
+  min-height: var(--btn-height-lg);
+  padding: 0 var(--btn-padding-x-lg);
+  font-size: var(--btn-fs-lg);
+}
+
+.btn--md {
+  min-height: var(--btn-height-md);
+  padding: 0 var(--btn-padding-x-md);
+  font-size: var(--btn-fs-md);
+}
+
+/* Outline — Default: white + border + primary text */
+.btn--outline {
+  border-color: var(--color-primary);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.btn--outline:hover:not(:disabled):not(.btn--disabled) {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--outline:active:not(:disabled):not(.btn--disabled) {
+  border-color: var(--color-darkgreen);
+  background-color: var(--color-darkgreen);
+  color: var(--color-white);
+}
+
+/* Primary (Solid) — 검색 버튼 등 */
+.btn--primary {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--primary:hover:not(:disabled):not(.btn--disabled) {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--primary:active:not(:disabled):not(.btn--disabled) {
+  border-color: var(--color-darkgreen);
+  background-color: var(--color-darkgreen);
+  color: var(--color-white);
+}
+
+.btn--disabled,
+.btn:disabled {
+  border-color: var(--btn-disabled-bg);
+  background-color: var(--btn-disabled-bg);
+  color: var(--btn-disabled-color);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Guide — static state preview */
+.btn--state-hover.btn--outline,
+.btn--state-hover.btn--primary {
+  pointer-events: none;
+}
+
+.btn--state-hover.btn--outline {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--state-hover.btn--primary {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--state-active.btn--outline,
+.btn--state-active.btn--primary {
+  pointer-events: none;
+}
+
+.btn--state-active.btn--outline {
+  border-color: var(--color-darkgreen);
+  background-color: var(--color-darkgreen);
+  color: var(--color-white);
+}
+
+.btn--state-active.btn--primary {
+  border-color: var(--color-darkgreen);
+  background-color: var(--color-darkgreen);
+  color: var(--color-white);
+}
+
+/* Dark BG — Default · Hover · Click · Disabled */
+.btn--on-dark {
+  padding-left: var(--btn-padding-x-on-dark);
+  padding-right: var(--btn-padding-x-on-dark);
+  border-color: var(--color-white);
+  background-color: transparent;
+  color: var(--color-white);
+}
+
+.btn--on-dark:hover:not(:disabled):not(.btn--disabled) {
+  border-color: var(--color-ivory1);
+  background-color: var(--color-ivory1);
+  color: var(--color-black);
+}
+
+.btn--on-dark:active:not(:disabled):not(.btn--disabled) {
+  border-color: var(--color-ivory2);
+  background-color: var(--color-ivory2);
+  color: var(--color-black);
+}
+
+.btn--on-dark:disabled,
+.btn--on-dark.btn--disabled {
+  border-color: transparent;
+  background-color: var(--btn-on-dark-disabled-bg);
+  color: var(--btn-on-dark-disabled-color);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Guide — Dark BG static state preview */
+.btn--state-hover.btn--on-dark,
+.btn--state-active.btn--on-dark {
+  pointer-events: none;
+}
+
+.btn--state-hover.btn--on-dark {
+  border-color: var(--color-ivory1);
+  background-color: var(--color-ivory1);
+  color: var(--color-black);
+}
+
+.btn--state-active.btn--on-dark {
+  border-color: var(--color-ivory2);
+  background-color: var(--color-ivory2);
+  color: var(--color-black);
+}
+
+/* Icon */
+.btn__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--btn-icon-size);
+  height: var(--btn-icon-size);
+}
+
+.btn__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   Toggle Component (BEM) — ON/OFF
+   Block : toggle
+   ========================================================================== */
+
+.toggle {
+  display: inline-flex;
+  overflow: hidden;
+  border: var(--btn-border-width) solid var(--color-grey4);
+  border-radius: var(--btn-radius);
+  background-color: var(--color-white);
+}
+
+.toggle--md .toggle__item {
+  min-height: var(--btn-height-md);
+  padding: 0 var(--btn-padding-x-md);
+  font-size: var(--btn-fs-md);
+}
+
+.toggle__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--btn-height-md);
+  padding: 0 var(--btn-padding-x-md);
+  border: 0;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  font-family: var(--font-ko);
+  font-size: var(--btn-fs-md);
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.toggle__item + .toggle__item {
+  border-left: var(--btn-border-width) solid var(--color-grey4);
+}
+
+.toggle__item--active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.toggle__item--active:hover:not(:disabled) {
+  background-color: var(--color-primary);
+}
+
+.toggle__item--active:active:not(:disabled) {
+  background-color: var(--color-darkgreen);
+}
+
+.toggle__item:not(.toggle__item--active):hover:not(:disabled) {
+  color: var(--color-darkgreen);
+}
+
+.toggle__item:not(.toggle__item--active):active:not(:disabled) {
+  background-color: var(--color-ivory2);
+}
+
+.toggle__item:focus-visible {
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: -0.125rem;
+  z-index: 1;
+}
+
+.toggle__item:disabled {
+  background-color: var(--btn-disabled-bg);
+  color: var(--btn-disabled-color);
+  cursor: not-allowed;
+}
+
+.toggle--state-hover .toggle__item--active {
+  background-color: var(--color-primary);
+}
+
+.toggle--state-active .toggle__item--active {
+  background-color: var(--color-darkgreen);
+  color: var(--color-white);
+}
+
+.toggle--state-active .toggle__item:not(.toggle__item--active) {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.toggle--state-disabled {
+  pointer-events: none;
+}
+
+.toggle--state-disabled .toggle__item {
+  background-color: var(--btn-disabled-bg);
+  color: var(--btn-disabled-color);
+  border-color: var(--btn-disabled-bg);
+}
+
+/* ==========================================================================
+   Search Bar Component (BEM)
+   Block : search-bar
+   ========================================================================== */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--search-inner-gap);
+  width: 100%;
+  max-width: 37.5rem;
+  min-height: var(--search-height);
+  padding: 0.3125rem 0.3125rem 0.3125rem var(--search-padding-left);
+  border: var(--btn-border-width) solid var(--color-grey4);
+  border-radius: var(--btn-radius);
+  background-color: var(--color-white);
+}
+
+.search-bar--muted {
+  background-color: var(--search-bg-muted);
+}
+
+.search-bar__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-black);
+  font-family: var(--font-ko);
+  font-size: var(--btn-fs-lg);
+  line-height: 1;
+}
+
+.search-bar__input::placeholder {
+  color: var(--color-grey3);
+}
+
+.search-bar__input:focus {
+  outline: none;
+}
+
+.search-bar__btn {
+  flex-shrink: 0;
+  min-height: calc(var(--search-height) - 0.625rem);
+  padding: 0 1.75rem;
+  font-size: var(--btn-fs-md);
+}

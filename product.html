@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제품 | 프루또 FRUITTO</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" />
+  <link rel="stylesheet" href="assets/css/fonts.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/common.css" />
+  <link rel="stylesheet" href="assets/css/components/button.css" />
+  <link rel="stylesheet" href="assets/css/components/card.css" />
+  <link rel="stylesheet" href="assets/css/components/header.css" />
+  <link rel="stylesheet" href="assets/css/components/footer.css" />
+  <link rel="stylesheet" href="assets/css/components/sub-visual.css" />
+  <link rel="stylesheet" href="assets/css/components/product-popup.css" />
+  <link rel="stylesheet" href="assets/css/pages/product.css" />
+</head>
+
+<body>
+  <header class="header" id="site-header">
+    <div class="header__inner">
+      <a class="header__logo" href="index.html">
+        <img class="header__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="40" height="70" />
+      </a>
+      <nav class="header__gnb" aria-label="주요 메뉴">
+        <ul class="header__gnb-list">
+          <li><a class="header__gnb-link" href="brand.html">브랜드스토리</a></li>
+          <li>
+            <a class="header__gnb-link header__gnb-link--active" href="product.html" aria-current="page">제품</a>
+          </li>
+          <li><a class="header__gnb-link" href="notice.html">공지</a></li>
+          <li><a class="header__gnb-link" href="store.html">입점처</a></li>
+          <li><a class="header__gnb-link" href="contact.html">문의</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="header__menu-btn" data-nav-open aria-controls="nav-drawer" aria-expanded="false"
+        aria-label="메뉴 열기">
+        <span class="header__menu-btn-bar"></span>
+        <span class="header__menu-btn-bar"></span>
+        <span class="header__menu-btn-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-drawer-dim" id="nav-drawer-dim"></div>
+  <nav class="nav-drawer" id="nav-drawer" aria-hidden="true" aria-label="모바일 메뉴">
+    <div class="nav-drawer__top">
+      <a class="header__logo" href="index.html">
+        <img class="header__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="40" height="70" />
+      </a>
+      <button type="button" class="nav-drawer__close" data-nav-close aria-label="메뉴 닫기">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <ul class="nav-drawer__list">
+      <li class="nav-drawer__item">
+        <a class="nav-drawer__link" href="brand.html">브랜드스토리</a>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-product">
+          제품
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-product">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="product.html#all">All</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#season">사계절</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#spring">봄</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#summer">여름</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#autumn">가을</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#winter">겨울</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-notice">
+          공지
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-notice">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="notice.html">공지사항</a></li>
+            <li><a class="nav-drawer__sub-link" href="notice.html">이벤트</a></li>
+            <li><a class="nav-drawer__sub-link" href="notice.html">프로모션</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-store">
+          입점처
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-store">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="store.html">온라인</a></li>
+            <li><a class="nav-drawer__sub-link" href="store.html">오프라인</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-contact">
+          문의
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-contact">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="contact.html">자주하는 질문</a></li>
+            <li><a class="nav-drawer__sub-link" href="contact.html">문의</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Sub Visual (공통) + Product Tabs -->
+    <section class="sub-visual" aria-label="제품 비주얼">
+      <div class="sub-visual__inner">
+        <div class="sub-visual__media">
+          <img class="sub-visual__image" src="assets/images/main/sub-visual-Gelato.png" alt="" width="1920"
+            height="440" />
+          <h1 class="sub-visual__title">Gelato</h1>
+        </div>
+
+        <nav class="sub-visual__tabs" aria-label="제품 하위 메뉴">
+          <ul class="sub-visual__tab-list">
+            <li>
+              <a class="sub-visual__tab is-active" href="#all" data-product-tab="all">All</a>
+            </li>
+            <li>
+              <a class="sub-visual__tab" href="#season" data-product-tab="season">사계절</a>
+            </li>
+            <li>
+              <a class="sub-visual__tab" href="#spring" data-product-tab="spring">봄</a>
+            </li>
+            <li>
+              <a class="sub-visual__tab" href="#summer" data-product-tab="summer">여름</a>
+            </li>
+            <li>
+              <a class="sub-visual__tab" href="#autumn" data-product-tab="autumn">가을</a>
+            </li>
+            <li>
+              <a class="sub-visual__tab" href="#winter" data-product-tab="winter">겨울</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 제품 목록 -->
+    <section class="product-page" aria-label="제품 목록">
+      <h2 class="product-page__title" data-product-title>All</h2>
+
+      <div class="product-page__panels">
+        <div class="product-page__panel is-active" data-product-panel="all">
+          <div class="product-page__grid">
+            <div class="product-card-group mango" aria-label="망고 젤라또">
+              <article class="product-card mango">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/mango.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">망고 젤라또</h3>
+                  <p class="product-card__text">Mango gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/mango-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">망고 젤라또</h3>
+                    <p class="product-text-card__text">Mango gelato</p>
+                    <p class="product-text-card__desc">진한 망고의 달콤함과
+                      부드럽고 농후한 과즙감이
+                      입안에 <br> 기분 좋게 퍼지는 젤라또 입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group kiwi" aria-label="키위 젤라또">
+              <article class="product-card kiwi">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/kiwi.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">키위 젤라또</h3>
+                  <p class="product-card__text">Kiwi gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/kiwi-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">키위 젤라또</h3>
+                    <p class="product-text-card__text">Kiwi gelato</p>
+                    <p class="product-text-card__desc">상큼한 키위의 은은한 단맛과
+                      가볍고 청량한 과일의 신선함을
+                      <br>그대로 담았습니다
+                    </p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group strawberry" aria-label="딸기 젤라또">
+              <article class="product-card strawberry">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/strawberry.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">딸기 젤라또</h3>
+                  <p class="product-card__text">Strawberry gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/strawberry-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">딸기 젤라또</h3>
+                    <p class="product-text-card__text">Strawberry gelato</p>
+                    <p class="product-text-card__desc">잘 익은 딸기의 달콤함과<br>
+                      산뜻한 과즙감을 담았습니다 <br> 상큼한 베리 풍미가 <br> 매력적인 맛입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group banana" aria-label="바나나 젤라또">
+              <article class="product-card banana">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/banana.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">바나나 젤라또</h3>
+                  <p class="product-card__text">Banana gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/banana-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">바나나 젤라또</h3>
+                    <p class="product-text-card__text">Banana gelato</p>
+                    <p class="product-text-card__desc">달콤한 바나나의 풍미를 보다 진하고 크리미한 질감으로 누구나
+                      <br>즐기기 좋은 맛입니다
+                    </p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group lemon" aria-label="레몬 젤라또">
+              <article class="product-card lemon">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/lemon.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">레몬 젤라또</h3>
+                  <p class="product-card__text">Lemon gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/lemon-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">레몬 젤라또</h3>
+                    <p class="product-text-card__text">Lemon gelato</p>
+                    <p class="product-text-card__desc">싱그러운 향과 상큼한 과즙을 가득 담아 기분까지 상쾌해지는 산뜻한 풍미가
+                      매력적인 젤라또입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group grape" aria-label="포도 젤라또">
+              <article class="product-card grape">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/grape.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">포도 젤라또</h3>
+                  <p class="product-card__text">Grape gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/grape-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">포도 젤라또</h3>
+                    <p class="product-text-card__text">Grape gelato</p>
+                    <p class="product-text-card__desc">포도의 진한 달콤함과
+                      입안 가득 퍼지는 상큼한 맛이
+                      매력적인 <br> 젤라또 입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group peach" aria-label="복숭아 젤라또">
+              <article class="product-card peach">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/peach.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">복숭아 젤라또</h3>
+                  <p class="product-card__text">Peach gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/peach-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">복숭아 젤라또</h3>
+                    <p class="product-text-card__text">Peach gelato</p>
+                    <p class="product-text-card__desc">잘 익은 복숭아의 달콤함과
+                      부드러운 과즙감이 기분 좋은 <br> 여운을
+                      남기는 젤라또 입니다.</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group watermelon" aria-label="수박 젤라또">
+              <article class="product-card watermelon">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/watermelon.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">수박 젤라또</h3>
+                  <p class="product-card__text">Watermelon gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/watermelon-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">수박 젤라또</h3>
+                    <p class="product-text-card__text">Watermelon gelato</p>
+                    <p class="product-text-card__desc">시원한 수박의 수분 가득한 <br> 과즙감과
+                      달콤한 맛으로 <br> 더운날
+                      즐기기 좋은 젤라또 입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group melon" aria-label="멜론 젤라또">
+              <article class="product-card melon">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/melon.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">멜론 젤라또</h3>
+                  <p class="product-card__text">Melon gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/melon-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">멜론 젤라또</h3>
+                    <p class="product-text-card__text">Melon gelato</p>
+                    <p class="product-text-card__desc">달콤하게 익은 멜론의 풍부한 향과
+                      부드러운 과즙이 입안 가득 퍼지는
+                      매력적인 젤라또 입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group apple" aria-label="사과 젤라또">
+              <article class="product-card apple">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/apple.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">사과 젤라또</h3>
+                  <p class="product-card__text">Apple gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/apple-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">사과 젤라또</h3>
+                    <p class="product-text-card__text">Apple gelato</p>
+                    <p class="product-text-card__desc">사과의 아삭하고 상큼함을
+                      은은한 단맛과 산뜻한 향과 함께
+                      <br> 느낄 수 있는 젤라또 입니다
+                    </p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group mandarin" aria-label="귤 젤라또">
+              <article class="product-card mandarin">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/mandarin.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">귤 젤라또</h3>
+                  <p class="product-card__text">Mandarin gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/mandarin-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">귤 젤라또</h3>
+                    <p class="product-text-card__text">Mandarin gelato</p>
+                    <p class="product-text-card__desc">귤의 상큼한 향과 그 사이에서 <br> 느껴지는 달콤함을 시트러스와 <br> 함께
+                      풍미를 느낄 수 있는 <br> 젤라또 입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group greenplum" aria-label="매실 젤라또">
+              <article class="product-card greenplum">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/greenplum.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">매실 젤라또</h3>
+                  <p class="product-card__text">Greenplum gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/greenplum-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">매실 젤라또</h3>
+                    <p class="product-text-card__text">Greenplum gelato</p>
+                    <p class="product-text-card__desc">특유의 은은한 향과 깔끔하고 
+                      달콤한 끝맛으로 부담 없이 
+                      즐기기 좋은 젤라또입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group Pomegranate" aria-label="석류 젤라또">
+              <article class="product-card Pomegranate">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/Pomegranate.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">석류 젤라또</h3>
+                  <p class="product-card__text">Pomegranate gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/Pomegranate-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">석류 젤라또</h3>
+                    <p class="product-text-card__text">Pomegranate gelato</p>
+                    <p class="product-text-card__desc">석류의 새콤달콤한 풍미를 느낄 수 있으며
+                      가볍지만 깊이 있는 <br> 산뜻함을 느낄 수 있는 <br>
+                      매력적인 젤라또 입니다</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group yuja" aria-label="유자 젤라또">
+              <article class="product-card yuja">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/yuja.png" alt="" width="394" height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">유자 젤라또</h3>
+                  <p class="product-card__text">Yujagelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/yuja-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">유자 젤라또</h3>
+                    <p class="product-text-card__text">Yujagelato</p>
+                    <p class="product-text-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="product-card-group cheonhyehyang" aria-label="천혜향 젤라또">
+              <article class="product-card cheonhyehyang">
+                <div class="product-card__media">
+                  <img class="card-media" src="assets/images/product/cheonhyehyang.png" alt="" width="394"
+                    height="410" />
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">천혜향 젤라또</h3>
+                  <p class="product-card__text">Cheonhyehyang gelato</p>
+                </div>
+              </article>
+              <div class="product-card-group__hover">
+                <article class="product-text-card">
+                  <div class="product-text-card__media">
+                    <img class="card-media" src="assets/images/product/cheonhyehyang-gelato.png" alt="" />
+                  </div>
+                  <div class="product-text-card__body">
+                    <h3 class="product-text-card__title">천혜향 젤라또</h3>
+                    <p class="product-text-card__text">Cheonhyehyang gelato</p>
+                    <p class="product-text-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <button type="button" class="btn btn--md btn--outline btn--state-hover product-text-card__btn"
+                      data-popup-open="product-popup">
+                      자세히보기
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-page__panel" data-product-panel="season">
+          <p class="product-page__placeholder">사계절 제품 목록이 들어갑니다.</p>
+        </div>
+        <div class="product-page__panel" data-product-panel="spring">
+          <p class="product-page__placeholder">봄 제품 목록이 들어갑니다.</p>
+        </div>
+        <div class="product-page__panel" data-product-panel="summer">
+          <p class="product-page__placeholder">여름 제품 목록이 들어갑니다.</p>
+        </div>
+        <div class="product-page__panel" data-product-panel="autumn">
+          <p class="product-page__placeholder">가을 제품 목록이 들어갑니다.</p>
+        </div>
+        <div class="product-page__panel" data-product-panel="winter">
+          <p class="product-page__placeholder">겨울 제품 목록이 들어갑니다.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="footer__logo" href="index.html">
+        <img class="footer__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="28" height="50" />
+      </a>
+      <div class="footer__row">
+        <div class="footer__content">
+          <p class="footer__policy">
+            <a class="footer__policy-link footer__policy-link--bold" href="#">개인정보처리방침</a>
+            <span class="footer__policy-sep" aria-hidden="true">|</span>
+            <a class="footer__policy-link" href="#">이메일 무단 수집 거부</a>
+          </p>
+          <div class="footer__info">
+            <p>
+              프루또 | 대표이사 : 000 | 사업자등록번호: 510-00-97913 | 서울특별시 강남구 테헤란로 123, 10층
+              프루또
+            </p>
+            <p>
+              이메일: fruittogelato@naver.com | 마케팅 협업 제안: fruitto_creative@naver.com | 가맹문의 및
+              고객지원: 1811-0913
+            </p>
+          </div>
+          <p class="footer__copyright">Copyright ©프루또(주) All Rights Reserved.</p>
+        </div>
+        <div class="footer__sns">
+          <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="인스타그램">
+            <img class="footer__sns-icon" src="assets/images/icon/instagram.png" alt="" width="24" height="24" />
+          </a>
+          <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="카카오톡">
+            <img class="footer__sns-icon" src="assets/images/icon/kakao.png" alt="" width="24" height="24" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Popup Layer -->
+  <div class="product-popup-dim" id="product-popup" hidden aria-hidden="true">
+    <div class="product-popup" role="dialog" aria-modal="true" aria-labelledby="popup-live-title">
+      <button type="button" class="product-popup__close" data-popup-close aria-label="닫기">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+      <header class="product-popup__header">
+        <h3 class="product-popup__title" id="popup-live-title">Title</h3>
+        <p class="product-popup__note">* text</p>
+      </header>
+      <div class="product-popup__nutrition">
+        <div class="product-popup__section-head">
+          <p class="product-popup__section-title">
+            Title <span class="product-popup__section-sub">* Subtitle</span>
+          </p>
+          <p class="product-popup__links"><a href="#">text</a> | <a href="#">text</a></p>
+        </div>
+        <div class="product-popup__table-wrap">
+          <table class="product-popup__table">
+            <thead>
+              <tr>
+                <th scope="col">중량(g)</th>
+                <th scope="col">열량</th>
+                <th scope="col">당류</th>
+                <th scope="col">단백질</th>
+                <th scope="col">포화지방</th>
+                <th scope="col">나트륨</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="product-popup__rows">
+        <div>
+          <h4 class="product-popup__row-title">Title</h4>
+          <p class="product-popup__row-text">Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div>
+          <h4 class="product-popup__row-title">Title</h4>
+          <p class="product-popup__row-text">Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/pages/product.js"></script>
+</body>
+
+</html>

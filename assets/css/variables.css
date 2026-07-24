@@ -1,0 +1,217 @@
+/**
+ * Design Tokens
+ * Base: 1rem = 16px
+ * Breakpoints (mobile-first)
+ *   - Mobile  : 320px ~ 767px  (default)
+ *   - Tablet  : 768px ~ 1023px (@media min-width: 48rem)
+ *   - PC      : 1024px ~        (@media min-width: 64rem)
+ */
+
+/* --------------------------------------------------------------------------
+   Root — Mobile (320px ~ 767px)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color — Brand */
+  --color-primary: #40594a;
+  --color-darkgreen: #2b3d33;
+  --color-point: #741c64;
+
+  /* Color — Background */
+  --color-ivory1: #fffdf3;
+  --color-ivory2: #fff8e8;
+  --color-white: #ffffff;
+  --color-grey5: #f8f8f8; /* Footer 배경 */
+  --color-kv-bg: #e9f7b3; /* Main KV */
+  --color-kv-accent: #22bcff; /* KV 텍스트 */
+
+  /* Color — Text */
+  --color-black: #333333;
+  --color-grey1: #4b4b4b;
+  --color-grey2: #555555;
+  --color-grey3: #a8a8a8;
+  --color-grey4: #dddddd;
+
+  /* Font Family */
+  --font-ko: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-en: "SUIT", "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Font Weight */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-heavy: 800;
+
+  /* Grid */
+  --grid-columns: 4;
+  --grid-gutter: 0.75rem; /* 12px */
+  --grid-margin: 1.25rem; /* 20px */
+
+  /* Layout */
+  --layout-max-width: 120rem; /* 1920px — PC 최대 너비 */
+  --container-max-width: 105rem; /* 1680px — 그리드 콘텐츠 영역 (1920 - margin 120×2) */
+
+  /* Header */
+  --header-height: 4.375rem; /* 70px — Mobile / Tablet */
+  --header-z-index: 100;
+  --header-transition: transform 0.3s ease;
+  --header-logo-width: 2.25rem; /* 36px — Mobile/Tablet 축소 */
+  --header-logo-height: 4rem; /* 64px — header 70px 안에 맞춤 */
+  --nav-drawer-width: 20rem; /* 320px */
+  --nav-drawer-z-index: 110;
+
+  /* Button — 시안 px 확정 전 추정값 */
+  --btn-radius: 624.9375rem; /* pill shape */
+  --btn-height-lg: 3.5rem; /* 56px */
+  --btn-height-md: 2.75rem; /* 44px */
+  --btn-padding-x-lg: 3.125rem; /* 50px — 기존 40px + 10px */
+  --btn-padding-x-md: 2.375rem; /* 38px — 기존 28px + 10px */
+  --btn-padding-x-on-dark: 1.875rem; /* 30px — Dark BG 버튼 */
+  --btn-fs-lg: 1.125rem; /* 18px */
+  --btn-fs-md: 1rem; /* 16px */
+  --btn-border-width: 0.0625rem; /* 1px */
+  --btn-icon-size: 1.25rem; /* 20px */
+  --btn-icon-gap: 0.625rem; /* 10px */
+  --btn-disabled-bg: var(--color-grey3);
+  --btn-disabled-color: var(--color-white);
+  --btn-on-dark-disabled-bg: rgb(255 255 255 / 28%);
+  --btn-on-dark-disabled-color: rgb(255 255 255 / 70%);
+
+  /* Card — Brand Story (A) */
+  --brandstory-card-width: 37.5rem; /* 600px */
+  --brandstory-card-height: 47rem; /* 752px */
+  --brandstory-card-fs-title: 3rem; /* 48px */
+  --brandstory-card-fs-subtitle: 1.375rem; /* 22px */
+
+  /* Card — Product (B) */
+  --product-card-width: 25rem; /* 400px */
+  --product-card-height: 36.375rem; /* 582px */
+  --product-card-radius: 1.875rem; /* 30px */
+  --product-card-fs-title: 1.5rem; /* 24px */
+  --product-card-fs-text: 1.5rem; /* 24px */
+
+  /* Card — Product Text Hover (C) */
+  --product-text-card-fs-desc: 1.375rem; /* 22px */
+
+  /* Card — Event (D) */
+  --event-card-width: 42.875rem; /* 686px */
+  --event-card-height: 37.375rem; /* 598px */
+  --event-card-img-ratio: 686 / 420; /* 약 1.63:1 */
+  --event-card-radius: 3.125rem; /* 50px */
+  --event-card-fs-title: 1.5rem; /* 24px */
+  --event-card-fs-date: 1.375rem; /* 22px */
+
+  /* Card — Store (E) */
+  --store-card-width: 25.125rem; /* 402px */
+  --store-card-height: 26.5rem; /* 424px */
+  --store-card-img-ratio: 402 / 240; /* 약 1.675:1 */
+  --store-card-fs-title: 1.375rem; /* 22px */
+  --store-card-fs-text: 1.25rem; /* 20px */
+
+  /* Product Popup (Info Panel) */
+  --product-popup-width: 83.75rem; /* 1340px — PC */
+  --product-popup-height: 43.75rem; /* 700px — PC */
+  --product-popup-width-tablet: 45rem; /* 720px — 임시, 시안 확정 후 수정 */
+  --product-popup-width-mobile: 27.5rem; /* 440px */
+  --product-popup-height-mobile: 44.0625rem; /* 705px */
+  --product-popup-radius: 3.125rem; /* 50px */
+  --product-popup-z-index: 200;
+  /* 폰트 */
+  --product-popup-fs-title: 2rem; /* 32px */
+  --product-popup-fs-section: 1.5rem; /* 24px */
+  --product-popup-fs-sub: 1rem; /* 16px 임시 */
+  --product-popup-fs-body: 1rem; /* 16px 임시 */
+  --product-popup-fs-table: 0.875rem; /* 14px 임시 */
+
+  /* Search Bar */
+  --search-height: 3.5rem; /* 56px */
+  --search-padding-left: 1.5rem; /* 24px */
+  --search-inner-gap: 0.375rem; /* 6px */
+  --search-bg-muted: #f5f5f5;
+
+  /* Typography — Font Size (Mobile) */
+  --fs-xl: 1.875rem; /* 30px */
+  --fs-title01: 1.625rem; /* 26px */
+  --fs-title02: 1.625rem; /* 26px */
+  --fs-subtitle01: 1.5rem; /* 24px */
+  --fs-subtitle02: 1.5rem; /* 24px */
+  --fs-body01-1: 1.25rem; /* 20px — Pretendard */
+  --fs-body01-2: 1.125rem; /* 18px — SUIT */
+  --fs-body02: 1.125rem; /* 18px */
+  --fs-body03: 1rem; /* 16px */
+  --fs-body04: 0.875rem; /* 14px */
+  --fs-body05: 0.75rem; /* 12px */
+  --fs-footer: 0.75rem; /* 12px */
+
+  /* Typography — Line Height (추후 시안 확정 시 수정) */
+  --lh-xl: 1.3;
+  --lh-title: 1.3;
+  --lh-subtitle: 1.4;
+  --lh-body: 1.6;
+  --lh-footer: 1.5;
+
+  /* Typography — Letter Spacing */
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-wide: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet (768px ~ 1023px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 48rem) {
+  :root {
+    /* Grid */
+    --grid-columns: 6;
+    --grid-gutter: 1.125rem; /* 18px */
+    --grid-margin: 3.75rem; /* 60px */
+
+    /* Typography — Font Size (Tablet) */
+    --fs-xl: 2.5rem; /* 40px */
+    --fs-title01: 1.875rem; /* 30px */
+    --fs-title02: 1.875rem; /* 30px */
+    --fs-subtitle01: 1.75rem; /* 28px */
+    --fs-subtitle02: 1.75rem; /* 28px */
+    --fs-body01-1: 1.625rem; /* 26px */
+    --fs-body01-2: 1.125rem; /* 18px */
+    --fs-body02: 1.5rem; /* 24px */
+    --fs-body03: 1.375rem; /* 22px */
+    --fs-body04: 1.25rem; /* 20px */
+    --fs-body05: 1.125rem; /* 18px */
+    --fs-body06: 1rem; /* 16px */
+    --fs-footer: 0.9375rem; /* 15px */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PC (1024px ~)
+   -------------------------------------------------------------------------- */
+@media (min-width: 64rem) {
+  :root {
+    /* Grid */
+    --grid-columns: 12;
+    --grid-gutter: 1.5rem; /* 24px */
+    --grid-margin: 7.5rem; /* 120px */
+
+    /* Header — PC */
+    --header-height: 6.25rem; /* 100px */
+    --header-logo-width: 2.5rem; /* 40px */
+    --header-logo-height: 4.375rem; /* 70px */
+
+    /* Typography — Font Size (PC) */
+    --fs-xl: 5rem; /* 80px */
+    --fs-title01: 3.75rem; /* 60px */
+    --fs-title02: 3.75rem; /* 60px */
+    --fs-subtitle01: 3rem; /* 48px */
+    --fs-subtitle02: 3rem; /* 48px */
+    --fs-body01-1: 2.25rem; /* 36px */
+    --fs-body01-2: 1.5rem; /* 24px */
+    --fs-body02: 1.75rem; /* 28px */
+    --fs-body03: 1.5rem; /* 24px */
+    --fs-body04: 1.375rem; /* 22px */
+    --fs-body05: 1.25rem; /* 20px */
+    --fs-body06: 1rem; /* 16px */
+    --fs-footer: 1rem; /* 16px */
+  }
+}

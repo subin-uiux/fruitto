@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component Guide</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css"
+    />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/components/button.css" />
+    <link rel="stylesheet" href="assets/css/components/card.css" />
+    <link rel="stylesheet" href="assets/css/components/product-popup.css" />
+    <link rel="stylesheet" href="assets/css/components/header.css" />
+    <link rel="stylesheet" href="assets/css/components/footer.css" />
+    <link rel="stylesheet" href="assets/css/guide.css" />
+  </head>
+  <body>
+    <!-- Site Header (스크롤·햄버거 라이브 데모) -->
+    <header class="header" id="site-header">
+      <div class="header__inner">
+        <a class="header__logo" href="index.html">
+          <img
+            class="header__logo-img"
+            src="assets/images/logo/logo.png"
+            alt="프루또"
+            width="40"
+            height="70"
+          />
+        </a>
+        <nav class="header__gnb" aria-label="주요 메뉴">
+          <ul class="header__gnb-list">
+            <li>
+              <a class="header__gnb-link" href="brand.html">브랜드스토리</a>
+            </li>
+            <li>
+              <a class="header__gnb-link" href="product.html">제품</a>
+            </li>
+            <li>
+              <a class="header__gnb-link header__gnb-link--active" href="notice.html" aria-current="page">공지</a>
+            </li>
+            <li>
+              <a class="header__gnb-link" href="store.html">입점처</a>
+            </li>
+            <li>
+              <a class="header__gnb-link" href="contact.html">문의</a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          type="button"
+          class="header__menu-btn"
+          data-nav-open
+          aria-controls="nav-drawer"
+          aria-expanded="false"
+          aria-label="메뉴 열기"
+        >
+          <span class="header__menu-btn-bar"></span>
+          <span class="header__menu-btn-bar"></span>
+          <span class="header__menu-btn-bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-drawer-dim" id="nav-drawer-dim"></div>
+    <nav class="nav-drawer" id="nav-drawer" aria-hidden="true" aria-label="모바일 메뉴">
+      <div class="nav-drawer__top">
+        <a class="header__logo" href="index.html">
+          <img
+            class="header__logo-img"
+            src="assets/images/logo/logo.png"
+            alt="프루또"
+            width="40"
+            height="70"
+          />
+        </a>
+        <button type="button" class="nav-drawer__close" data-nav-close aria-label="메뉴 닫기">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <ul class="nav-drawer__list">
+        <!-- 브랜드 — 하위 메뉴 없음 -->
+        <li class="nav-drawer__item">
+          <a class="nav-drawer__link" href="brand.html">브랜드스토리</a>
+        </li>
+
+        <!-- 제품 -->
+        <li class="nav-drawer__item nav-drawer__item--has-sub">
+          <button
+            type="button"
+            class="nav-drawer__link nav-drawer__toggle"
+            aria-expanded="false"
+            aria-controls="nav-sub-product"
+          >
+            제품
+            <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="nav-drawer__sub" id="nav-sub-product">
+            <ul class="nav-drawer__sub-inner">
+              <li><a class="nav-drawer__sub-link" href="product.html">All</a></li>
+              <li><a class="nav-drawer__sub-link" href="product.html">사계절</a></li>
+              <li><a class="nav-drawer__sub-link" href="product.html">봄</a></li>
+              <li><a class="nav-drawer__sub-link" href="product.html">여름</a></li>
+              <li><a class="nav-drawer__sub-link" href="product.html">가을</a></li>
+              <li><a class="nav-drawer__sub-link" href="product.html">겨울</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- 공지 -->
+        <li class="nav-drawer__item nav-drawer__item--has-sub">
+          <button
+            type="button"
+            class="nav-drawer__link nav-drawer__toggle nav-drawer__link--active"
+            aria-expanded="false"
+            aria-controls="nav-sub-notice"
+          >
+            공지
+            <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="nav-drawer__sub" id="nav-sub-notice">
+            <ul class="nav-drawer__sub-inner">
+              <li><a class="nav-drawer__sub-link" href="notice.html">공지사항</a></li>
+              <li><a class="nav-drawer__sub-link" href="notice.html">이벤트</a></li>
+              <li><a class="nav-drawer__sub-link" href="notice.html">프로모션</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- 입점처 -->
+        <li class="nav-drawer__item nav-drawer__item--has-sub">
+          <button
+            type="button"
+            class="nav-drawer__link nav-drawer__toggle"
+            aria-expanded="false"
+            aria-controls="nav-sub-store"
+          >
+            입점처
+            <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="nav-drawer__sub" id="nav-sub-store">
+            <ul class="nav-drawer__sub-inner">
+              <li><a class="nav-drawer__sub-link" href="store.html">온라인</a></li>
+              <li><a class="nav-drawer__sub-link" href="store.html">오프라인</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- 문의 -->
+        <li class="nav-drawer__item nav-drawer__item--has-sub">
+          <button
+            type="button"
+            class="nav-drawer__link nav-drawer__toggle"
+            aria-expanded="false"
+            aria-controls="nav-sub-contact"
+          >
+            문의
+            <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="nav-drawer__sub" id="nav-sub-contact">
+            <ul class="nav-drawer__sub-inner">
+              <li><a class="nav-drawer__sub-link" href="contact.html">자주하는 질문</a></li>
+              <li><a class="nav-drawer__sub-link" href="contact.html">문의</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="guide">
+      <header class="guide__header">
+        <h1 class="guide__title">Component Guide</h1>
+        <p class="guide__desc">
+          디자인 시스템 컴포넌트 확인용 페이지입니다. (BEM · rem · 1rem = 16px)
+        </p>
+        <nav class="guide__nav" aria-label="컴포넌트 목록">
+          <a class="guide__nav-link" href="#header-footer">Header / Footer</a>
+          <a class="guide__nav-link" href="#button">Button</a>
+          <a class="guide__nav-link" href="#card">Card</a>
+          <a class="guide__nav-link" href="#product-popup">Product Popup</a>
+        </nav>
+      </header>
+
+      <main>
+        <!-- ================================================================
+             Header / Footer
+             ================================================================ -->
+        <section class="guide__section" id="header-footer">
+          <h2 class="guide__section-title">Header / Footer</h2>
+          <p class="guide__section-desc">
+            상단 고정 Header는 스크롤·햄버거 라이브 데모입니다. (PC 100px / Tablet·Mobile 70px · ivory1)
+          </p>
+
+          <div class="guide__panel">
+            <h3 class="guide__label">Header</h3>
+            <p class="guide__meta">
+              GNB: 브랜드스토리 · 제품 · 공지 · 입점처 · 문의 · 활성 메뉴 bold<br />
+              Tablet/Mobile: 우측 햄버거 → 우측 슬라이드 + 배경 블러 · 스크롤 다운 숨김 / 업 노출<br />
+              하위메뉴: 제품(All/사계절/봄/여름/가을/겨울) · 공지 · 입점처 · 문의 / 브랜드 없음
+            </p>
+            <p class="guide__meta">
+              ※ 페이지 최상단 Header에서 직접 확인해 주세요. 창 너비를 줄이면 햄버거가 나타납니다.
+            </p>
+          </div>
+
+          <div class="guide__panel">
+            <h3 class="guide__label">Footer (미리보기)</h3>
+            <p class="guide__meta">배경 #f8f8f8 (--color-grey5) · 텍스트 black · SNS 인스타/카카오</p>
+          </div>
+
+          <div class="guide__code">
+            header · header--hidden · header__gnb-link--active · nav-drawer · nav-drawer-dim.is-open<br />
+            footer · footer__policy-link--bold · footer__sns<br />
+            logo PC 50×90 · Mobile/Tablet 헤더 높이에 맞게 축소
+          </div>
+        </section>
+
+        <section class="guide__section" id="button">
+          <h2 class="guide__section-title">Button</h2>
+          <p class="guide__section-desc">
+            Default · Hover · Click · Disabled 상태 · Toggle ON/OFF · Search Bar
+          </p>
+
+          <!-- Large -->
+          <div class="guide__panel">
+            <h3 class="guide__label">Large</h3>
+            <div class="guide__state-grid">
+              <div class="guide__state-col">
+                <span class="guide__state-head">Default</span>
+                <button type="button" class="btn btn--lg btn--outline">텍스트 입력</button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Hover</span>
+                <button type="button" class="btn btn--lg btn--outline btn--state-hover">텍스트 입력</button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Click</span>
+                <button type="button" class="btn btn--lg btn--outline btn--state-active">텍스트 입력</button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Disabled</span>
+                <button type="button" class="btn btn--lg btn--outline" disabled>텍스트 입력</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medium -->
+          <div class="guide__panel">
+            <h3 class="guide__label">Medium</h3>
+            <div class="guide__state-grid">
+              <div class="guide__state-col">
+                <span class="guide__state-head">Default</span>
+                <button type="button" class="btn btn--md btn--outline">텍스트</button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Hover</span>
+                <button type="button" class="btn btn--md btn--outline btn--state-hover">텍스트</button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Click</span>
+                <button type="button" class="btn btn--md btn--outline btn--state-active">텍스트</button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Disabled</span>
+                <button type="button" class="btn btn--md btn--outline" disabled>텍스트</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Icon Medium -->
+          <div class="guide__panel">
+            <h3 class="guide__label">Icon (Medium · →)</h3>
+            <div class="guide__state-grid">
+              <div class="guide__state-col">
+                <span class="guide__state-head">Default</span>
+                <button type="button" class="btn btn--md btn--outline">
+                  텍스트 입력
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Hover</span>
+                <button type="button" class="btn btn--md btn--outline btn--state-hover">
+                  텍스트 입력
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Click</span>
+                <button type="button" class="btn btn--md btn--outline btn--state-active">
+                  텍스트 입력
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Disabled</span>
+                <button type="button" class="btn btn--md btn--outline" disabled>
+                  텍스트 입력
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Toggle ON/OFF -->
+          <div class="guide__panel">
+            <h3 class="guide__label">Toggle (Primary · ON/OFF)</h3>
+            <p class="guide__section-desc" style="margin-bottom: 1rem">
+              아래 첫 번째는 클릭하여 ON/OFF 전환 가능합니다.
+            </p>
+            <div
+              class="toggle toggle--md"
+              role="group"
+              aria-label="ON/OFF 토글"
+              style="margin-bottom: 1.5rem"
+            >
+              <button
+                type="button"
+                class="toggle__item toggle__item--active"
+                aria-pressed="true"
+              >
+                텍스트
+              </button>
+              <button type="button" class="toggle__item" aria-pressed="false">텍스트</button>
+            </div>
+            <div class="guide__state-grid">
+              <div class="guide__state-col">
+                <span class="guide__state-head">Default (ON)</span>
+                <div class="toggle toggle--md toggle--static" role="group" aria-hidden="true">
+                  <button type="button" class="toggle__item toggle__item--active" tabindex="-1">텍스트</button>
+                  <button type="button" class="toggle__item" tabindex="-1">텍스트</button>
+                </div>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Hover</span>
+                <div class="toggle toggle--md toggle--static toggle--state-hover" role="group" aria-hidden="true">
+                  <button type="button" class="toggle__item toggle__item--active" tabindex="-1">텍스트</button>
+                  <button type="button" class="toggle__item" tabindex="-1">텍스트</button>
+                </div>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Click (OFF)</span>
+                <div class="toggle toggle--md toggle--static toggle--state-active" role="group" aria-hidden="true">
+                  <button type="button" class="toggle__item" tabindex="-1">텍스트</button>
+                  <button type="button" class="toggle__item toggle__item--active" tabindex="-1">텍스트</button>
+                </div>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Disabled</span>
+                <div class="toggle toggle--md toggle--static toggle--state-disabled" role="group" aria-hidden="true">
+                  <button type="button" class="toggle__item" disabled tabindex="-1">텍스트</button>
+                  <button type="button" class="toggle__item" disabled tabindex="-1">텍스트</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="guide__panel">
+            <h3 class="guide__label">Search Bar</h3>
+            <div class="guide__state-grid">
+              <div class="guide__state-col">
+                <span class="guide__state-head">Default</span>
+                <form class="search-bar" role="search" aria-label="검색 Default">
+                  <label class="sr-only" for="search-default">검색어 입력</label>
+                  <input class="search-bar__input" id="search-default" type="search" placeholder="검색어를 입력해주세요." />
+                  <button type="submit" class="btn btn--primary search-bar__btn">검색</button>
+                </form>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Hover</span>
+                <form class="search-bar" role="search" aria-label="검색 Hover">
+                  <label class="sr-only" for="search-hover">검색어 입력</label>
+                  <input class="search-bar__input" id="search-hover" type="search" placeholder="검색어를 입력해주세요." />
+                  <button type="button" class="btn btn--primary search-bar__btn btn--state-hover">검색</button>
+                </form>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Click</span>
+                <form class="search-bar" role="search" aria-label="검색 Click">
+                  <label class="sr-only" for="search-click">검색어 입력</label>
+                  <input class="search-bar__input" id="search-click" type="search" placeholder="검색어를 입력해주세요." />
+                  <button type="button" class="btn btn--primary search-bar__btn btn--state-active">검색</button>
+                </form>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head">Disabled</span>
+                <form class="search-bar" role="search" aria-label="검색 Disabled">
+                  <label class="sr-only" for="search-disabled">검색어 입력</label>
+                  <input class="search-bar__input" id="search-disabled" type="search" placeholder="검색어를 입력해주세요." disabled />
+                  <button type="submit" class="btn btn--primary search-bar__btn" disabled>검색</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dark Background -->
+          <div class="guide__panel guide__panel--dark">
+            <h3 class="guide__label" style="color: var(--color-white)">Dark BG</h3>
+            <div class="guide__state-grid">
+              <div class="guide__state-col">
+                <span class="guide__state-head" style="color: var(--color-white)">Default</span>
+                <button type="button" class="btn btn--md btn--on-dark">
+                  텍스트 입력
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head" style="color: var(--color-white)">Hover</span>
+                <button type="button" class="btn btn--md btn--on-dark btn--state-hover">
+                  텍스트 입력
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head" style="color: var(--color-white)">Click</span>
+                <button type="button" class="btn btn--md btn--on-dark btn--state-active">
+                  텍스트 입력
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div class="guide__state-col">
+                <span class="guide__state-head" style="color: var(--color-white)">Disabled</span>
+                <button type="button" class="btn btn--md btn--on-dark" disabled>
+                  텍스트 입력
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="guide__code">
+            btn--outline : default → hover(primary) → active(darkgreen) → disabled(grey)<br />
+            btn--on-dark : default(outline white) → hover(ivory1) → active(ivory2) → disabled(muted)<br />
+            toggle : ON/OFF — toggle__item--active · aria-pressed<br />
+            btn--state-hover / btn--state-active : guide static preview only
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Card
+             ================================================================ -->
+        <section class="guide__section" id="card">
+          <h2 class="guide__section-title">Card</h2>
+          <p class="guide__section-desc">
+            A Brand Story · B Product · C Product Text(Hover) · D Event · E Store
+          </p>
+
+          <!-- A -->
+          <div class="guide__panel">
+            <h3 class="guide__label">A · brandstory-card</h3>
+            <p class="guide__meta">600×752 · title 48px · subtitle 22px · radius 0 · 메인 브랜드스토리</p>
+            <article class="brandstory-card">
+              <div class="brandstory-card__media">
+                <div class="card-media--placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="5" width="18" height="14" rx="1" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="9" cy="10" r="1.5" fill="currentColor" />
+                    <path d="M3 16L8 12L12 15L16 11L21 16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="brandstory-card__body">
+                <h3 class="brandstory-card__title">Title</h3>
+                <p class="brandstory-card__subtitle">subtitle</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- B + C -->
+          <div class="guide__panel">
+            <h3 class="guide__label">B · product-card / C · product-text-card</h3>
+            <p class="guide__meta">
+              400×582 · title/text 24px · radius 30 · border primary · C desc 22px + Medium 버튼<br />
+              왼쪽: 기본(B) · 가운데: Hover 시 설명(C) · 오른쪽: C 단독 · 버튼 클릭 시 Product Popup
+            </p>
+            <div class="guide__cards">
+              <article class="product-card">
+                <div class="product-card__media">
+                  <div class="card-media--placeholder" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="5" width="18" height="14" rx="1" stroke="currentColor" stroke-width="1.5" />
+                      <circle cx="9" cy="10" r="1.5" fill="currentColor" />
+                      <path d="M3 16L8 12L12 15L16 11L21 16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">Title</h3>
+                  <p class="product-card__text">text</p>
+                </div>
+              </article>
+
+              <div class="product-card-group" aria-label="제품 카드 호버 데모">
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <div class="card-media--placeholder" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="5" width="18" height="14" rx="1" stroke="currentColor" stroke-width="1.5" />
+                        <circle cx="9" cy="10" r="1.5" fill="currentColor" />
+                        <path d="M3 16L8 12L12 15L16 11L21 16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">Title</h3>
+                    <p class="product-card__text">text</p>
+                  </div>
+                </article>
+                <div class="product-card-group__hover">
+                  <article class="product-text-card">
+                    <div class="product-text-card__media">
+                      <div class="card-media--placeholder" style="background-color: #c5c5c5" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="3" y="5" width="18" height="14" rx="1" stroke="currentColor" stroke-width="1.5" />
+                          <circle cx="9" cy="10" r="1.5" fill="currentColor" />
+                          <path d="M3 16L8 12L12 15L16 11L21 16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="product-text-card__dim" aria-hidden="true"></div>
+                    <div class="product-text-card__body">
+                      <h3 class="product-text-card__title">Title</h3>
+                      <p class="product-text-card__text">text</p>
+                      <p class="product-text-card__desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn--md btn--outline product-text-card__btn"
+                        data-popup-open="product-popup"
+                      >
+                        BUTTON
+                      </button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <article class="product-text-card">
+                <div class="product-text-card__media">
+                  <div class="card-media--placeholder" style="background-color: #c5c5c5" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="5" width="18" height="14" rx="1" stroke="currentColor" stroke-width="1.5" />
+                      <circle cx="9" cy="10" r="1.5" fill="currentColor" />
+                      <path d="M3 16L8 12L12 15L16 11L21 16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="product-text-card__dim" aria-hidden="true"></div>
+                <div class="product-text-card__body">
+                  <h3 class="product-text-card__title">Title</h3>
+                  <p class="product-text-card__text">text</p>
+                  <p class="product-text-card__desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  <button
+                    type="button"
+                    class="btn btn--md btn--outline product-text-card__btn"
+                    data-popup-open="product-popup"
+                  >
+                    BUTTON
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- D -->
+          <div class="guide__panel">
+            <h3 class="guide__label">D · event-card</h3>
+            <p class="guide__meta">
+              686×598 · 이미지 686×420 (비율 686/420 ≈ 1.63:1) · title 24px · date 22px · radius 50 · border grey3
+            </p>
+            <article class="event-card">
+              <div class="event-card__media">
+                <div class="card-media--placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="5" width="18" height="14" rx="1" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="9" cy="10" r="1.5" fill="currentColor" />
+                    <path d="M3 16L8 12L12 15L16 11L21 16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="event-card__body">
+                <h3 class="event-card__title">Title</h3>
+                <p class="event-card__date">YYYY.MM.DD - YYYY.MM.DD</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- E -->
+          <div class="guide__panel">
+            <h3 class="guide__label">E · store-card</h3>
+            <p class="guide__meta">
+              402×424 · 이미지 402×240 (비율 402/240 ≈ 1.675:1) · title 22px · text 20px · radius 0 · border primary
+            </p>
+            <article class="store-card">
+              <div class="store-card__media">
+                <div class="card-media--placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="5" width="18" height="14" rx="1" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="9" cy="10" r="1.5" fill="currentColor" />
+                    <path d="M3 16L8 12L12 15L16 11L21 16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">Title</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">text</li>
+                  <li class="store-card__item">text</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="guide__code">
+            brandstory-card · product-card · product-text-card · product-card-group · event-card · store-card<br />
+            event 이미지 aspect-ratio: 686 / 420 · store 이미지 aspect-ratio: 402 / 240
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Product Popup
+             ================================================================ -->
+        <section class="guide__section" id="product-popup">
+          <h2 class="guide__section-title">Product Popup (Info Panel)</h2>
+          <p class="guide__section-desc">
+            PC 1340×700 · Mobile 440×705 · radius 50 · C 카드 버튼으로 오픈 · 폰트는 추후 지정
+          </p>
+
+          <div class="guide__panel">
+            <h3 class="guide__label">Static Preview</h3>
+            <p class="guide__meta">브라우저 너비를 줄이면 Tablet / Mobile 레이아웃으로 전환됩니다. (Tablet width 임시 720px)</p>
+            <div class="product-popup product-popup--static" role="dialog" aria-labelledby="popup-static-title">
+              <button type="button" class="product-popup__close" aria-label="닫기" tabindex="-1">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+              <header class="product-popup__header">
+                <h3 class="product-popup__title" id="popup-static-title">Title</h3>
+                <p class="product-popup__note">* text</p>
+              </header>
+              <div class="product-popup__nutrition">
+                <div class="product-popup__section-head">
+                  <p class="product-popup__section-title">
+                    Title <span class="product-popup__section-sub">* Subtitle</span>
+                  </p>
+                  <p class="product-popup__links"><a href="#">text</a> | <a href="#">text</a></p>
+                </div>
+                <div class="product-popup__table-wrap">
+                  <table class="product-popup__table">
+                    <thead>
+                      <tr>
+                        <th scope="col">중량(g)</th>
+                        <th scope="col">열량</th>
+                        <th scope="col">당류</th>
+                        <th scope="col">단백질</th>
+                        <th scope="col">포화지방</th>
+                        <th scope="col">나트륨</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="product-popup__rows">
+                <div>
+                  <h4 class="product-popup__row-title">Title</h4>
+                  <p class="product-popup__row-text">Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+                <div>
+                  <h4 class="product-popup__row-title">Title</h4>
+                  <p class="product-popup__row-text">Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="guide__code">
+            product-popup-dim.is-open · product-popup · product-popup__nutrition · data-popup-open="product-popup"<br />
+            title 32px · section/row-title 24px · text color primary
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <a class="footer__logo" href="index.html">
+          <img
+            class="footer__logo-img"
+            src="assets/images/logo/logo.png"
+            alt="프루또"
+            width="28"
+            height="50"
+          />
+        </a>
+
+        <div class="footer__row">
+          <div class="footer__content">
+            <!-- 1문단 -->
+            <p class="footer__policy">
+              <a class="footer__policy-link footer__policy-link--bold" href="#">개인정보처리방침</a>
+              <span class="footer__policy-sep" aria-hidden="true">|</span>
+              <a class="footer__policy-link" href="#">이메일 무단 수집 거부</a>
+            </p>
+
+            <!-- 2문단 -->
+            <div class="footer__info">
+              <p>
+                프루또 | 대표이사 : 000 | 사업자등록번호: 510-00-97913 | 서울특별시 강남구 테헤란로 123, 10층 프루또
+              </p>
+              <p>
+                이메일: fruittogelato@naver.com | 마케팅 협업 제안: fruitto_creative@naver.com | 가맹문의 및 고객지원: 1811-0913
+              </p>
+            </div>
+
+            <!-- 3문단 -->
+            <p class="footer__copyright">Copyright ©프루또(주) All Rights Reserved.</p>
+          </div>
+
+          <div class="footer__sns">
+            <a
+              class="footer__sns-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="인스타그램"
+            >
+              <img
+                class="footer__sns-icon"
+                src="assets/images/icon/instagram.png"
+                alt=""
+                width="24"
+                height="24"
+              />
+            </a>
+            <a
+              class="footer__sns-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="카카오톡"
+            >
+              <img
+                class="footer__sns-icon"
+                src="assets/images/icon/kakao.png"
+                alt=""
+                width="24"
+                height="24"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Product Popup Layer -->
+    <div
+      class="product-popup-dim"
+      id="product-popup"
+      hidden
+      aria-hidden="true"
+    >
+      <div
+        class="product-popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popup-live-title"
+      >
+        <button type="button" class="product-popup__close" data-popup-close aria-label="닫기">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+        <header class="product-popup__header">
+          <h3 class="product-popup__title" id="popup-live-title">Title</h3>
+          <p class="product-popup__note">* text</p>
+        </header>
+        <div class="product-popup__nutrition">
+          <div class="product-popup__section-head">
+            <p class="product-popup__section-title">
+              Title <span class="product-popup__section-sub">* Subtitle</span>
+            </p>
+            <p class="product-popup__links"><a href="#">text</a> | <a href="#">text</a></p>
+          </div>
+          <div class="product-popup__table-wrap">
+            <table class="product-popup__table">
+              <thead>
+                <tr>
+                  <th scope="col">중량(g)</th>
+                  <th scope="col">열량</th>
+                  <th scope="col">당류</th>
+                  <th scope="col">단백질</th>
+                  <th scope="col">포화지방</th>
+                  <th scope="col">나트륨</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="product-popup__rows">
+          <div>
+            <h4 class="product-popup__row-title">Title</h4>
+            <p class="product-popup__row-text">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+          <div>
+            <h4 class="product-popup__row-title">Title</h4>
+            <p class="product-popup__row-text">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/guide.js"></script>
+  </body>
+</html>

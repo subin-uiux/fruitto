@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Product Popup / Info Panel (BEM)
+   Block : product-popup
+   PC 1340×700 · Tablet 임시 · Mobile 440×705
+   ========================================================================== */
+
+.product-popup-dim {
+  position: fixed;
+  inset: 0;
+  z-index: var(--product-popup-z-index);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background-color: rgb(0 0 0 / 45%);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.product-popup-dim.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.product-popup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--product-popup-width-mobile);
+  max-height: min(var(--product-popup-height-mobile), 90vh);
+  overflow: auto;
+  padding: 3.375rem 4.625rem;
+  gap: 2.375rem;
+  border: 0.0625rem solid var(--color-grey4);
+  border-radius: var(--product-popup-radius);
+  background-color: var(--color-ivory1);
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 12%);
+  color: var(--color-primary);
+}
+
+.product-popup__close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-primary);
+}
+
+.product-popup__close svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.product-popup__header {
+  padding-right: 2rem;
+}
+
+.product-popup__title {
+  margin: 0;
+  font-size: var(--product-popup-fs-title); /* 32px */
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-title);
+  color: var(--color-primary);
+}
+
+.product-popup__note {
+  margin: 0.375rem 0 0;
+  font-size: var(--product-popup-fs-sub);
+  font-weight: var(--fw-regular);
+  color: var(--color-primary);
+}
+
+/* section-head + table-wrap 묶음 */
+.product-popup__nutrition {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.product-popup__section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.product-popup__section-title {
+  margin: 0;
+  font-size: var(--product-popup-fs-section); /* 24px */
+  font-weight: var(--fw-extrabold);
+  color: var(--color-primary);
+}
+
+.product-popup__section-sub {
+  margin-left: 0.375rem;
+  font-size: var(--product-popup-fs-sub);
+  font-weight: var(--fw-regular);
+  color: var(--color-primary);
+}
+
+.product-popup__links {
+  display: inline-flex;
+  gap: 0.5rem;
+  font-size: var(--product-popup-fs-sub);
+  color: var(--color-primary);
+}
+
+.product-popup__links a:hover {
+  opacity: 0.75;
+}
+
+.product-popup__table-wrap {
+  overflow-x: auto;
+}
+
+.product-popup__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: var(--product-popup-fs-table);
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.product-popup__table th,
+.product-popup__table td {
+  padding: 0.75rem 0.375rem;
+  border-bottom: 0.0625rem solid var(--color-grey4);
+  color: var(--color-primary);
+}
+
+.product-popup__table thead th {
+  background-color: var(--color-grey4);
+  font-weight: var(--fw-regular);
+  color: var(--color-primary);
+}
+
+.product-popup__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.product-popup__row-title {
+  margin: 0 0 0.5rem;
+  font-size: var(--product-popup-fs-section); /* 24px */
+  font-weight: var(--fw-extrabold);
+  color: var(--color-primary);
+}
+
+.product-popup__row-text {
+  margin: 0;
+  padding: 1.875rem 0;
+  border-top: 0.0625rem solid var(--color-grey4);
+  border-bottom: 0.0625rem solid var(--color-grey4);
+  font-size: var(--product-popup-fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  text-align: center;
+  color: var(--color-primary);
+}
+
+/* Guide — static preview (dim 없이 단독 노출) */
+.product-popup--static {
+  margin: 0 auto;
+}
+
+/* Tablet */
+@media (min-width: 48rem) {
+  .product-popup {
+    max-width: var(--product-popup-width-tablet);
+    max-height: 90vh;
+  }
+}
+
+/* PC */
+@media (min-width: 64rem) {
+  .product-popup {
+    max-width: var(--product-popup-width);
+    height: var(--product-popup-height);
+    max-height: var(--product-popup-height);
+    padding: 3.375rem 4.625rem;
+  }
+}
