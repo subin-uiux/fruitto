@@ -1,0 +1,267 @@
+/* ==========================================================================
+   Notice Page
+   Content width: 10/12 grid = 1396px (PC)
+   ========================================================================== */
+
+.notice-page {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  /* 탭바 하단 ↔ 타이틀 110px */
+  padding: 6.875rem var(--grid-margin) 6rem;
+}
+
+.notice-page__title {
+  margin: 0 0 3.75rem; /* 타이틀 ↔ 컨텐츠 60px */
+  font-family: var(--font-ko);
+  font-size: var(--fs-body01-1); /* body1 — 제품 페이지와 동일 */
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--color-black);
+  text-align: center;
+}
+
+.notice-page__panels {
+  width: 100%;
+  max-width: 87.25rem; /* 1396px — 그리드 10컬럼 */
+  margin: 0 auto;
+  min-height: 12rem;
+}
+
+.notice-page__panel {
+  display: none;
+}
+
+.notice-page__panel.is-active {
+  display: block;
+}
+
+.notice-page__placeholder {
+  margin: 0;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body03);
+  color: var(--color-grey2);
+  text-align: center;
+}
+
+/* Toolbar — count + search */
+.notice-page__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.notice-page__count {
+  margin: 0;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body06, 1rem); /* Body06 */
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-black);
+}
+
+.notice-page__search {
+  width: 100%;
+  max-width: 22.5rem; /* 360px */
+}
+
+/* --------------------------------------------------------------------------
+   Notice List (Accordion)
+   -------------------------------------------------------------------------- */
+
+.notice-list {
+  width: 100%;
+  border-top: 0.0625rem solid var(--color-primary); /* 1px primary */
+}
+
+/* No / 제목 / 작성일 / 화살표 — 동일 그리드로 날짜 세로 정렬 */
+.notice-list__head,
+.notice-item__trigger {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr) 7.5rem 1.5rem;
+  align-items: center;
+  column-gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.notice-list__head {
+  padding: 1.875rem 2rem; /* 글자 ↔ border 30px · trigger와 동일 */
+  border-bottom: 0.0625rem solid var(--color-primary); /* 1px primary */
+  font-family: var(--font-ko);
+  font-size: var(--fs-body04); /* Body04 */
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--color-primary);
+}
+
+.notice-list__head-title {
+  text-align: center;
+}
+
+.notice-list__head-date {
+  text-align: right;
+}
+
+.notice-list__body {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Item */
+.notice-item {
+  border-bottom: 0.0625rem solid var(--color-primary);
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notice-item__trigger {
+  padding: 1.875rem 2rem;
+  border: 0;
+  border-bottom: 0.0625rem solid transparent;
+  background: transparent;
+  color: var(--color-primary);
+  font-family: var(--font-ko);
+  font-size: var(--fs-body04);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notice-item__no {
+  font-weight: var(--fw-regular);
+}
+
+.notice-item__title {
+  min-width: 0;
+  font-weight: var(--fw-medium);
+}
+
+.notice-item__date {
+  text-align: right;
+  white-space: nowrap;
+  font-weight: var(--fw-regular);
+}
+
+.notice-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notice-item__icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Panel (accordion body) */
+.notice-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notice-item__panel-inner {
+  overflow: hidden;
+  min-height: 0;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.notice-item__text {
+  margin: 0;
+  padding: 2rem 6.5rem;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body05); /* Body05 */
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-ivory1);
+  white-space: pre-line;
+}
+
+/* Open state — primary box · ivory1 text */
+.notice-item.is-open {
+  border-bottom-color: transparent;
+  background-color: var(--color-primary);
+}
+
+.notice-item.is-open .notice-item__trigger {
+  padding: 1.875rem 2rem;
+  color: var(--color-ivory1);
+  border-bottom-color: var(--color-ivory1);
+}
+
+.notice-item.is-open .notice-item__icon {
+  transform: rotate(180deg);
+}
+
+.notice-item.is-open .notice-item__panel {
+  grid-template-rows: 1fr;
+}
+
+.notice-item.is-open .notice-item__panel-inner {
+  opacity: 1;
+  transition: opacity 0.35s ease 0.12s;
+}
+
+.notice-item.is-hidden {
+  display: none;
+}
+
+/* Tablet / Mobile adjustments */
+@media (max-width: 63.9375rem) {
+  .notice-list__head,
+  .notice-item__trigger {
+    grid-template-columns: 2.5rem minmax(0, 1fr) 6.25rem 1.5rem;
+    column-gap: 0.75rem;
+  }
+
+  .notice-item__text {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .notice-page__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .notice-page__search {
+    max-width: none;
+  }
+
+  .notice-list__head,
+  .notice-item__trigger {
+    grid-template-columns: 2.5rem minmax(0, 1fr) 1.5rem;
+  }
+
+  .notice-list__head-date,
+  .notice-item__date {
+    display: none;
+  }
+
+  .notice-item__trigger {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .notice-item.is-open .notice-item__trigger {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .notice-item__text {
+    padding: 1.25rem 1.5rem;
+  }
+}

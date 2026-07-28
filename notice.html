@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>공지 | 프루또 FRUITTO</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" />
+  <link rel="stylesheet" href="assets/css/fonts.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/common.css" />
+  <link rel="stylesheet" href="assets/css/components/button.css" />
+  <link rel="stylesheet" href="assets/css/components/header.css" />
+  <link rel="stylesheet" href="assets/css/components/footer.css" />
+  <link rel="stylesheet" href="assets/css/components/sub-visual.css" />
+  <link rel="stylesheet" href="assets/css/pages/notice.css" />
+</head>
+
+<body>
+  <header class="header" id="site-header">
+    <div class="header__inner">
+      <a class="header__logo" href="index.html">
+        <img class="header__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="40" height="70" />
+      </a>
+      <nav class="header__gnb" aria-label="주요 메뉴">
+        <ul class="header__gnb-list">
+          <li><a class="header__gnb-link" href="brand.html">브랜드스토리</a></li>
+          <li><a class="header__gnb-link" href="product.html">제품</a></li>
+          <li>
+            <a class="header__gnb-link header__gnb-link--active" href="notice.html" aria-current="page">공지</a>
+          </li>
+          <li><a class="header__gnb-link" href="store.html">입점처</a></li>
+          <li><a class="header__gnb-link" href="contact.html">문의</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="header__menu-btn" data-nav-open aria-controls="nav-drawer" aria-expanded="false"
+        aria-label="메뉴 열기">
+        <span class="header__menu-btn-bar"></span>
+        <span class="header__menu-btn-bar"></span>
+        <span class="header__menu-btn-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-drawer-dim" id="nav-drawer-dim"></div>
+  <nav class="nav-drawer" id="nav-drawer" aria-hidden="true" aria-label="모바일 메뉴">
+    <div class="nav-drawer__top">
+      <a class="header__logo" href="index.html">
+        <img class="header__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="40" height="70" />
+      </a>
+      <button type="button" class="nav-drawer__close" data-nav-close aria-label="메뉴 닫기">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <ul class="nav-drawer__list">
+      <li class="nav-drawer__item">
+        <a class="nav-drawer__link" href="brand.html">브랜드스토리</a>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-product">
+          제품
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-product">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="product.html#all">All</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#season">사계절</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#spring">봄</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#summer">여름</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#autumn">가을</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#winter">겨울</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-notice">
+          공지
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-notice">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="notice.html#notice">공지사항</a></li>
+            <li><a class="nav-drawer__sub-link" href="notice.html#event">이벤트</a></li>
+            <li><a class="nav-drawer__sub-link" href="notice.html#promotion">프로모션</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-store">
+          입점처
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-store">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="store.html">온라인</a></li>
+            <li><a class="nav-drawer__sub-link" href="store.html">오프라인</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-contact">
+          문의
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-contact">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="contact.html">자주하는 질문</a></li>
+            <li><a class="nav-drawer__sub-link" href="contact.html">문의</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Sub Visual + Notice Tabs -->
+    <section class="sub-visual" aria-label="공지 비주얼">
+      <div class="sub-visual__inner">
+        <div class="sub-visual__media">
+          <img class="sub-visual__image" src="assets/images/main/sub-visual-notice.png" alt="" width="1920"
+            height="440" />
+          <h1 class="sub-visual__title">Notice</h1>
+        </div>
+
+        <nav class="sub-visual__tabs" aria-label="공지 하위 메뉴">
+          <ul class="sub-visual__tab-list">
+            <li>
+              <a class="sub-visual__tab is-active" href="#notice" data-notice-tab="notice">공지사항</a>
+            </li>
+            <li>
+              <a class="sub-visual__tab" href="#event" data-notice-tab="event">이벤트</a>
+            </li>
+            <li>
+              <a class="sub-visual__tab" href="#promotion" data-notice-tab="promotion">프로모션</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 공지 목록 -->
+    <section class="notice-page" aria-label="공지 목록">
+      <h2 class="notice-page__title" data-notice-title>Notice</h2>
+
+      <div class="notice-page__panels">
+        <!-- 공지사항 -->
+        <div class="notice-page__panel is-active" data-notice-panel="notice">
+          <div class="notice-page__toolbar">
+            <p class="notice-page__count">총 <span data-notice-count>7</span>개의 게시물이 있습니다</p>
+            <form class="search-bar notice-page__search" role="search" aria-label="공지 검색" data-notice-search>
+              <label class="sr-only" for="notice-search">검색어 입력</label>
+              <input class="search-bar__input" id="notice-search" type="search" name="q"
+                placeholder="검색어를 입력해주세요." data-notice-search-input />
+              <button type="submit" class="btn btn--md btn--primary search-bar__btn">검색</button>
+            </form>
+          </div>
+
+          <div class="notice-list">
+            <div class="notice-list__head" aria-hidden="true">
+              <span class="notice-list__head-no">No</span>
+              <span class="notice-list__head-title">제목</span>
+              <span class="notice-list__head-date">작성일</span>
+            </div>
+
+            <ul class="notice-list__body">
+              <li class="notice-item is-open">
+                <button type="button" class="notice-item__trigger" aria-expanded="true" aria-controls="notice-panel-01"
+                  id="notice-trigger-01">
+                  <span class="notice-item__no">01</span>
+                  <span class="notice-item__title">프루또, GS25 일부 매장 판매 시작 안내</span>
+                  <span class="notice-item__date">2026.07.15</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="notice-panel-01" role="region" aria-labelledby="notice-trigger-01">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">프루또 젤라또가 GS25 일부 매장에서 판매를 시작합니다.
+가까운 편의점에서도 프루또의 산뜻한 과일 젤라또를 만나보세요.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="notice-panel-02"
+                  id="notice-trigger-02">
+                  <span class="notice-item__no">02</span>
+                  <span class="notice-item__title">여름 시즌 한정 메뉴 출시 안내</span>
+                  <span class="notice-item__date">2026.07.03</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="notice-panel-02" role="region" aria-labelledby="notice-trigger-02">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">무더운 여름을 맞아 수박, 망고, 복숭아, 멜론 젤라또가 여름 시즌으로 출시되었습니다.
+시원하고 청량한 과일의 맛을 프루또만의 부드러운 젤라또로 즐겨보세요!</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="notice-panel-03"
+                  id="notice-trigger-03">
+                  <span class="notice-item__no">03</span>
+                  <span class="notice-item__title">여름맞이 2+1 프로모션 진행 매장</span>
+                  <span class="notice-item__date">2026.07.03</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="notice-panel-03" role="region" aria-labelledby="notice-trigger-03">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">프루또 여름 시즌 메뉴 출시를 기념하여 B마트에서 2+1 프로모션을 진행합니다.
+행사 대상 제품과 기간은 이벤트 창에서 확인해보세요!</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="notice-panel-04"
+                  id="notice-trigger-04">
+                  <span class="notice-item__no">04</span>
+                  <span class="notice-item__title">고객 후기 이벤트 당첨자 발표 안내</span>
+                  <span class="notice-item__date">2026.06.20</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="notice-panel-04" role="region" aria-labelledby="notice-trigger-04">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">프루또 여름 이벤트에 참여해 주신 모든 분들께 감사드립니다.
+당첨자에게는 개별 안내가 진행되며, 앞으로도 다양한 이벤트로 찾아뵙겠습니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="notice-panel-05"
+                  id="notice-trigger-05">
+                  <span class="notice-item__no">05</span>
+                  <span class="notice-item__title">프루또 일부 제품 품절 안내</span>
+                  <span class="notice-item__date">2026.05.25</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="notice-panel-05" role="region" aria-labelledby="notice-trigger-05">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">현재 망고 젤라또의 주문량 증가로 일시 품절이 발생하고 있습니다.
+빠른 재입고를 위해 준비 중이며, 이용에 불편을 드려 죄송합니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="notice-panel-06"
+                  id="notice-trigger-06">
+                  <span class="notice-item__no">06</span>
+                  <span class="notice-item__title">프루또 고객센터 운영시간 변경 안내</span>
+                  <span class="notice-item__date">2026.05.10</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="notice-panel-06" role="region" aria-labelledby="notice-trigger-06">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">여름철 주문량 증가로 보다 원활한 상담을 위해 프루또 고객센터 운영 시간이 변경됩니다.
+변경된 운영시간은 평일 오전 9시부터 오후 7시까지이며 주말 및 공휴일은 휴무입니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="notice-panel-07"
+                  id="notice-trigger-07">
+                  <span class="notice-item__no">07</span>
+                  <span class="notice-item__title">신규 맛 ‘매실 젤라또’ 출시 안내</span>
+                  <span class="notice-item__date">2026.03.02</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="notice-panel-07" role="region" aria-labelledby="notice-trigger-07">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">향긋한 매실의 풍미를 담은 매실 젤라또가 새롭게 출시되었습니다.
+깔끔하고 달달한 맛으로 가득한 매실 젤라또, 프루또에서 즐겨보세요!</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 이벤트 -->
+        <div class="notice-page__panel" data-notice-panel="event">
+          <p class="notice-page__placeholder">이벤트 목록이 들어갑니다.</p>
+        </div>
+
+        <!-- 프로모션 -->
+        <div class="notice-page__panel" data-notice-panel="promotion">
+          <p class="notice-page__placeholder">프로모션 목록이 들어갑니다.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="footer__logo" href="index.html">
+        <img class="footer__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="28" height="50" />
+      </a>
+      <div class="footer__row">
+        <div class="footer__content">
+          <p class="footer__policy">
+            <a class="footer__policy-link footer__policy-link--bold" href="#">개인정보처리방침</a>
+            <span class="footer__policy-sep" aria-hidden="true">|</span>
+            <a class="footer__policy-link" href="#">이메일 무단 수집 거부</a>
+          </p>
+          <div class="footer__info">
+            <p>
+              프루또 | 대표이사 : 000 | 사업자등록번호: 510-00-97913 | 서울특별시 강남구 테헤란로 123, 10층
+              프루또
+            </p>
+            <p>
+              이메일: fruittogelato@naver.com | 마케팅 협업 제안: fruitto_creative@naver.com | 가맹문의 및
+              고객지원: 1811-0913
+            </p>
+          </div>
+          <p class="footer__copyright">Copyright ©프루또(주) All Rights Reserved.</p>
+        </div>
+        <div class="footer__sns">
+          <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="인스타그램">
+            <img class="footer__sns-icon" src="assets/images/icon/instagram.png" alt="" width="24" height="24" />
+          </a>
+          <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="카카오톡">
+            <img class="footer__sns-icon" src="assets/images/icon/kakao.png" alt="" width="24" height="24" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/pages/notice.js"></script>
+</body>
+
+</html>
