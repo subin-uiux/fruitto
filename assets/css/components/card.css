@@ -236,33 +236,59 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-sizing: border-box;
   width: var(--event-card-width);
   max-width: 100%;
-  height: var(--event-card-height);
+  height: auto;
   border: 0.0625rem solid var(--color-grey3);
   border-radius: var(--event-card-radius);
   background-color: var(--color-white);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.event-card:hover {
+  opacity: 0.92;
+}
+
+a.event-card:focus-visible {
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: 0.25rem;
 }
 
 .event-card__media {
+  position: relative;
   flex: 0 0 auto;
   width: 100%;
-  aspect-ratio: var(--event-card-img-ratio); /* 686 / 420 */
+  aspect-ratio: var(--event-card-media-ratio); /* 686 / 533 */
   overflow: hidden;
 }
 
+.event-card__media .card-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .event-card__body {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: var(--event-card-body-ratio); /* 686 / 177 → PC에서 177px */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 2.5rem; /* 40px — 제목 ↔ 날짜 */
   padding: 1.5rem 2rem;
+  box-sizing: border-box;
 }
 
 .event-card__title {
   margin: 0;
-  font-size: var(--event-card-fs-title);
+  font-size: var(--fs-body03); /* Body3 */
   font-weight: var(--fw-extrabold);
   line-height: var(--lh-title);
   color: var(--color-black);
@@ -270,10 +296,36 @@
 
 .event-card__date {
   margin: 0;
-  font-size: var(--event-card-fs-date);
+  font-size: var(--fs-body04); /* Body4 */
   font-weight: var(--fw-regular);
   line-height: var(--lh-body);
   color: var(--color-grey2);
+}
+
+/* Ended — 이미지 위 블랙 60% + 중앙 문구 */
+.event-card--ended .event-card__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: rgb(0 0 0 / 60%);
+}
+
+.event-card__ended-label {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body03);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--color-white);
+  text-align: center;
+  pointer-events: none;
 }
 
 /* --------------------------------------------------------------------------

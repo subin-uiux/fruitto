@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Event Detail Page
+   ========================================================================== */
+
+.event-detail {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  /* 탭바 하단 ↔ 컨텐츠 — padding-bottom 150px 역할 */
+  padding: 9.375rem var(--grid-margin) 6rem; /* 150px top */
+}
+
+.event-detail__inner {
+  width: 100%;
+  max-width: 87.25rem; /* 1396px — 공지와 동일 10컬럼 */
+  margin: 0 auto;
+}
+
+/* Header — border-top 2px · 제목/날짜 · border-bottom · 간격 40px */
+.event-detail__header {
+  padding-bottom: 2.5rem; /* 40px — border와 제목(날짜) 사이 */
+  border-top: 0.125rem solid var(--color-primary); /* 2px */
+  border-bottom: 0.0625rem solid var(--color-primary);
+  text-align: left;
+}
+
+.event-detail__title {
+  margin: 2.5rem 0 0; /* 상단 border ↔ 제목 40px */
+  font-family: var(--font-ko);
+  font-size: var(--fs-body03); /* Body3 */
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--color-black);
+}
+
+.event-detail__date {
+  margin: 0.375rem 0 0; /* 제목 ↔ 날짜 */
+  font-family: var(--font-ko);
+  font-size: 1.5rem; /* 24px */
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-grey2);
+}
+
+/* Visual — 날짜 밑 40px */
+.event-detail__visual {
+  margin-top: 2.5rem; /* 40px */
+  width: 100%;
+  overflow: hidden;
+}
+
+.event-detail__image {
+  display: block;
+  margin: 0 auto;
+  width: 56.25rem; /* 900px */
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Body copy — 이미지 밑 80px · 18px · 중앙 */
+.event-detail__body {
+  margin-top: 5rem; /* 80px */
+  font-family: var(--font-ko);
+  font-size: 1.125rem; /* 18px */
+  font-weight: var(--fw-regular);
+  line-height: 1.8;
+  color: var(--color-black);
+  text-align: center;
+}
+
+.event-detail__lead {
+  margin: 0;
+}
+
+.event-detail__lead p {
+  margin: 0;
+}
+
+.event-detail__lead p + p {
+  margin-top: 0;
+}
+
+.event-detail__lead .event-detail__break {
+  display: block;
+  height: 1.5rem;
+}
+
+.event-detail__divider {
+  width: 100%;
+  max-width: 20rem;
+  height: 0;
+  margin: 2.5rem auto;
+  border: 0;
+  border-top: 0.0625rem solid var(--color-black);
+}
+
+.event-detail__section-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.125rem; /* 18px */
+  font-weight: var(--fw-bold);
+  line-height: 1.8;
+  color: var(--color-black);
+}
+
+.event-detail__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.event-detail__steps li {
+  margin: 0;
+}
+
+.event-detail__meta {
+  margin: 2.5rem 0 0;
+}
+
+.event-detail__meta p {
+  margin: 0;
+}
+
+@media (max-width: 47.9375rem) {
+  .event-detail {
+    padding-top: 5rem;
+  }
+
+  .event-detail__date {
+    font-size: 1.125rem;
+  }
+
+  .event-detail__body {
+    margin-top: 3.75rem;
+    font-size: 1rem;
+  }
+
+  .event-detail__section-title {
+    font-size: 1rem;
+  }
+}

@@ -121,6 +121,37 @@
     });
   }
 
+  /* Event / Promotion — ongoing / ended toggle */
+  document.querySelectorAll("[data-board-toggle]").forEach(function (toggle) {
+    var board = toggle.closest(".notice-board");
+    if (!board) {
+      return;
+    }
+    var buttons = toggle.querySelectorAll("[data-board-filter]");
+    var boardPanels = board.querySelectorAll("[data-board-panel]");
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var filter = btn.getAttribute("data-board-filter");
+        if (!filter) {
+          return;
+        }
+
+        buttons.forEach(function (other) {
+          var active = other === btn;
+          other.classList.toggle("toggle__item--active", active);
+          other.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        boardPanels.forEach(function (panel) {
+          var match = panel.getAttribute("data-board-panel") === filter;
+          panel.classList.toggle("is-active", match);
+          panel.hidden = !match;
+        });
+      });
+    });
+  });
+
   var hash = (location.hash || "#notice").replace(/^#/, "");
   var valid = Array.prototype.some.call(tabs, function (tab) {
     return tab.getAttribute("data-notice-tab") === hash;

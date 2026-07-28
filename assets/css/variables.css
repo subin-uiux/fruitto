@@ -94,10 +94,13 @@
   /* Card — Product Text Hover (C) */
   --product-text-card-fs-desc: 1.375rem; /* 22px */
 
-  /* Card — Event (D) */
+  /* Card — Event (D) — 시안 686×710 (media 533 + body 177) */
   --event-card-width: 42.875rem; /* 686px */
-  --event-card-height: 37.375rem; /* 598px */
-  --event-card-img-ratio: 686 / 420; /* 약 1.63:1 */
+  --event-card-height: 44.375rem; /* 710px */
+  --event-card-body-height: 11.0625rem; /* 177px */
+  --event-card-media-ratio: 686 / 533;
+  --event-card-body-ratio: 686 / 177;
+  --event-card-ratio: 686 / 710;
   --event-card-radius: 3.125rem; /* 50px */
   --event-card-fs-title: 1.5rem; /* 24px */
   --event-card-fs-date: 1.375rem; /* 22px */

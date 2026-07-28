@@ -44,6 +44,55 @@
   text-align: center;
 }
 
+/* --------------------------------------------------------------------------
+   Event / Promotion Board
+   -------------------------------------------------------------------------- */
+
+.notice-board__toolbar {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 2.5rem; /* 40px */
+}
+
+.notice-board__grid {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  justify-items: center;
+  width: 100%;
+}
+
+.notice-board__grid.is-active {
+  display: grid;
+}
+
+.notice-board__grid .event-card {
+  width: 100%;
+  max-width: var(--event-card-width); /* 686px */
+  height: auto;
+}
+
+.notice-board__grid--empty.is-active {
+  grid-template-columns: 1fr;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  min-height: 20rem;
+}
+
+.notice-board__grid--empty .notice-page__placeholder {
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 64rem) {
+  .notice-board__grid.is-active:not(.notice-board__grid--empty) {
+    grid-template-columns: repeat(2, minmax(0, var(--event-card-width)));
+    justify-content: space-between;
+    justify-items: stretch;
+  }
+}
+
 /* Toolbar — count + search */
 .notice-page__toolbar {
   display: flex;
