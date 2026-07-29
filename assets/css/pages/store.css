@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Store Page (입점처)
+   PC 4열 · Tablet 2열 · Mobile 1열
+   ========================================================================== */
+
+.store-page {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  /* 탭바 하단 ↔ 타이틀 110px */
+  padding: 6.875rem var(--grid-margin) 6rem;
+}
+
+.store-page__title {
+  margin: 0 0 3.75rem; /* 타이틀 ↔ 카드 60px */
+  font-family: var(--font-ko);
+  font-size: var(--fs-body01-1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--color-black);
+  text-align: center;
+}
+
+.store-page__panels {
+  min-height: 12rem;
+}
+
+.store-page__panel {
+  display: none;
+}
+
+.store-page__panel.is-active {
+  display: block;
+}
+
+/* Grid — Mobile 1 / Tablet 2 / PC 4 · gap 24px */
+.store-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* 24px */
+  justify-items: center;
+  width: 100%;
+  max-width: 104.6875rem; /* 403×4 + 24×3 = 1672px */
+  margin: 0 auto;
+}
+
+@media (min-width: 48rem) {
+  .store-page__grid {
+    grid-template-columns: repeat(2, minmax(0, var(--store-card-width)));
+    justify-content: center;
+  }
+}
+
+@media (min-width: 64rem) {
+  .store-page__grid {
+    grid-template-columns: repeat(4, var(--store-card-width));
+  }
+}
+
+.store-page .store-card {
+  width: 100%;
+  max-width: var(--store-card-width);
+}

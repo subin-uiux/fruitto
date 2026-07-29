@@ -70,7 +70,8 @@
   max-width: var(--product-card-width);
 }
 
-/* Default card — 투명 배경 · 이미지 중앙 394×410 */
+/* Default card — 투명 배경 · 이미지 중앙
+   Mobile/Tablet 314×317 · PC 394×410 */
 .product-page .product-card {
   width: 100%;
   max-width: var(--product-card-width);
@@ -89,8 +90,8 @@
 }
 
 .product-page .product-card__media .card-media {
-  width: 24.625rem; /* 394px */
-  height: 25.625rem; /* 410px */
+  width: 19.625rem; /* 314px */
+  height: 19.8125rem; /* 317px */
   max-width: 100%;
   object-fit: contain;
   object-position: center;
@@ -103,6 +104,13 @@
   left: auto;
   flex-shrink: 0;
   background-color: transparent;
+}
+
+@media (min-width: 64rem) {
+  .product-page .product-card__media .card-media {
+    width: 24.625rem; /* 394px */
+    height: 25.625rem; /* 410px */
+  }
 }
 
 /* Hover card — gelato 배경 */

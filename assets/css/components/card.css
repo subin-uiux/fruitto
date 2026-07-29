@@ -330,6 +330,8 @@ a.event-card:focus-visible {
 
 /* --------------------------------------------------------------------------
    E — Store Card
+   PC 403×424 (img 403×240 · body 403×184) · Tablet/Mobile 316×400
+   border 1px primary
    -------------------------------------------------------------------------- */
 .store-card {
   display: flex;
@@ -345,9 +347,19 @@ a.event-card:focus-visible {
 
 .store-card__media {
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  aspect-ratio: var(--store-card-img-ratio); /* 402 / 240 */
+  height: var(--store-card-img-height);
   overflow: hidden;
+}
+
+.store-card__media .card-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .store-card__body {
@@ -356,6 +368,8 @@ a.event-card:focus-visible {
   flex-direction: column;
   justify-content: center;
   gap: 0.75rem;
+  width: 100%;
+  min-height: 0;
   padding: 1.25rem 1.5rem;
 }
 

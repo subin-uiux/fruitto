@@ -85,8 +85,9 @@
   --brandstory-card-fs-subtitle: 1.375rem; /* 22px */
 
   /* Card — Product (B) */
-  --product-card-width: 25rem; /* 400px */
-  --product-card-height: 36.375rem; /* 582px */
+  /* Card — Product (B/C) — Mobile / Tablet default */
+  --product-card-width: 19.6875rem; /* 315px */
+  --product-card-height: 25.625rem; /* 410px */
   --product-card-radius: 1.875rem; /* 30px */
   --product-card-fs-title: 1.5rem; /* 24px */
   --product-card-fs-text: 1.5rem; /* 24px */
@@ -105,10 +106,12 @@
   --event-card-fs-title: 1.5rem; /* 24px */
   --event-card-fs-date: 1.375rem; /* 22px */
 
-  /* Card — Store (E) */
-  --store-card-width: 25.125rem; /* 402px */
-  --store-card-height: 26.5rem; /* 424px */
-  --store-card-img-ratio: 402 / 240; /* 약 1.675:1 */
+  /* Card — Store (E) — Mobile / Tablet default */
+  --store-card-width: 19.75rem; /* 316px */
+  --store-card-height: 25rem; /* 400px */
+  --store-card-img-height: 14.125rem; /* 226px — 400×(240/424) */
+  --store-card-body-height: 10.875rem; /* 174px — 400−226 */
+  --store-card-img-ratio: 403 / 240;
   --store-card-fs-title: 1.375rem; /* 22px */
   --store-card-fs-text: 1.25rem; /* 20px */
 
@@ -202,6 +205,16 @@
     --header-height: 6.25rem; /* 100px */
     --header-logo-width: 2.5rem; /* 40px */
     --header-logo-height: 4.375rem; /* 70px */
+
+    /* Card — Product (B/C) PC */
+    --product-card-width: 25rem; /* 400px */
+    --product-card-height: 36.375rem; /* 582px */
+
+    /* Card — Store (E) PC */
+    --store-card-width: 25.1875rem; /* 403px */
+    --store-card-height: 26.5rem; /* 424px — 240+184 */
+    --store-card-img-height: 15rem; /* 240px */
+    --store-card-body-height: 11.5rem; /* 184px */
 
     /* Typography — Font Size (PC) */
     --fs-xl: 5rem; /* 80px */

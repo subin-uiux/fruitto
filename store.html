@@ -1,10 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>다가오는 여름! 신메뉴 체험단 모집 | 프루또 FRUITTO</title>
+  <title>입점처 | 프루또 FRUITTO</title>
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" />
@@ -13,10 +13,11 @@
   <link rel="stylesheet" href="assets/css/variables.css" />
   <link rel="stylesheet" href="assets/css/common.css" />
   <link rel="stylesheet" href="assets/css/components/button.css" />
+  <link rel="stylesheet" href="assets/css/components/card.css" />
   <link rel="stylesheet" href="assets/css/components/header.css" />
   <link rel="stylesheet" href="assets/css/components/footer.css" />
   <link rel="stylesheet" href="assets/css/components/sub-visual.css" />
-  <link rel="stylesheet" href="assets/css/pages/event-detail.css" />
+  <link rel="stylesheet" href="assets/css/pages/store.css" />
 </head>
 
 <body>
@@ -29,10 +30,10 @@
         <ul class="header__gnb-list">
           <li><a class="header__gnb-link" href="brand.html">브랜드스토리</a></li>
           <li><a class="header__gnb-link" href="product.html">제품</a></li>
+          <li><a class="header__gnb-link" href="notice.html">공지</a></li>
           <li>
-            <a class="header__gnb-link header__gnb-link--active" href="notice.html" aria-current="page">공지</a>
+            <a class="header__gnb-link header__gnb-link--active" href="store.html" aria-current="page">입점처</a>
           </li>
-          <li><a class="header__gnb-link" href="store.html">입점처</a></li>
           <li><a class="header__gnb-link" href="contact.html">문의</a></li>
         </ul>
       </nav>
@@ -134,71 +135,158 @@
   </nav>
 
   <main>
-    <section class="sub-visual" aria-label="공지 비주얼">
+    <!-- Sub Visual + Store Tabs -->
+    <section class="sub-visual" aria-label="입점처 비주얼">
       <div class="sub-visual__inner">
         <div class="sub-visual__media">
-          <img class="sub-visual__image" src="assets/images/main/sub-visual-notice.png" alt="" width="1920"
+          <img class="sub-visual__image" src="assets/images/main/sub-visual-store.png" alt="" width="1920"
             height="440" />
-          <h1 class="sub-visual__title">Notice</h1>
+          <h1 class="sub-visual__title">Store</h1>
         </div>
 
-        <nav class="sub-visual__tabs" aria-label="공지 하위 메뉴">
+        <nav class="sub-visual__tabs" aria-label="입점처 하위 메뉴">
           <ul class="sub-visual__tab-list">
             <li>
-              <a class="sub-visual__tab" href="notice.html#notice">공지사항</a>
+              <a class="sub-visual__tab is-active" href="#online" data-store-tab="online">Online</a>
             </li>
             <li>
-              <a class="sub-visual__tab is-active" href="notice.html#event" aria-current="page">이벤트</a>
-            </li>
-            <li>
-              <a class="sub-visual__tab" href="notice.html#promotion">프로모션</a>
+              <a class="sub-visual__tab" href="#offline" data-store-tab="offline">Offline</a>
             </li>
           </ul>
         </nav>
       </div>
     </section>
 
-    <article class="event-detail">
-      <div class="event-detail__inner">
-        <header class="event-detail__header">
-          <h2 class="event-detail__title">[EVENT] 다가오는 여름! 신메뉴 체험단 모집</h2>
-          <p class="event-detail__date">2026.06.03</p>
-        </header>
+    <!-- 입점처 목록 -->
+    <section class="store-page" aria-label="입점처 목록">
+      <h2 class="store-page__title" data-store-title>Online</h2>
 
-        <div class="event-detail__visual">
-          <img class="event-detail__image" src="assets/images/notice/event1-page.jpg?v=2" alt="" width="1080"
-            height="1048" />
+      <div class="store-page__panels">
+        <!-- Online -->
+        <div class="store-page__panel is-active" data-store-panel="online">
+          <div class="store-page__grid">
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/kurly.png" alt="마켓컬리" width="403" height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">마켓컬리</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">새벽배송</li>
+                  <li class="store-card__item">지역 : 서울 및 수도권</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/bmart.png" alt="B마트" width="403" height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">B마트</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">주문즉시 배달</li>
+                  <li class="store-card__item">지역 : 전국</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/coupang.png" alt="쿠팡" width="403" height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">쿠팡</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">새벽배송</li>
+                  <li class="store-card__item">지역 : 서울 및 수도권</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/naver.png" alt="네이버" width="403" height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">네이버</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">새벽배송</li>
+                  <li class="store-card__item">지역 : 서울 및 수도권</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/ssg.png" alt="SSG" width="403" height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">SSG</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">새벽배송</li>
+                  <li class="store-card__item">지역 : 서울 및 수도권</li>
+                </ul>
+              </div>
+            </article>
+          </div>
         </div>
 
-        <div class="event-detail__body">
-          <div class="event-detail__lead">
-            <p>푹푹 찌는 한여름에 필요한 것은?</p>
-            <p>바로 프루또의 망고젤라또!</p>
-            <span class="event-detail__break" aria-hidden="true"></span>
-            <p>다시 돌아온 망고젤라또가</p>
-            <p>더 맛있게 돌아왔습니다</p>
-            <span class="event-detail__break" aria-hidden="true"></span>
-            <p>댓글로 &lt;프루또의 망고젤라또가 기대되는 이유&gt;를 남겨주시면</p>
-            <p>프루또가 새로워진 망고젤라또를 보내드릴게요!</p>
-          </div>
+        <!-- Offline -->
+        <div class="store-page__panel" data-store-panel="offline">
+          <div class="store-page__grid">
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/seven.png" alt="세븐일레븐" width="403" height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">세븐일레븐</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">위치 : 전국 매장</li>
+                </ul>
+              </div>
+            </article>
 
-          <hr class="event-detail__divider" />
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/cu.png" alt="CU" width="403" height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">CU</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">위치 : 전국 매장</li>
+                </ul>
+              </div>
+            </article>
 
-          <h3 class="event-detail__section-title">[ 참여방법 ]</h3>
-          <ol class="event-detail__steps">
-            <li>1. @fruittogelato 인스타그램 팔로우 꾹</li>
-            <li>2. 이벤트 게시글에 좋아요 꾹</li>
-            <li>3. 댓글로 &lt;프루또의 망고젤라또가 기대되는 이유&gt; 남기기</li>
-          </ol>
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/gs25.png" alt="GS25" width="403" height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">GS25</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">위치 : 전국 매장</li>
+                </ul>
+              </div>
+            </article>
 
-          <div class="event-detail__meta">
-            <p>상품 | 망고젤라또 5명</p>
-            <p>기간 | 2026. 06. 12 - 2026. 06. 18</p>
-            <p>발표 | 2026. 06. 19 *개별 DM 안내</p>
+            <article class="store-card">
+              <div class="store-card__media">
+                <img class="card-media" src="assets/images/store/gsfresh.png" alt="GS THE FRESH" width="403"
+                  height="240" />
+              </div>
+              <div class="store-card__body">
+                <h3 class="store-card__title">GS THE FRESH</h3>
+                <ul class="store-card__list">
+                  <li class="store-card__item">위치 : 전국 매장</li>
+                </ul>
+              </div>
+            </article>
           </div>
         </div>
       </div>
-    </article>
+    </section>
   </main>
 
   <footer class="footer">
@@ -238,6 +326,7 @@
   </footer>
 
   <script src="assets/js/common.js"></script>
+  <script src="assets/js/pages/store.js"></script>
 </body>
 
 </html>
