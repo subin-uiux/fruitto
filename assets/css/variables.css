@@ -89,11 +89,11 @@
   --product-card-width: 19.6875rem; /* 315px */
   --product-card-height: 25.625rem; /* 410px */
   --product-card-radius: 1.875rem; /* 30px */
-  --product-card-fs-title: 1.5rem; /* 24px */
-  --product-card-fs-text: 1.5rem; /* 24px */
+  --product-card-fs-title: 1.125rem; /* 18px — Mobile / Tablet */
+  --product-card-fs-text: 1.125rem; /* 18px — Mobile / Tablet */
 
   /* Card — Product Text Hover (C) */
-  --product-text-card-fs-desc: 1.375rem; /* 22px */
+  --product-text-card-fs-desc: 1rem; /* 16px — Mobile / Tablet */
 
   /* Card — Event (D) — 시안 686×710 (media 533 + body 177) */
   --event-card-width: 42.875rem; /* 686px */
@@ -112,8 +112,8 @@
   --store-card-img-height: 14.125rem; /* 226px — 400×(240/424) */
   --store-card-body-height: 10.875rem; /* 174px — 400−226 */
   --store-card-img-ratio: 403 / 240;
-  --store-card-fs-title: 1.375rem; /* 22px */
-  --store-card-fs-text: 1.25rem; /* 20px */
+  --store-card-fs-title: 1.25rem; /* 20px — Mobile / Tablet */
+  --store-card-fs-text: 1.125rem; /* 18px — Mobile / Tablet */
 
   /* Product Popup (Info Panel) */
   --product-popup-width: 83.75rem; /* 1340px — PC */
@@ -123,12 +123,18 @@
   --product-popup-height-mobile: 44.0625rem; /* 705px */
   --product-popup-radius: 3.125rem; /* 50px */
   --product-popup-z-index: 200;
-  /* 폰트 */
-  --product-popup-fs-title: 2rem; /* 32px */
-  --product-popup-fs-section: 1.5rem; /* 24px */
-  --product-popup-fs-sub: 1rem; /* 16px 임시 */
-  --product-popup-fs-body: 1rem; /* 16px 임시 */
-  --product-popup-fs-table: 0.875rem; /* 14px 임시 */
+  /* 폰트 — Mobile default */
+  --product-popup-fs-title: 1.25rem; /* 20px */
+  --product-popup-fs-note: 0.875rem; /* 14px */
+  --product-popup-fs-section: 1rem; /* 16px */
+  --product-popup-fs-section-sub: 1rem; /* 16px */
+  --product-popup-fs-price: 0.875rem; /* 14px */
+  --product-popup-fs-table: 1rem; /* 16px */
+  --product-popup-fs-row-title: 1rem; /* 16px */
+  --product-popup-fs-row-text: 1rem; /* 16px */
+  /* legacy aliases */
+  --product-popup-fs-sub: var(--product-popup-fs-note);
+  --product-popup-fs-body: var(--product-popup-fs-row-text);
 
   /* Search Bar */
   --search-height: 3.5rem; /* 56px */
@@ -188,6 +194,16 @@
     --fs-body05: 1.125rem; /* 18px */
     --fs-body06: 1rem; /* 16px */
     --fs-footer: 0.9375rem; /* 15px */
+
+    /* Product Popup — Tablet */
+    --product-popup-fs-title: 1.75rem; /* 28px */
+    --product-popup-fs-note: 0.875rem; /* 14px */
+    --product-popup-fs-section: 1.25rem; /* 20px */
+    --product-popup-fs-section-sub: 1.25rem; /* 20px */
+    --product-popup-fs-price: 0.875rem; /* 14px */
+    --product-popup-fs-table: 1.125rem; /* 18px */
+    --product-popup-fs-row-title: 1.25rem; /* 20px */
+    --product-popup-fs-row-text: 1.125rem; /* 18px */
   }
 }
 
@@ -209,12 +225,27 @@
     /* Card — Product (B/C) PC */
     --product-card-width: 25rem; /* 400px */
     --product-card-height: 36.375rem; /* 582px */
+    --product-card-fs-title: 1.5rem; /* 24px */
+    --product-card-fs-text: 1.5rem; /* 24px */
+    --product-text-card-fs-desc: 1.375rem; /* 22px */
 
     /* Card — Store (E) PC */
     --store-card-width: 25.1875rem; /* 403px */
     --store-card-height: 26.5rem; /* 424px — 240+184 */
     --store-card-img-height: 15rem; /* 240px */
     --store-card-body-height: 11.5rem; /* 184px */
+    --store-card-fs-title: 1.375rem; /* 22px */
+    --store-card-fs-text: 1.25rem; /* 20px */
+
+    /* Product Popup — PC */
+    --product-popup-fs-title: 2rem; /* 32px */
+    --product-popup-fs-note: 1rem; /* 16px */
+    --product-popup-fs-section: 1.5rem; /* 24px */
+    --product-popup-fs-section-sub: 1rem; /* 16px */
+    --product-popup-fs-price: 1rem; /* 16px */
+    --product-popup-fs-table: 0.875rem; /* 14px — 기존 PC */
+    --product-popup-fs-row-title: 1.5rem; /* 24px */
+    --product-popup-fs-row-text: 1rem; /* 16px */
 
     /* Typography — Font Size (PC) */
     --fs-xl: 5rem; /* 80px */

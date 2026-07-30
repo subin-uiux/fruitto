@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문의 | 프루또 FRUITTO</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" />
+  <link rel="stylesheet" href="assets/css/fonts.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/common.css" />
+  <link rel="stylesheet" href="assets/css/components/button.css" />
+  <link rel="stylesheet" href="assets/css/components/header.css" />
+  <link rel="stylesheet" href="assets/css/components/footer.css" />
+  <link rel="stylesheet" href="assets/css/components/sub-visual.css" />
+  <link rel="stylesheet" href="assets/css/pages/notice.css" />
+  <link rel="stylesheet" href="assets/css/pages/contact.css" />
+</head>
+
+<body>
+  <header class="header" id="site-header">
+    <div class="header__inner">
+      <a class="header__logo" href="index.html">
+        <img class="header__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="40" height="70" />
+      </a>
+      <nav class="header__gnb" aria-label="주요 메뉴">
+        <ul class="header__gnb-list">
+          <li><a class="header__gnb-link" href="brand.html">브랜드스토리</a></li>
+          <li><a class="header__gnb-link" href="product.html">제품</a></li>
+          <li><a class="header__gnb-link" href="notice.html">공지</a></li>
+          <li><a class="header__gnb-link" href="store.html">입점처</a></li>
+          <li>
+            <a class="header__gnb-link header__gnb-link--active" href="contact.html" aria-current="page">문의</a>
+          </li>
+        </ul>
+      </nav>
+      <button type="button" class="header__menu-btn" data-nav-open aria-controls="nav-drawer" aria-expanded="false"
+        aria-label="메뉴 열기">
+        <span class="header__menu-btn-bar"></span>
+        <span class="header__menu-btn-bar"></span>
+        <span class="header__menu-btn-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-drawer-dim" id="nav-drawer-dim"></div>
+  <nav class="nav-drawer" id="nav-drawer" aria-hidden="true" aria-label="모바일 메뉴">
+    <div class="nav-drawer__top">
+      <a class="header__logo" href="index.html">
+        <img class="header__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="40" height="70" />
+      </a>
+      <button type="button" class="nav-drawer__close" data-nav-close aria-label="메뉴 닫기">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <ul class="nav-drawer__list">
+      <li class="nav-drawer__item">
+        <a class="nav-drawer__link" href="brand.html">브랜드스토리</a>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-product">
+          제품
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-product">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="product.html#all">All</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#season">사계절</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#spring">봄</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#summer">여름</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#autumn">가을</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html#winter">겨울</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-notice">
+          공지
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-notice">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="notice.html#notice">공지사항</a></li>
+            <li><a class="nav-drawer__sub-link" href="notice.html#event">이벤트</a></li>
+            <li><a class="nav-drawer__sub-link" href="notice.html#promotion">프로모션</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-store">
+          입점처
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-store">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="store.html#online">온라인</a></li>
+            <li><a class="nav-drawer__sub-link" href="store.html#offline">오프라인</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-contact">
+          문의
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-contact">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="contact.html#faq">자주하는 질문</a></li>
+            <li><a class="nav-drawer__sub-link" href="contact.html#inquiry">문의</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="sub-visual" aria-label="문의 비주얼">
+      <div class="sub-visual__inner">
+        <div class="sub-visual__media">
+          <img class="sub-visual__image" src="assets/images/main/sub-visual-faq.png" alt="" width="1920"
+            height="440" />
+          <h1 class="sub-visual__title">FAQ</h1>
+        </div>
+
+        <nav class="sub-visual__tabs" aria-label="문의 하위 메뉴">
+          <ul class="sub-visual__tab-list">
+            <li>
+              <a class="sub-visual__tab is-active" href="#faq" data-contact-tab="faq">자주하는 질문</a>
+            </li>
+            <li>
+              <a class="sub-visual__tab" href="#inquiry" data-contact-tab="inquiry">문의</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section class="notice-page contact-page" aria-label="문의">
+      <h2 class="notice-page__title" data-contact-title>자주하는 질문</h2>
+
+      <div class="notice-page__panels">
+        <!-- 자주하는 질문 -->
+        <div class="notice-page__panel is-active" data-contact-panel="faq">
+          <div class="notice-list notice-list--faq">
+            <ul class="notice-list__body">
+              <li class="notice-item is-open">
+                <button type="button" class="notice-item__trigger" aria-expanded="true" aria-controls="faq-panel-01"
+                  id="faq-trigger-01">
+                  <span class="notice-item__title">Q. 입점 문의는 어떻게 하면 되나요?</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="faq-panel-01" role="region" aria-labelledby="faq-trigger-01">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">A. 입점을 희망하시는 경우, 문의접수에 문의를 남겨주세요.
+담당자가 확인 후 영업일 기준 2~3일 이내에 순차적으로 연락드리고 있습니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="faq-panel-02"
+                  id="faq-trigger-02">
+                  <span class="notice-item__title">Q. 온라인몰이나 스마트스토어에서도 판매할 수 있나요?</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="faq-panel-02" role="region" aria-labelledby="faq-trigger-02">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">A. 가능합니다. 다만 브랜드 이미지와 가격 정책 유지를 위해 판매 채널 확인 후 입점 여부를 안내드리고 있습니다.
+상세페이지 구성, 제품 이미지, 판매 문구 등은 협의 후 제공 가능합니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="faq-panel-03"
+                  id="faq-trigger-03">
+                  <span class="notice-item__title">Q. 최소 발주 수량이 따로 있나요?</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="faq-panel-03" role="region" aria-labelledby="faq-trigger-03">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">A. 제품 보관 및 배송 특성상 최소 발주 수량이 있습니다.
+판매 형태와 보관 환경에 따라 조건이 달라질 수 있어, 문의 시 판매 예정 수량을 함께 알려주시면 정확한 안내가 가능합니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="faq-panel-04"
+                  id="faq-trigger-04">
+                  <span class="notice-item__title">Q. 납품은 어떻게 진행되나요?</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="faq-panel-04" role="region" aria-labelledby="faq-trigger-04">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">A. 지역과 발주 수량에 따라 냉동 택배 또는 직접 납품으로 진행됩니다.
+정기 발주를 원하시는 경우 별도 일정 조율도 가능합니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="faq-panel-05"
+                  id="faq-trigger-05">
+                  <span class="notice-item__title">Q. 제품 가격은 입점처에서 자유롭게 정할 수 있나요?</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="faq-panel-05" role="region" aria-labelledby="faq-trigger-05">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">A. 권장 소비자가를 기준으로 운영을 부탁드리고 있습니다.
+지나친 할인 판매는 브랜드 이미지와 기존 판매처 운영에 영향을 줄 수 있어 사전 협의가 필요합니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="faq-panel-06"
+                  id="faq-trigger-06">
+                  <span class="notice-item__title">Q. 개인카페도 입점 가능한가요?</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="faq-panel-06" role="region" aria-labelledby="faq-trigger-06">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">A. 네, 가능합니다. 카페, 디저트샵, 편집샵 등 다양한 형태의 매장과 협업하고 있습니다.
+매장 콘셉트와 판매 방식에 맞춰 적합한 제품 구성을 제안드릴 수 있습니다.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="notice-item">
+                <button type="button" class="notice-item__trigger" aria-expanded="false" aria-controls="faq-panel-07"
+                  id="faq-trigger-07">
+                  <span class="notice-item__title">Q. 시즌 한정 맛도 입점처에서 판매할 수 있나요?</span>
+                  <span class="notice-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="notice-item__panel" id="faq-panel-07" role="region" aria-labelledby="faq-trigger-07">
+                  <div class="notice-item__panel-inner">
+                    <p class="notice-item__text">A. 일부 시즌 제품은 한정 수량으로 운영되어 입점처별 공급 가능 여부가 달라질 수 있습니다.
+출시 전 사전 안내를 드리며, 희망 수량에 따라 우선 배정이 어려울 수 있습니다.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 문의 -->
+        <div class="notice-page__panel" data-contact-panel="inquiry">
+          <div class="inquiry">
+            <h3 class="inquiry__title">오시는 길</h3>
+            <div class="inquiry__map" id="kakao-map" role="img"
+              aria-label="서울 강남구 강남대로 372 FINE TOWER 지도"
+              data-address="서울 강남구 강남대로 372"></div>
+
+            <h3 class="inquiry__title inquiry__title--form">문의접수</h3>
+            <form class="inquiry-form-wrap" action="#" method="post" enctype="multipart/form-data" data-inquiry-form
+              novalidate>
+              <div class="inquiry-form">
+              <div class="inquiry-form__field">
+                <p class="inquiry-form__label" id="label-type">접수 유형</p>
+                <div class="inquiry-form__options" role="radiogroup" aria-labelledby="label-type">
+                  <label class="inquiry-check">
+                    <input class="inquiry-check__input" type="radio" name="inquiry-type" value="입점문의" checked />
+                    <span class="inquiry-check__mark" aria-hidden="true"></span>
+                    <span class="inquiry-check__text">입점문의</span>
+                  </label>
+                  <label class="inquiry-check">
+                    <input class="inquiry-check__input" type="radio" name="inquiry-type" value="납품문의" />
+                    <span class="inquiry-check__mark" aria-hidden="true"></span>
+                    <span class="inquiry-check__text">납품문의</span>
+                  </label>
+                  <label class="inquiry-check">
+                    <input class="inquiry-check__input" type="radio" name="inquiry-type" value="대량주문" />
+                    <span class="inquiry-check__mark" aria-hidden="true"></span>
+                    <span class="inquiry-check__text">대량주문</span>
+                  </label>
+                  <label class="inquiry-check">
+                    <input class="inquiry-check__input" type="radio" name="inquiry-type" value="기타" />
+                    <span class="inquiry-check__mark" aria-hidden="true"></span>
+                    <span class="inquiry-check__text">기타</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="inquiry-form__field">
+                <p class="inquiry-form__label" id="label-channel">판매 채널</p>
+                <div class="inquiry-form__options" role="radiogroup" aria-labelledby="label-channel">
+                  <label class="inquiry-check">
+                    <input class="inquiry-check__input" type="radio" name="sales-channel" value="오프라인 매장" checked />
+                    <span class="inquiry-check__mark" aria-hidden="true"></span>
+                    <span class="inquiry-check__text">오프라인 매장</span>
+                  </label>
+                  <label class="inquiry-check">
+                    <input class="inquiry-check__input" type="radio" name="sales-channel" value="온라인 판매" />
+                    <span class="inquiry-check__mark" aria-hidden="true"></span>
+                    <span class="inquiry-check__text">온라인 판매</span>
+                  </label>
+                  <label class="inquiry-check">
+                    <input class="inquiry-check__input" type="radio" name="sales-channel" value="복지몰" />
+                    <span class="inquiry-check__mark" aria-hidden="true"></span>
+                    <span class="inquiry-check__text">복지몰</span>
+                  </label>
+                  <label class="inquiry-check">
+                    <input class="inquiry-check__input" type="radio" name="sales-channel" value="기타" />
+                    <span class="inquiry-check__mark" aria-hidden="true"></span>
+                    <span class="inquiry-check__text">기타</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="company-name">업체명</label>
+                <input class="inquiry-form__input" id="company-name" name="company" type="text" required
+                  placeholder="입점 점포의 주소 또는 키워드를 입력해주세요. ex) 남동구" />
+              </div>
+
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="manager-name">담당자 명</label>
+                <input class="inquiry-form__input" id="manager-name" name="manager" type="text" required />
+              </div>
+
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="company-address">주소</label>
+                <input class="inquiry-form__input" id="company-address" name="address" type="text" required
+                  placeholder="업체의 주소 또는 키워드를 입력해주세요. ex) 남동구" />
+              </div>
+
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="inquiry-title">제목</label>
+                <input class="inquiry-form__input" id="inquiry-title" name="title" type="text" required
+                  placeholder="제목을 입력해주세요." />
+              </div>
+
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="inquiry-detail">상세내용</label>
+                <textarea class="inquiry-form__textarea" id="inquiry-detail" name="detail" required
+                  placeholder="문의 내용을 입력해주세요."></textarea>
+              </div>
+
+              <div class="inquiry-form__field">
+                <p class="inquiry-form__label" id="label-file">파일첨부</p>
+                <div class="inquiry-form__file">
+                  <input class="inquiry-form__file-input" id="inquiry-file" name="file" type="file"
+                    aria-labelledby="label-file" data-inquiry-file />
+                  <p class="inquiry-form__file-name" data-inquiry-file-name>
+                    파일첨부시 용량은 5m를 넘길 수 없습니다.
+                  </p>
+                  <label class="btn btn--md btn--primary inquiry-form__file-btn" for="inquiry-file">파일첨부</label>
+                </div>
+              </div>
+              </div>
+
+              <div class="inquiry-form__footer">
+                <button type="submit" class="btn btn--md btn--outline" data-inquiry-submit>
+                  접수하기
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <p class="inquiry-form__message" data-inquiry-message hidden role="status"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="footer__logo" href="index.html">
+        <img class="footer__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="28" height="50" />
+      </a>
+      <div class="footer__row">
+        <div class="footer__content">
+          <p class="footer__policy">
+            <a class="footer__policy-link footer__policy-link--bold" href="#">개인정보처리방침</a>
+            <span class="footer__policy-sep" aria-hidden="true">|</span>
+            <a class="footer__policy-link" href="#">이메일 무단 수집 거부</a>
+          </p>
+          <div class="footer__info">
+            <p>
+              프루또 | 대표이사 : 000 | 사업자등록번호: 510-00-97913 | 서울특별시 강남구 강남대로 372
+              프루또
+            </p>
+            <p>
+              이메일: fruittogelato@naver.com | 마케팅 협업 제안: fruitto_creative@naver.com | 가맹문의 및
+              고객지원: 1811-0913
+            </p>
+          </div>
+          <p class="footer__copyright">Copyright ©프루또(주) All Rights Reserved.</p>
+        </div>
+        <div class="footer__sns">
+          <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="인스타그램">
+            <img class="footer__sns-icon" src="assets/images/icon/instagram.png" alt="" width="24" height="24" />
+          </a>
+          <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="카카오톡">
+            <img class="footer__sns-icon" src="assets/images/icon/kakao.png" alt="" width="24" height="24" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d88335621143df39c1325afe0cbc8da&libraries=services&autoload=false"
+    data-kakao-map-sdk></script>
+  <script src="assets/js/pages/contact.js"></script>
+</body>
+
+</html>

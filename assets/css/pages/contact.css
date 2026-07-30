@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Contact / FAQ Page
+   ========================================================================== */
+
+/* FAQ 목록 — 제목 · 화살표만 */
+.notice-list--faq .notice-item__trigger {
+  grid-template-columns: minmax(0, 1fr) 1.5rem;
+}
+
+/* 제목·답변 패딩 동일 */
+.notice-list--faq .notice-item__text {
+  padding: 1.875rem 2rem;
+  text-align: left;
+}
+
+.notice-page__title.is-hidden {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Inquiry (오시는 길 · 문의접수)
+   -------------------------------------------------------------------------- */
+
+.inquiry {
+  width: 100%;
+}
+
+.inquiry__title {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body01-1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--color-black);
+  text-align: left;
+}
+
+.inquiry__title--form {
+  margin-top: 5rem;
+}
+
+.inquiry__map {
+  width: 100%;
+  max-width: 87.25rem; /* 1396px */
+  height: 28rem; /* 448px */
+  overflow: hidden;
+  border: 0.0625rem solid var(--color-grey4);
+  background-color: var(--color-grey5);
+}
+
+.inquiry-form {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* 필드 간격 통일 */
+  width: 100%;
+  max-width: 87.25rem; /* 1396px */
+  min-height: 0;
+  height: auto;
+  padding: 5rem;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--color-grey5);
+}
+
+.inquiry-form__field {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.inquiry-form__label {
+  margin: 0;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body06, 1rem); /* 16px — 폼 글씨 축소 */
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--color-grey1);
+}
+
+.inquiry-form__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.inquiry-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.inquiry-check__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.inquiry-check__mark {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.125rem solid var(--color-grey4);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.inquiry-check__mark::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.25rem;
+  margin-top: -0.125rem;
+  border-left: 0.125rem solid currentColor;
+  border-bottom: 0.125rem solid currentColor;
+  transform: rotate(-45deg);
+}
+
+.inquiry-check__input:checked + .inquiry-check__mark {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.inquiry-check__input:focus-visible + .inquiry-check__mark {
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: 0.125rem;
+}
+
+.inquiry-check__text {
+  font-family: var(--font-ko);
+  font-size: var(--fs-body06, 1rem); /* 16px */
+  font-weight: var(--fw-regular);
+  color: var(--color-grey1);
+}
+
+.inquiry-form__input,
+.inquiry-form__textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 0.0625rem solid var(--color-grey4);
+  border-radius: 0.75rem;
+  background-color: var(--color-white);
+  font-family: var(--font-ko);
+  font-size: var(--fs-body06, 1rem); /* 16px */
+  font-weight: var(--fw-regular);
+  color: var(--color-black);
+}
+
+.inquiry-form__input {
+  height: 3.5rem;
+  padding: 0 1.25rem;
+}
+
+.inquiry-form__textarea {
+  min-height: 16rem;
+  padding: 1.25rem;
+  resize: vertical;
+  text-align: left;
+  vertical-align: top;
+}
+
+.inquiry-form__input::placeholder,
+.inquiry-form__textarea::placeholder {
+  color: var(--color-grey3);
+  text-align: left;
+  opacity: 1;
+}
+
+.inquiry-form__input:focus,
+.inquiry-form__textarea:focus {
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: -0.0625rem;
+}
+
+.inquiry-form__file {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 3.5rem; /* input과 동일 · 상하 균등 */
+  padding: 0 0.375rem 0 1.25rem;
+  border: 0.0625rem solid var(--color-grey4);
+  border-radius: 3rem;
+  background-color: var(--color-white);
+}
+
+.inquiry-form__file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.inquiry-form__file-name {
+  flex: 1;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body06, 1rem); /* 16px */
+  color: var(--color-grey3);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inquiry-form__file-name.is-selected {
+  color: var(--color-black);
+}
+
+.inquiry-form__file-btn {
+  flex-shrink: 0;
+  height: 2.75rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+
+.inquiry-form__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.inquiry-form__message {
+  margin: 0;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body04);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-body);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.inquiry-form__message.is-error {
+  color: #b42318;
+}
+
+@media (max-width: 63.9375rem) {
+  .notice-list--faq .notice-item__trigger {
+    grid-template-columns: minmax(0, 1fr) 1.5rem;
+  }
+
+  .notice-list--faq .notice-item__text {
+    padding: 1.875rem 2rem;
+  }
+
+  .inquiry-form {
+    height: auto;
+    min-height: 0;
+    padding: 5rem;
+  }
+
+  .inquiry__map {
+    height: 18rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .notice-list--faq .notice-item__trigger {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .notice-list--faq .notice-item.is-open .notice-item__trigger {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .notice-list--faq .notice-item__text {
+    padding: 1.875rem 0.75rem;
+  }
+
+  .inquiry__title--form {
+    margin-top: 3rem;
+  }
+
+  .inquiry-form {
+    padding: 2rem 1.25rem;
+  }
+
+  .inquiry-form__options {
+    gap: 0.75rem 1.25rem;
+  }
+
+  .inquiry-form__file {
+    height: 3.5rem;
+    padding: 0 0.375rem 0 1rem;
+  }
+
+  .inquiry-form__file-btn {
+    flex-shrink: 0;
+  }
+}

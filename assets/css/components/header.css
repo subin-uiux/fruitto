@@ -204,7 +204,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1.25rem 0;
+  padding: 1.25rem 0; /* 메뉴 항목 상하 간격 통일 */
   border: 0;
   background: none;
   font-family: var(--font-ko);
@@ -233,10 +233,11 @@
   transform: rotate(180deg);
 }
 
-/* Accordion — smooth slide */
+/* Accordion — smooth slide · 닫힘 시 내용 비침 방지 */
 .nav-drawer__sub {
   display: grid;
   grid-template-rows: 0fr;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -251,15 +252,24 @@
   overflow: hidden;
   min-height: 0;
   margin: 0;
-  padding: 0 0 1rem 0.75rem;
+  padding: 0; /* padding은 링크에만 — 0fr일 때 내용 비침 방지 */
   list-style: none;
+  visibility: hidden;
+  transition: visibility 0s linear 0.35s;
+}
+
+.nav-drawer__item.is-open .nav-drawer__sub-inner {
+  visibility: visible;
+  padding-bottom: 0.5rem;
+  transition-delay: 0s;
 }
 
 .nav-drawer__sub-link {
   display: block;
-  padding: 0.625rem 0;
+  padding: 0.75rem 0 0.75rem 0.75rem; /* 상하 일정 간격 */
   font-size: 1rem; /* 16px */
   font-weight: var(--fw-regular);
+  line-height: 1.4;
   color: var(--color-grey1);
   transition: color 0.2s ease;
 }

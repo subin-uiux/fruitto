@@ -198,6 +198,21 @@
   margin-top: 0.25rem;
 }
 
+/* Mobile / Tablet — 한글·영문 이름 간격 축소 */
+@media (max-width: 63.9375rem) {
+  .product-text-card__body {
+    gap: 0.25rem;
+  }
+
+  .product-text-card__desc {
+    margin-top: 0.5rem;
+  }
+
+  .product-text-card__btn {
+    margin-top: 0.5rem;
+  }
+}
+
 /* Product Card Hover Group — B 위에 C 설명 노출 */
 .product-card-group {
   position: relative;

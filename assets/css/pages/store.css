@@ -1,6 +1,6 @@
 /* ==========================================================================
    Store Page (입점처)
-   PC 4열 · Tablet 2열 · Mobile 1열
+   Mobile 1열 · Tablet 2열 · PC 2→3→4열 (카드 고정 크기 · 양옆 여백 유지)
    ========================================================================== */
 
 .store-page {
@@ -33,31 +33,56 @@
   display: block;
 }
 
-/* Grid — Mobile 1 / Tablet 2 / PC 4 · gap 24px */
+/* Grid — Mobile 1 / Tablet 2 / PC 2→3→4 · gap 24px */
 .store-page__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem; /* 24px */
   justify-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 104.6875rem; /* 403×4 + 24×3 = 1672px */
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 @media (min-width: 48rem) {
   .store-page__grid {
-    grid-template-columns: repeat(2, minmax(0, var(--store-card-width)));
-    justify-content: center;
+    grid-template-columns: repeat(2, var(--store-card-width));
   }
 }
 
+/* PC — 카드 고정 크기 유지 · 열 수로 양옆 grid-margin 확보 */
 @media (min-width: 64rem) {
+  .store-page__grid {
+    grid-template-columns: repeat(2, var(--store-card-width));
+  }
+}
+
+/* 3열: 카드 3 + gap + margin(120×2) ≈ 1497px */
+@media (min-width: 93.5625rem) {
+  .store-page__grid {
+    grid-template-columns: repeat(3, var(--store-card-width));
+  }
+}
+
+/* 4열: 카드 4 + gap + margin(120×2) ≈ 1924px */
+@media (min-width: 120rem) {
   .store-page__grid {
     grid-template-columns: repeat(4, var(--store-card-width));
   }
 }
 
+/* 고정 크기 (비율 축소 없음) */
 .store-page .store-card {
-  width: 100%;
-  max-width: var(--store-card-width);
+  width: var(--store-card-width);
+  max-width: 100%;
+  height: var(--store-card-height);
+  flex-shrink: 0;
+}
+
+@media (min-width: 64rem) {
+  .store-page .store-card {
+    max-width: var(--store-card-width);
+  }
 }

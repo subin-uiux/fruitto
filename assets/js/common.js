@@ -49,6 +49,14 @@
     dim.classList.remove("is-open");
     drawer.classList.remove("is-open");
     drawer.setAttribute("aria-hidden", "true");
+
+    drawer.querySelectorAll(".nav-drawer__item--has-sub.is-open").forEach(function (item) {
+      item.classList.remove("is-open");
+      var toggle = item.querySelector(".nav-drawer__toggle");
+      if (toggle) {
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
   }
 
   if (menuBtn) {

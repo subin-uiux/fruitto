@@ -40,34 +40,52 @@
   text-align: center;
 }
 
-/* Grid — Mobile 1 / Tablet 2 / PC 4 · gap 24px */
+/* Grid — Mobile 1 / Tablet 2 / PC 2→3→4 (카드 고정 크기 · 양옆 여백 유지) */
 .product-page__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem; /* 24px */
   justify-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 104.5rem; /* 400×4 + 24×3 = 1672px */
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 @media (min-width: 48rem) {
   .product-page__grid {
-    grid-template-columns: repeat(2, minmax(0, var(--product-card-width)));
-    justify-content: center;
+    grid-template-columns: repeat(2, var(--product-card-width));
   }
 }
 
+/* PC — 카드 고정 크기 유지 · 열 수로 양옆 grid-margin 확보 */
 @media (min-width: 64rem) {
+  .product-page__grid {
+    grid-template-columns: repeat(2, var(--product-card-width));
+  }
+}
+
+/* 3열: 카드 3 + gap + margin(120×2) ≈ 1488px */
+@media (min-width: 93rem) {
+  .product-page__grid {
+    grid-template-columns: repeat(3, var(--product-card-width));
+  }
+}
+
+/* 4열: 카드 4 + gap + margin(120×2) ≈ 1912px */
+@media (min-width: 120rem) {
   .product-page__grid {
     grid-template-columns: repeat(4, var(--product-card-width));
   }
 }
 
-/* Card group */
+/* Card group — 고정 크기 (비율 축소 없음) */
 .product-page .product-card-group {
-  width: 100%;
-  max-width: var(--product-card-width);
+  width: var(--product-card-width);
+  max-width: 100%;
+  height: var(--product-card-height);
+  flex-shrink: 0;
 }
 
 /* Default card — 투명 배경 · 이미지 중앙
@@ -75,6 +93,7 @@
 .product-page .product-card {
   width: 100%;
   max-width: var(--product-card-width);
+  height: 100%;
   background-color: transparent;
 }
 
@@ -107,6 +126,10 @@
 }
 
 @media (min-width: 64rem) {
+  .product-page .product-card-group {
+    max-width: var(--product-card-width);
+  }
+
   .product-page .product-card__media .card-media {
     width: 24.625rem; /* 394px */
     height: 25.625rem; /* 410px */
