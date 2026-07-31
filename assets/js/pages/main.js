@@ -159,7 +159,6 @@
     return;
   }
 
-  // 앞뒤로 복제해 seamless loop
   originals.forEach(function (slide) {
     track.appendChild(slide.cloneNode(true));
   });
@@ -170,12 +169,19 @@
       track.insertBefore(slide.cloneNode(true), track.firstChild);
     });
 
-  // [clones][originals][clones] → 원본 첫 장에서 시작
   var current = total;
   var isAnimating = false;
-  var touchStartX = 0;
-  var touchDeltaX = 0;
-  var isTouching = false;
+  var pointerId = null;
+  var startX = 0;
+  var startY = 0;
+  var deltaX = 0;
+  var axis = null;
+  var dragBaseX = 0;
+  var mq = window.matchMedia("(max-width: 63.9375rem)");
+
+  function isMobileLayout() {
+    return mq.matches;
+  }
 
   function getStep() {
     var slide = track.querySelector(".story__slide");
@@ -188,8 +194,7 @@
   }
 
   function getActiveIndex() {
-    var index = ((current % total) + total) % total;
-    return index;
+    return ((current % total) + total) % total;
   }
 
   function setActiveDot() {
@@ -197,6 +202,16 @@
     dots.forEach(function (dot, i) {
       dot.classList.toggle("is-active", i === active);
     });
+  }
+
+  function normalizeLoop() {
+    if (current >= total * 2) {
+      current -= total;
+      gsap.set(track, { x: -getStep() * current });
+    } else if (current < total) {
+      current += total;
+      gsap.set(track, { x: -getStep() * current });
+    }
   }
 
   function setPosition(immediate) {
@@ -209,16 +224,10 @@
 
     gsap.to(track, {
       x: x,
-      duration: 0.7,
-      ease: "power2.inOut",
+      duration: 0.55,
+      ease: "power2.out",
       onComplete: function () {
-        if (current >= total * 2) {
-          current -= total;
-          gsap.set(track, { x: -getStep() * current });
-        } else if (current < total) {
-          current += total;
-          gsap.set(track, { x: -getStep() * current });
-        }
+        normalizeLoop();
         isAnimating = false;
         setActiveDot();
       },
@@ -238,13 +247,79 @@
     if (isAnimating || index < 0 || index >= total) {
       return;
     }
-    var active = getActiveIndex();
-    if (index === active) {
+    if (index === getActiveIndex()) {
       return;
     }
     isAnimating = true;
     current = total + index;
     setPosition(false);
+  }
+
+  function onPointerDown(event) {
+    if (!isMobileLayout() || isAnimating) {
+      return;
+    }
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    startY = event.clientY;
+    deltaX = 0;
+    axis = null;
+    dragBaseX = -getStep() * current;
+
+    if (viewport.setPointerCapture) {
+      viewport.setPointerCapture(pointerId);
+    }
+  }
+
+  function onPointerMove(event) {
+    if (pointerId === null || event.pointerId !== pointerId || isAnimating) {
+      return;
+    }
+
+    var dx = event.clientX - startX;
+    var dy = event.clientY - startY;
+
+    if (!axis) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) {
+        return;
+      }
+      axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      if (axis === "y") {
+        pointerId = null;
+        return;
+      }
+    }
+
+    if (axis !== "x") {
+      return;
+    }
+
+    deltaX = dx;
+    if (event.cancelable) {
+      event.preventDefault();
+    }
+    gsap.set(track, { x: dragBaseX + deltaX });
+  }
+
+  function onPointerUp(event) {
+    if (pointerId === null || event.pointerId !== pointerId) {
+      return;
+    }
+
+    var shouldSlide = axis === "x" && Math.abs(deltaX) > 40;
+    pointerId = null;
+    axis = null;
+
+    if (shouldSlide) {
+      move(deltaX < 0 ? 1 : -1);
+    } else {
+      isAnimating = true;
+      setPosition(false);
+    }
   }
 
   if (nextBtn) {
@@ -269,48 +344,10 @@
     });
   });
 
-  viewport.addEventListener(
-    "touchstart",
-    function (event) {
-      if (!event.touches || !event.touches.length) {
-        return;
-      }
-      isTouching = true;
-      touchStartX = event.touches[0].clientX;
-      touchDeltaX = 0;
-    },
-    { passive: true }
-  );
-
-  viewport.addEventListener(
-    "touchmove",
-    function (event) {
-      if (!isTouching || !event.touches || !event.touches.length) {
-        return;
-      }
-      touchDeltaX = event.touches[0].clientX - touchStartX;
-    },
-    { passive: true }
-  );
-
-  viewport.addEventListener(
-    "touchend",
-    function () {
-      if (!isTouching) {
-        return;
-      }
-      isTouching = false;
-      if (Math.abs(touchDeltaX) < 40) {
-        return;
-      }
-      if (touchDeltaX < 0) {
-        move(1);
-      } else {
-        move(-1);
-      }
-    },
-    { passive: true }
-  );
+  viewport.addEventListener("pointerdown", onPointerDown);
+  viewport.addEventListener("pointermove", onPointerMove, { passive: false });
+  viewport.addEventListener("pointerup", onPointerUp);
+  viewport.addEventListener("pointercancel", onPointerUp);
 
   setPosition(true);
 
@@ -318,4 +355,231 @@
     gsap.set(track, { x: -getStep() * current });
     setActiveDot();
   });
+})();
+
+/**
+ * Core value — Tablet/Mobile swipe + pagination
+ * PC는 hover accordion 유지 (transform 미사용)
+ */
+(function () {
+  "use strict";
+
+  var core = document.querySelector(".core");
+  if (!core || typeof gsap === "undefined") {
+    return;
+  }
+
+  var viewport = core.querySelector(".core__viewport");
+  var list = core.querySelector(".core__list");
+  var items = Array.prototype.slice.call(core.querySelectorAll(".core__item"));
+  var dots = core.querySelectorAll("[data-core-dot]");
+  if (!viewport || !list || !items.length) {
+    return;
+  }
+
+  var total = items.length;
+  var current = 0;
+  var isAnimating = false;
+  var pointerId = null;
+  var startX = 0;
+  var startY = 0;
+  var deltaX = 0;
+  var axis = null;
+  var dragBaseX = 0;
+  var mq = window.matchMedia("(max-width: 63.9375rem)");
+
+  function isMobileLayout() {
+    return mq.matches;
+  }
+
+  function getStep() {
+    return viewport.offsetWidth;
+  }
+
+  function syncItemWidths() {
+    if (!isMobileLayout()) {
+      items.forEach(function (item) {
+        item.style.flex = "";
+        item.style.width = "";
+        item.style.minWidth = "";
+        item.style.maxWidth = "";
+      });
+      return;
+    }
+
+    var w = getStep();
+    items.forEach(function (item) {
+      item.style.flex = "0 0 " + w + "px";
+      item.style.width = w + "px";
+      item.style.minWidth = w + "px";
+      item.style.maxWidth = w + "px";
+    });
+  }
+
+  function setActiveDot() {
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("is-active", i === current);
+    });
+  }
+
+  function setPosition(immediate) {
+    if (!isMobileLayout()) {
+      gsap.set(list, { clearProps: "transform" });
+      return;
+    }
+
+    var x = -getStep() * current;
+    if (immediate) {
+      gsap.set(list, { x: x });
+      setActiveDot();
+      return;
+    }
+
+    isAnimating = true;
+    gsap.to(list, {
+      x: x,
+      duration: 0.55,
+      ease: "power2.out",
+      onComplete: function () {
+        isAnimating = false;
+        setActiveDot();
+      },
+    });
+  }
+
+  function move(direction) {
+    if (!isMobileLayout() || isAnimating) {
+      return;
+    }
+    var next = current + direction;
+    if (next < 0 || next >= total) {
+      isAnimating = true;
+      setPosition(false);
+      return;
+    }
+    current = next;
+    setPosition(false);
+  }
+
+  function goTo(index) {
+    if (!isMobileLayout() || isAnimating || index < 0 || index >= total || index === current) {
+      return;
+    }
+    current = index;
+    setPosition(false);
+  }
+
+  function onPointerDown(event) {
+    if (!isMobileLayout() || isAnimating) {
+      return;
+    }
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    startY = event.clientY;
+    deltaX = 0;
+    axis = null;
+    dragBaseX = -getStep() * current;
+
+    if (viewport.setPointerCapture) {
+      viewport.setPointerCapture(pointerId);
+    }
+  }
+
+  function onPointerMove(event) {
+    if (pointerId === null || event.pointerId !== pointerId || isAnimating) {
+      return;
+    }
+
+    var dx = event.clientX - startX;
+    var dy = event.clientY - startY;
+
+    if (!axis) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) {
+        return;
+      }
+      axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      if (axis === "y") {
+        pointerId = null;
+        return;
+      }
+    }
+
+    if (axis !== "x") {
+      return;
+    }
+
+    deltaX = dx;
+    if (event.cancelable) {
+      event.preventDefault();
+    }
+
+    var resist = 1;
+    if ((current === 0 && deltaX > 0) || (current === total - 1 && deltaX < 0)) {
+      resist = 0.35;
+    }
+    gsap.set(list, { x: dragBaseX + deltaX * resist });
+  }
+
+  function onPointerUp(event) {
+    if (pointerId === null || event.pointerId !== pointerId) {
+      return;
+    }
+
+    var shouldSlide = axis === "x" && Math.abs(deltaX) > 40;
+    pointerId = null;
+    axis = null;
+
+    if (shouldSlide) {
+      move(deltaX < 0 ? 1 : -1);
+    } else {
+      isAnimating = true;
+      setPosition(false);
+    }
+  }
+
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      var index = parseInt(dot.getAttribute("data-core-dot"), 10);
+      if (isNaN(index)) {
+        return;
+      }
+      goTo(index);
+    });
+  });
+
+  viewport.addEventListener("pointerdown", onPointerDown);
+  viewport.addEventListener("pointermove", onPointerMove, { passive: false });
+  viewport.addEventListener("pointerup", onPointerUp);
+  viewport.addEventListener("pointercancel", onPointerUp);
+
+  function onBreakpointChange() {
+    syncItemWidths();
+    if (isMobileLayout()) {
+      setPosition(true);
+    } else {
+      current = 0;
+      gsap.set(list, { clearProps: "transform" });
+      setActiveDot();
+    }
+  }
+
+  if (typeof mq.addEventListener === "function") {
+    mq.addEventListener("change", onBreakpointChange);
+  } else if (typeof mq.addListener === "function") {
+    mq.addListener(onBreakpointChange);
+  }
+
+  window.addEventListener("resize", function () {
+    if (!isMobileLayout()) {
+      return;
+    }
+    syncItemWidths();
+    gsap.set(list, { x: -getStep() * current });
+  });
+
+  onBreakpointChange();
 })();

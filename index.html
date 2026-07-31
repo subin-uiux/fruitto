@@ -454,60 +454,88 @@
         <div class="core__inner">
           <h2 class="core__title">Core value</h2>
 
-          <div class="core__list">
-            <article class="core__item">
-              <img
-                class="core__image"
-                src="assets/images/main/belief.png"
-                alt=""
-                width="1064"
-                height="646"
-              />
-              <p class="core__label">Belief</p>
-              <div class="core__detail">
-                <p class="core__detail-en">Belief</p>
-                <p class="core__detail-title">각 지역의 인증된 농가</p>
-                <p class="core__detail-text">
-                  프루토는 품질이 검증된 지역 농가와 협력하여 신선하고 믿을 수 있는 과일을 공급받습니다.
-                </p>
-              </div>
-            </article>
+          <div class="core__slider">
+            <div class="core__viewport">
+              <div class="core__list">
+                <article class="core__item">
+                  <div class="core__media">
+                    <picture class="core__picture">
+                      <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-belief.png?v=2" />
+                      <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-belief.png?v=2" />
+                      <img
+                        class="core__image"
+                        src="assets/images/main/belief.png"
+                        alt=""
+                        width="1064"
+                        height="646"
+                      />
+                    </picture>
+                    <p class="core__label">Belief</p>
+                  </div>
+                  <div class="core__detail">
+                    <p class="core__detail-en">Belief</p>
+                    <p class="core__detail-title">각 지역의 인증된 농가</p>
+                    <p class="core__detail-text">
+                      프루토는 품질이 검증된 지역 농가와 협력하여 신선하고 믿을 수 있는 과일을 공급받습니다.
+                    </p>
+                  </div>
+                </article>
 
-            <article class="core__item">
-              <img
-                class="core__image"
-                src="assets/images/main/sanitation.png"
-                alt=""
-                width="1064"
-                height="646"
-              />
-              <p class="core__label">Sanitation</p>
-              <div class="core__detail">
-                <p class="core__detail-en">Sanitation</p>
-                <p class="core__detail-title">꼼꼼한 세척 관리</p>
-                <p class="core__detail-text">
-                  과일의 신선함을 유지하기 위해 입고 후 바로<br />세척하여 꼼꼼히 관리합니다.
-                </p>
-              </div>
-            </article>
+                <article class="core__item">
+                  <div class="core__media">
+                    <picture class="core__picture">
+                      <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-sanitation.png?v=2" />
+                      <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-sanitation.png?v=2" />
+                      <img
+                        class="core__image"
+                        src="assets/images/main/sanitation.png"
+                        alt=""
+                        width="1064"
+                        height="646"
+                      />
+                    </picture>
+                    <p class="core__label">Sanitation</p>
+                  </div>
+                  <div class="core__detail">
+                    <p class="core__detail-en">Sanitation</p>
+                    <p class="core__detail-title">꼼꼼한 세척 관리</p>
+                    <p class="core__detail-text">
+                      과일의 신선함을 유지하기 위해 입고 후 바로<br />세척하여 꼼꼼히 관리합니다.
+                    </p>
+                  </div>
+                </article>
 
-            <article class="core__item">
-              <img
-                class="core__image"
-                src="assets/images/main/research.png"
-                alt=""
-                width="1064"
-                height="646"
-              />
-              <p class="core__label">Research</p>
-              <div class="core__detail">
-                <p class="core__detail-en">Research</p>
-                <p class="core__detail-title">끊임없이 연구합니다</p>
-                <p class="core__detail-text">
-                  더 맛있는 젤라또를 위해 새로운 레시피와<br />과일 조합을 꾸준히 테스트합니다.
-                </p>
+                <article class="core__item">
+                  <div class="core__media">
+                    <picture class="core__picture">
+                      <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-research.png?v=2" />
+                      <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-research.png?v=2" />
+                      <img
+                        class="core__image"
+                        src="assets/images/main/research.png"
+                        alt=""
+                        width="1064"
+                        height="646"
+                      />
+                    </picture>
+                    <p class="core__label">Research</p>
+                  </div>
+                  <div class="core__detail">
+                    <p class="core__detail-en">Research</p>
+                    <p class="core__detail-title">끊임없이 연구합니다</p>
+                    <p class="core__detail-text">
+                      더 맛있는 젤라또를 위해 새로운 레시피와<br />과일 조합을 꾸준히 테스트합니다.
+                    </p>
+                  </div>
+                </article>
               </div>
-            </article>
+            </div>
+
+            <div class="core__dots" role="tablist" aria-label="Core value 페이지">
+              <button type="button" class="core__dot is-active" data-core-dot="0" aria-label="1번 코어 밸류"></button>
+              <button type="button" class="core__dot" data-core-dot="1" aria-label="2번 코어 밸류"></button>
+              <button type="button" class="core__dot" data-core-dot="2" aria-label="3번 코어 밸류"></button>
+            </div>
           </div>
         </div>
       </section>
