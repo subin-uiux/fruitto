@@ -133,7 +133,8 @@
 
 /**
  * Brand Story image slider
- * 한 장(560px + gap 1rem)씩 이동 + 무한 루프
+ * PC: 화살표 + 무한 루프
+ * Tablet/Mobile: 스와이프 + 페이지네이션
  */
 (function () {
   "use strict";
@@ -143,10 +144,12 @@
     return;
   }
 
+  var viewport = story.querySelector(".story__viewport");
   var track = story.querySelector(".story__track");
   var prevBtn = story.querySelector("[data-story-prev]");
   var nextBtn = story.querySelector("[data-story-next]");
-  if (!track) {
+  var dots = story.querySelectorAll("[data-story-dot]");
+  if (!track || !viewport) {
     return;
   }
 
@@ -170,6 +173,9 @@
   // [clones][originals][clones] → 원본 첫 장에서 시작
   var current = total;
   var isAnimating = false;
+  var touchStartX = 0;
+  var touchDeltaX = 0;
+  var isTouching = false;
 
   function getStep() {
     var slide = track.querySelector(".story__slide");
@@ -181,28 +187,42 @@
     return slide.offsetWidth + gap;
   }
 
+  function getActiveIndex() {
+    var index = ((current % total) + total) % total;
+    return index;
+  }
+
+  function setActiveDot() {
+    var active = getActiveIndex();
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("is-active", i === active);
+    });
+  }
+
   function setPosition(immediate) {
     var x = -getStep() * current;
     if (immediate) {
       gsap.set(track, { x: x });
-    } else {
-      gsap.to(track, {
-        x: x,
-        duration: 0.7,
-        ease: "power2.inOut",
-        onComplete: function () {
-          // 복제 구간이면 원본으로 순간 이동
-          if (current >= total * 2) {
-            current -= total;
-            gsap.set(track, { x: -getStep() * current });
-          } else if (current < total) {
-            current += total;
-            gsap.set(track, { x: -getStep() * current });
-          }
-          isAnimating = false;
-        },
-      });
+      setActiveDot();
+      return;
     }
+
+    gsap.to(track, {
+      x: x,
+      duration: 0.7,
+      ease: "power2.inOut",
+      onComplete: function () {
+        if (current >= total * 2) {
+          current -= total;
+          gsap.set(track, { x: -getStep() * current });
+        } else if (current < total) {
+          current += total;
+          gsap.set(track, { x: -getStep() * current });
+        }
+        isAnimating = false;
+        setActiveDot();
+      },
+    });
   }
 
   function move(direction) {
@@ -211,6 +231,19 @@
     }
     isAnimating = true;
     current += direction;
+    setPosition(false);
+  }
+
+  function goToOriginal(index) {
+    if (isAnimating || index < 0 || index >= total) {
+      return;
+    }
+    var active = getActiveIndex();
+    if (index === active) {
+      return;
+    }
+    isAnimating = true;
+    current = total + index;
     setPosition(false);
   }
 
@@ -226,9 +259,63 @@
     });
   }
 
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      var index = parseInt(dot.getAttribute("data-story-dot"), 10);
+      if (isNaN(index)) {
+        return;
+      }
+      goToOriginal(index);
+    });
+  });
+
+  viewport.addEventListener(
+    "touchstart",
+    function (event) {
+      if (!event.touches || !event.touches.length) {
+        return;
+      }
+      isTouching = true;
+      touchStartX = event.touches[0].clientX;
+      touchDeltaX = 0;
+    },
+    { passive: true }
+  );
+
+  viewport.addEventListener(
+    "touchmove",
+    function (event) {
+      if (!isTouching || !event.touches || !event.touches.length) {
+        return;
+      }
+      touchDeltaX = event.touches[0].clientX - touchStartX;
+    },
+    { passive: true }
+  );
+
+  viewport.addEventListener(
+    "touchend",
+    function () {
+      if (!isTouching) {
+        return;
+      }
+      isTouching = false;
+      if (Math.abs(touchDeltaX) < 40) {
+        return;
+      }
+      if (touchDeltaX < 0) {
+        move(1);
+      } else {
+        move(-1);
+      }
+    },
+    { passive: true }
+  );
+
   setPosition(true);
 
   window.addEventListener("resize", function () {
     gsap.set(track, { x: -getStep() * current });
+    setActiveDot();
   });
 })();

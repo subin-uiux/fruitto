@@ -213,11 +213,10 @@
   height: 1rem;
 }
 
-/* Panel (accordion body) — 닫힘 시 내용 비침 방지 */
+/* Panel (accordion body) */
 .notice-item__panel {
   display: grid;
   grid-template-rows: 0fr;
-  overflow: hidden;
   transition: grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -225,10 +224,7 @@
   overflow: hidden;
   min-height: 0;
   opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.28s ease,
-    visibility 0s linear 0.45s;
+  transition: opacity 0.28s ease;
 }
 
 .notice-item__text {
@@ -264,10 +260,7 @@
 
 .notice-item.is-open .notice-item__panel-inner {
   opacity: 1;
-  visibility: visible;
-  transition:
-    opacity 0.35s ease 0.12s,
-    visibility 0s linear 0s;
+  transition: opacity 0.35s ease 0.12s;
 }
 
 .notice-item.is-hidden {
@@ -283,7 +276,7 @@
   }
 
   .notice-item__text {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 5.2rem;
   }
 }
 
@@ -318,6 +311,6 @@
   }
 
   .notice-item__text {
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 4rem;
   }
 }
