@@ -296,7 +296,7 @@ a.event-card:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2.5rem; /* 40px — 제목 ↔ 날짜 */
+  gap: 1rem; /* 40px — 제목 ↔ 날짜 */
   padding: 1.5rem 2rem;
   box-sizing: border-box;
 }

@@ -996,3 +996,507 @@
   }
 }
 
+/* ==========================================================================
+   Main — Slogan marquee
+   ========================================================================== */
+
+.slogan {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: var(--color-ivory1);
+  padding: 0 0 3.75rem 0;
+}
+
+.slogan__viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slogan__track {
+  display: flex;
+  width: max-content;
+  animation: slogan-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.slogan__group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 3rem;
+  padding-right: 3rem;
+}
+
+.slogan__text {
+  flex-shrink: 0;
+  margin: 0;
+  font-family: var(--font-en); /* SUIT */
+  font-size: 6rem; /* 96px */
+  font-weight: var(--fw-heavy);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.slogan__text--fill {
+  color: var(--color-primary);
+}
+
+.slogan__text--stroke {
+  color: transparent;
+  -webkit-text-stroke: 0.0625rem var(--color-primary); /* 1px */
+  text-stroke: 0.0625rem var(--color-primary);
+}
+
+@keyframes slogan-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 63.9375rem) {
+  .slogan {
+    padding: 2rem 0;
+  }
+
+  .slogan__text {
+    font-size: 3.5rem; /* 56px — tablet */
+  }
+
+  .slogan__group {
+    gap: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .slogan {
+    padding: 1.5rem 0;
+  }
+
+  .slogan__text {
+    font-size: 2.25rem; /* 36px — mobile */
+  }
+
+  .slogan__group {
+    gap: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   Main — Open Market
+   ========================================================================== */
+
+.market {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  background-color: var(--color-ivory2);
+}
+
+.market__inner {
+  width: 100%;
+  padding: 6.25rem var(--grid-margin);
+}
+
+.market__title {
+  margin: 0;
+  font-family: var(--font-en);
+  font-size: var(--fs-title02);
+  font-weight: var(--fw-heavy);
+  line-height: var(--lh-title);
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.market__toggle {
+  display: flex;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+  margin: 2.5rem auto 0;
+  padding: 0.25rem;
+  border: 0.0625rem solid var(--color-primary);
+  border-radius: 999px;
+  background-color: var(--color-white);
+}
+
+.market__toggle-btn {
+  min-width: 8.75rem;
+  padding: 0.75rem 1.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body04);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.market__toggle-btn.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--fw-bold);
+}
+
+.market__panels {
+  margin-top: 3.75rem;
+}
+
+.market__panel {
+  display: none;
+}
+
+.market__panel.is-active {
+  display: block;
+}
+
+.market__logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 87.25rem; /* ~1396px */
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.market__logo {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.market__logo img {
+  display: block;
+  width: 15rem; /* 240px */
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Tablet — 로고 2개가 아래로 */
+@media (max-width: 63.9375rem) {
+  .market__inner {
+    padding: 5rem var(--grid-margin);
+  }
+
+  .market__panels {
+    margin-top: 3rem;
+  }
+
+  .market__logos--online {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 2.5rem 1rem;
+  }
+
+  .market__logos--online .market__logo:nth-child(1) {
+    grid-column: 1 / 3;
+  }
+
+  .market__logos--online .market__logo:nth-child(2) {
+    grid-column: 3 / 5;
+  }
+
+  .market__logos--online .market__logo:nth-child(3) {
+    grid-column: 5 / 7;
+  }
+
+  .market__logos--online .market__logo:nth-child(4) {
+    grid-column: 2 / 4;
+  }
+
+  .market__logos--online .market__logo:nth-child(5) {
+    grid-column: 4 / 6;
+  }
+
+  .market__logos--offline {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+/* Mobile — 로고 2개 아래로 · 간격/패딩만 조정 */
+@media (max-width: 47.9375rem) {
+  .market__inner {
+    padding: 3.5rem var(--grid-margin);
+  }
+
+  .market__toggle {
+    margin-top: 1.75rem;
+  }
+
+  .market__toggle-btn {
+    min-width: 6.5rem;
+    padding: 0.625rem 1.25rem;
+    font-size: var(--fs-body06);
+  }
+
+  .market__panels {
+    margin-top: 2.5rem;
+  }
+
+  .market__logos--online {
+    gap: 1.75rem 0.75rem;
+  }
+
+  .market__logos--offline {
+    gap: 1.75rem 0.75rem;
+  }
+
+  .market__logo img {
+    width: 15rem; /* 240px 기준 · 컨테이너에 맞춰 축소 */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ==========================================================================
+   Main — Event Section
+   ========================================================================== */
+
+.event {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  background-color: var(--color-ivory1);
+}
+
+.event__inner {
+  width: 100%;
+  padding: 6.25rem var(--grid-margin);
+}
+
+.event__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 3.75rem;
+}
+
+.event__head-text {
+  min-width: 0;
+}
+
+.event__title {
+  margin: 0;
+  font-family: var(--font-en);
+  font-size: var(--fs-title02);
+  font-weight: var(--fw-heavy);
+  line-height: var(--lh-title);
+  text-align: left;
+  color: var(--color-primary);
+}
+
+.event__desc {
+  margin: 1rem 0 0;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body03);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  text-align: left;
+  color: var(--color-primary);
+}
+
+.event__more {
+  flex-shrink: 0;
+}
+
+.event__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, var(--event-card-width)));
+  gap: 1.5rem;
+  justify-content: start;
+  width: 100%;
+}
+
+.event__list .event-card {
+  width: 100%;
+  max-width: var(--event-card-width);
+}
+
+@media (max-width: 63.9375rem) {
+  .event__inner {
+    padding: 5rem var(--grid-margin);
+  }
+
+  .event__head {
+    margin-bottom: 2.5rem;
+  }
+
+  .event__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .event__inner {
+    padding: 3.5rem var(--grid-margin);
+  }
+
+  .event__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .event__desc {
+    margin-top: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   Main — SNS Section
+   ========================================================================== */
+
+.sns {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  background-color: var(--color-primary);
+}
+
+.sns__inner {
+  width: 100%;
+  padding: 6.25rem 0;
+}
+
+.sns__title {
+  margin: 0 0 3.75rem;
+  padding: 0 var(--grid-margin);
+  font-family: var(--font-en);
+  font-size: var(--fs-title02);
+  font-weight: var(--fw-heavy);
+  line-height: var(--lh-title);
+  text-align: center;
+  color: var(--color-ivory1);
+}
+
+.sns__viewport {
+  width: 100%;
+  overflow: hidden;
+  padding: 0.75rem 0; /* hover lift 여유 */
+}
+
+.sns__track {
+  display: flex;
+  width: max-content;
+  animation: sns-marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.sns__group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  gap: 1.5rem; /* 24px */
+  padding-right: 1.5rem;
+}
+
+.sns__item {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+  width: 23.125rem; /* 370px */
+  transition: transform 0.35s ease;
+}
+
+.sns__item:hover {
+  transform: translateY(-0.75rem);
+}
+
+.sns__image {
+  display: block;
+  width: 23.125rem; /* 370px */
+  height: 23.125rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sns__handle {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  font-family: var(--font-en);
+  font-size: 0.875rem; /* 14px */
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  text-align: left;
+  color: var(--color-ivory1);
+}
+
+@keyframes sns-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 63.9375rem) {
+  .sns__inner {
+    padding: 5rem 0;
+  }
+
+  .sns__title {
+    margin-bottom: 2.5rem;
+  }
+
+  .sns__item {
+    width: 17.5rem; /* 280px */
+  }
+
+  .sns__image {
+    width: 17.5rem;
+    height: 17.5rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .sns__inner {
+    padding: 3.5rem 0;
+  }
+
+  .sns__title {
+    margin-bottom: 2rem;
+  }
+
+  .sns__group {
+    gap: 1rem;
+    padding-right: 1rem;
+  }
+
+  .sns__item {
+    width: 13.75rem; /* 220px */
+  }
+
+  .sns__image {
+    width: 13.75rem;
+    height: 13.75rem;
+  }
+}
+
+

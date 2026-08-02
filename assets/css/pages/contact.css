@@ -52,10 +52,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* 필드 간격 통일 */
+  gap: 2rem;
   width: 100%;
   max-width: 87.25rem; /* 1396px */
-  min-height: 0;
   height: auto;
   padding: 5rem;
   border: 0;
@@ -66,9 +65,7 @@
 .inquiry-form__field {
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
   gap: 0.75rem;
-  margin: 0;
 }
 
 .inquiry-form__label {
@@ -173,14 +170,12 @@
   padding: 1.25rem;
   resize: vertical;
   text-align: left;
-  vertical-align: top;
 }
 
 .inquiry-form__input::placeholder,
 .inquiry-form__textarea::placeholder {
   color: var(--color-grey3);
   text-align: left;
-  opacity: 1;
 }
 
 .inquiry-form__input:focus,

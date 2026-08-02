@@ -60,14 +60,14 @@
 .header__gnb-link {
   font-family: var(--font-ko);
   font-size: 1.25rem; /* 20px */
-  font-weight: var(--fw-semibold); /* 600 */
+  font-weight: var(--fw-regular); /* 400 */
   line-height: 1;
   color: var(--color-primary);
-  transition: opacity 0.2s ease;
+  transition: font-weight 0.2s ease;
 }
 
 .header__gnb-link:hover {
-  opacity: 0.75;
+  font-weight: var(--fw-semibold); /* 600 */
 }
 
 .header__gnb-link--active {

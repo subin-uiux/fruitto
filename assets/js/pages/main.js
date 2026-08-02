@@ -583,3 +583,49 @@
 
   onBreakpointChange();
 })();
+
+/**
+ * Open Market — online / offline toggle
+ */
+(function () {
+  "use strict";
+
+  var market = document.querySelector(".market");
+  if (!market) {
+    return;
+  }
+
+  var tabs = market.querySelectorAll("[data-market-tab]");
+  var panels = market.querySelectorAll("[data-market-panel]");
+  if (!tabs.length || !panels.length) {
+    return;
+  }
+
+  function activate(id) {
+    tabs.forEach(function (tab) {
+      var isActive = tab.getAttribute("data-market-tab") === id;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+
+    panels.forEach(function (panel) {
+      var isActive = panel.getAttribute("data-market-panel") === id;
+      panel.classList.toggle("is-active", isActive);
+      if (isActive) {
+        panel.removeAttribute("hidden");
+      } else {
+        panel.setAttribute("hidden", "");
+      }
+    });
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      var id = tab.getAttribute("data-market-tab");
+      if (!id) {
+        return;
+      }
+      activate(id);
+    });
+  });
+})();
