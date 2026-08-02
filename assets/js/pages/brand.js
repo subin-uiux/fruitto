@@ -113,23 +113,43 @@
     }
   }
 
-  /* --- 이미지 --- */
+  /* --- 이미지: 본문 리빌 완료 후 zoom-in (scrub과 분리) --- */
   if (mediaEl) {
-    gsap.set(mediaEl, { scale: 0.85, opacity: 0 });
+    gsap.set(mediaEl, { scale: 0.78, opacity: 0 });
     mediaEl.classList.add("is-ready");
   }
 
+  var mediaZoomed = false;
+
+  function playMediaZoom() {
+    if (!mediaEl || mediaZoomed) {
+      return;
+    }
+    mediaZoomed = true;
+    gsap.fromTo(
+      mediaEl,
+      { scale: 0.78, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.55,
+        ease: "power2.out",
+        overwrite: true,
+      }
+    );
+  }
+
   /* --------------------------------------------------------------------------
-     스크롤 타임라인 — 동시에 나오지 않고 구간별로 차례 재생
-     조절: start/end, 각 add 위치(0 / 0.15 / 0.45), duration·stagger
+     스크롤 타임라인 — 슬로건 → 본문
+     brand-intro__text 리빌이 끝나면 이미지 zoom-in
      -------------------------------------------------------------------------- */
   var tl = gsap.timeline({
     defaults: { ease: "none" },
     scrollTrigger: {
       trigger: section,
-      start: "top 75%",
-      end: "bottom 65%",
-      scrub: 0.45,
+      start: "top 70%",
+      end: "center 35%",
+      scrub: 0.5,
       markers: false,
     },
   });
@@ -141,43 +161,45 @@
       {
         yPercent: 0,
         opacity: 1,
-        duration: 0.22,
-        stagger: 0.008,
+        duration: 0.25,
+        stagger: 0.01,
         ease: "power3.out",
       },
       0
     );
   }
 
-  /* 2) 본문 색상 reveal — 슬로건 직후 빠르게 */
+  /* 2) 본문 색상 reveal — 중후반부터 이미지 zoom-in */
   if (textChars.length) {
     tl.to(
       textChars,
       {
         color: textFg,
-        duration: 0.22,
-        stagger: 0.004,
+        duration: 0.55,
+        stagger: 0.005,
         ease: "none",
       },
-      0.15
+      0.2
     );
+    /* 본문 리빌이 끝나기 전에 시작해 더 빠르게 등장 */
+    tl.call(playMediaZoom, null, 0.45);
+  } else {
+    tl.call(playMediaZoom, null, 0.35);
   }
 
-  /* 3) 이미지 zoom — 본문 이후 */
-  if (mediaEl) {
-    tl.to(
-      mediaEl,
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 0.25,
-        ease: "power2.out",
-      },
-      0.45
-    );
+  /* 첫 화면: 서브비주얼 아래 남은 뷰포트만큼 패드로 채워 intro가 보이지 않게 */
+  function updateIntroPad() {
+    var pad = document.querySelector(".brand-intro-pad");
+    var subVisual = document.querySelector(".sub-visual");
+    if (!pad || !subVisual) {
+      return;
+    }
+    var remaining = Math.max(0, window.innerHeight - subVisual.offsetHeight);
+    pad.style.height = remaining + "px";
   }
 
   function refreshTriggers() {
+    updateIntroPad();
     ScrollTrigger.refresh();
   }
 
@@ -189,6 +211,7 @@
     window.clearTimeout(window.__brandRevealResizeTimer);
     window.__brandRevealResizeTimer = window.setTimeout(refreshTriggers, 150);
   });
+  updateIntroPad();
 })();
 
 /* Brand features — 태블릿/모바일 마우스 드래그 슬라이드 */

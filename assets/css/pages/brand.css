@@ -7,7 +7,7 @@
   width: 100%;
   max-width: var(--layout-max-width);
   margin: 0 auto;
-  height: max(0px, calc(100svh - var(--header-height) - 27.5rem - 3rem));
+  height: max(0px, calc(100svh - var(--header-height) - 27.5rem - 3rem)); /* PC: media 440px + tabs 여백 */
   background-color: var(--color-ivory1);
   pointer-events: none;
 }
@@ -90,12 +90,9 @@
     opacity: 1;
   }
 
+  /* 초기엔 숨김 · 가시성은 GSAP zoom-in이 제어 */
   .brand-intro__media:not(.is-ready) {
     opacity: 0;
-  }
-
-  .brand-intro__media.is-ready {
-    opacity: 1;
   }
 }
 
@@ -116,6 +113,11 @@
 }
 
 @media (max-width: 63.9375rem) {
+  .brand-intro-pad {
+    /* 태블릿: sub-visual media 260px */
+    height: max(0px, calc(100svh - var(--header-height) - 16.25rem - 3rem));
+  }
+
   .brand-intro {
     padding: 5rem 0;
   }
@@ -131,6 +133,11 @@
 }
 
 @media (max-width: 47.9375rem) {
+  .brand-intro-pad {
+    /* 모바일도 태블릿과 동일 media 높이(260px) 기준 */
+    height: max(0px, calc(100svh - var(--header-height) - 16.25rem - 3rem));
+  }
+
   .brand-intro {
     padding: 3.5rem 0;
   }
@@ -335,17 +342,27 @@
 
 .brand-features__banner {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 100%;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+}
+
+.brand-features__banner picture {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .brand-features__banner-image {
   display: block;
   width: 100%;
+  max-width: none;
   height: auto;
+  margin: 0;
+  padding: 0;
   object-fit: cover;
 }
 
