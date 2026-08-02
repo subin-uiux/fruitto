@@ -253,13 +253,23 @@
     <!-- 브랜드 특징 -->
     <section class="brand-features" aria-label="브랜드 특징">
       <div class="brand-features__banner">
-        <img
-          class="brand-features__banner-image"
-          src="assets/images/fruit.png"
-          alt=""
-          width="1920"
-          height="640"
-        />
+        <picture>
+          <source
+            media="(max-width: 47.9375rem)"
+            srcset="assets/images/mo-fruit.png"
+          />
+          <source
+            media="(max-width: 63.9375rem)"
+            srcset="assets/images/tab-fruit.png"
+          />
+          <img
+            class="brand-features__banner-image"
+            src="assets/images/fruit.png"
+            alt=""
+            width="1920"
+            height="640"
+          />
+        </picture>
         <p class="brand-features__banner-text">Fresh Fruit, Sweet Fruitto</p>
       </div>
 

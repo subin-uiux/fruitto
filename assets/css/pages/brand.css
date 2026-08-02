@@ -48,7 +48,7 @@
 }
 
 .brand-intro__text {
-  margin: 5rem 0 0;
+  margin: 2.5rem 0 0;
   max-width: 52rem;
   font-family: var(--font-ko);
   font-size: var(--fs-body03);
@@ -136,10 +136,11 @@
   }
 
   .brand-intro__slogan-ko {
-    font-size: clamp(0.875rem, 3.8vw, 1.75rem);
+    font-size: 1.375rem; /* 22px */
   }
 
   .brand-intro__text {
+    margin-top: 1.5rem;
     font-size: var(--fs-body04);
   }
 

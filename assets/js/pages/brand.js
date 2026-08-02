@@ -121,15 +121,15 @@
 
   /* --------------------------------------------------------------------------
      스크롤 타임라인 — 동시에 나오지 않고 구간별로 차례 재생
-     조절: start/end, 각 add 위치(0 / 0.35 / 0.7), duration·stagger
+     조절: start/end, 각 add 위치(0 / 0.15 / 0.45), duration·stagger
      -------------------------------------------------------------------------- */
   var tl = gsap.timeline({
     defaults: { ease: "none" },
     scrollTrigger: {
       trigger: section,
-      start: "top 70%",
-      end: "bottom 55%",
-      scrub: 0.8,
+      start: "top 75%",
+      end: "bottom 65%",
+      scrub: 0.45,
       markers: false,
     },
   });
@@ -141,25 +141,25 @@
       {
         yPercent: 0,
         opacity: 1,
-        duration: 0.3,
-        stagger: 0.012,
+        duration: 0.22,
+        stagger: 0.008,
         ease: "power3.out",
       },
       0
     );
   }
 
-  /* 2) 본문 색상 reveal — 슬로건 이후 */
+  /* 2) 본문 색상 reveal — 슬로건 직후 빠르게 */
   if (textChars.length) {
     tl.to(
       textChars,
       {
         color: textFg,
-        duration: 0.35,
-        stagger: 0.008,
+        duration: 0.22,
+        stagger: 0.004,
         ease: "none",
       },
-      0.35
+      0.15
     );
   }
 
@@ -170,10 +170,10 @@
       {
         scale: 1,
         opacity: 1,
-        duration: 0.3,
+        duration: 0.25,
         ease: "power2.out",
       },
-      0.7
+      0.45
     );
   }
 
