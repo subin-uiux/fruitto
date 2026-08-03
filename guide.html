@@ -36,24 +36,53 @@
           />
         </a>
         <nav class="header__gnb" aria-label="주요 메뉴">
-          <ul class="header__gnb-list">
-            <li>
-              <a class="header__gnb-link" href="brand.html">브랜드스토리</a>
-            </li>
-            <li>
-              <a class="header__gnb-link" href="product.html">제품</a>
-            </li>
-            <li>
-              <a class="header__gnb-link header__gnb-link--active" href="notice.html" aria-current="page">공지</a>
-            </li>
-            <li>
-              <a class="header__gnb-link" href="store.html">입점처</a>
-            </li>
-            <li>
-              <a class="header__gnb-link" href="contact.html">문의</a>
-            </li>
-          </ul>
-        </nav>
+        <ul class="header__gnb-list">
+          <li class="header__gnb-item">
+            <a class="header__gnb-link" href="brand.html">브랜드스토리</a>
+          </li>
+          <li class="header__gnb-item header__gnb-item--has-sub">
+            <a class="header__gnb-link" href="product.html">제품</a>
+            <div class="header__gnb-panel">
+              <ul class="header__gnb-sub">
+                <li><a class="header__gnb-sub-link" href="product.html#all">All</a></li>
+                <li><a class="header__gnb-sub-link" href="product.html#season">사계절</a></li>
+                <li><a class="header__gnb-sub-link" href="product.html#spring">봄</a></li>
+                <li><a class="header__gnb-sub-link" href="product.html#summer">여름</a></li>
+                <li><a class="header__gnb-sub-link" href="product.html#autumn">가을</a></li>
+                <li><a class="header__gnb-sub-link" href="product.html#winter">겨울</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="header__gnb-item header__gnb-item--has-sub">
+            <a class="header__gnb-link" href="notice.html">공지</a>
+            <div class="header__gnb-panel">
+              <ul class="header__gnb-sub">
+                <li><a class="header__gnb-sub-link" href="notice.html#notice">공지사항</a></li>
+                <li><a class="header__gnb-sub-link" href="notice.html#event">이벤트</a></li>
+                <li><a class="header__gnb-sub-link" href="notice.html#promotion">프로모션</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="header__gnb-item header__gnb-item--has-sub">
+            <a class="header__gnb-link" href="store.html">입점처</a>
+            <div class="header__gnb-panel">
+              <ul class="header__gnb-sub">
+                <li><a class="header__gnb-sub-link" href="store.html#online">온라인</a></li>
+                <li><a class="header__gnb-sub-link" href="store.html#offline">오프라인</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="header__gnb-item header__gnb-item--has-sub">
+            <a class="header__gnb-link" href="contact.html">문의</a>
+            <div class="header__gnb-panel">
+              <ul class="header__gnb-sub">
+                <li><a class="header__gnb-sub-link" href="contact.html#faq">자주하는 질문</a></li>
+                <li><a class="header__gnb-sub-link" href="contact.html#inquiry">문의</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
         <button
           type="button"
           class="header__menu-btn"

@@ -55,9 +55,20 @@
   display: flex;
   align-items: center;
   gap: 2.5rem;
+  height: 100%;
+}
+
+.header__gnb-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .header__gnb-link {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
   font-family: var(--font-ko);
   font-size: 1.25rem; /* 20px */
   font-weight: var(--fw-regular); /* 400 */
@@ -73,6 +84,84 @@
 .header__gnb-link--active {
   font-weight: var(--fw-bold); /* 700 — 활성은 더 굵게 */
   color: var(--color-primary);
+}
+
+/* PC GNB — hover accordion dropdown */
+.header__gnb-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 0fr;
+  min-width: 8.75rem;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: grid-template-rows 0.35s ease;
+}
+
+.header__gnb-panel::before {
+  content: "";
+  position: absolute;
+  top: -0.75rem;
+  right: 0;
+  left: 0;
+  height: 0.75rem;
+}
+
+.header__gnb-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  overflow: hidden;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: var(--color-ivory1);
+  border: 0.0625rem solid var(--color-grey4);
+  border-radius: 0 0 0.75rem 0.75rem;
+  box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 8%);
+  visibility: hidden;
+  transition: visibility 0s linear 0.35s;
+}
+
+.header__gnb-sub-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-ko);
+  font-size: 1rem; /* 16px */
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+  color: var(--color-grey1);
+  white-space: nowrap;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.header__gnb-sub-link:hover {
+  background-color: var(--color-ivory2);
+  color: var(--color-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.header__gnb-item--has-sub:hover .header__gnb-panel,
+.header__gnb-item--has-sub:focus-within .header__gnb-panel {
+  grid-template-rows: 1fr;
+  pointer-events: auto;
+}
+
+.header__gnb-item--has-sub:hover .header__gnb-sub,
+.header__gnb-item--has-sub:focus-within .header__gnb-sub {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.header__gnb-item--has-sub:hover > .header__gnb-link,
+.header__gnb-item--has-sub:focus-within > .header__gnb-link {
+  font-weight: var(--fw-semibold);
 }
 
 /* Hamburger — Tablet / Mobile */
@@ -115,8 +204,17 @@
 }
 
 @media (min-width: 64rem) {
+  .header {
+    overflow: visible;
+  }
+
+  .header__inner {
+    overflow: visible;
+  }
+
   .header__gnb {
     display: block;
+    height: 100%;
   }
 
   .header__menu-btn {
