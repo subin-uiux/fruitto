@@ -61,6 +61,8 @@
 
     if (!reduceMotion) {
       gsap.utils.toArray("[data-aos]").forEach(function (el) {
+        var replay = !el.classList.contains("brand-feature");
+
         ScrollTrigger.create({
           trigger: el,
           start: "top 85%",
@@ -68,15 +70,19 @@
           onEnter: function () {
             el.classList.add("aos-animate");
           },
-          onLeave: function () {
-            el.classList.remove("aos-animate");
-          },
+          onLeave: replay
+            ? function () {
+                el.classList.remove("aos-animate");
+              }
+            : undefined,
           onEnterBack: function () {
             el.classList.add("aos-animate");
           },
-          onLeaveBack: function () {
-            el.classList.remove("aos-animate");
-          },
+          onLeaveBack: replay
+            ? function () {
+                el.classList.remove("aos-animate");
+              }
+            : undefined,
         });
       });
     }
@@ -251,9 +257,13 @@
   var mq = window.matchMedia("(max-width: 63.9375rem)");
   var active = false;
   var dragging = false;
+  var axis = null; // "x" | "y"
   var startX = 0;
+  var startY = 0;
   var startScroll = 0;
   var pointerId = null;
+  var rafId = 0;
+  var pendingScrollLeft = null;
 
   function slideCount() {
     return list.querySelectorAll(".brand-feature").length;
@@ -290,6 +300,16 @@
     setTrackActive(Math.max(0, Math.min(max, progress)), withTransition);
   }
 
+  function flushScroll() {
+    rafId = 0;
+    if (pendingScrollLeft === null) {
+      return;
+    }
+    list.scrollLeft = pendingScrollLeft;
+    pendingScrollLeft = null;
+    syncTrackFromScroll(false);
+  }
+
   function goTo(index, smooth) {
     var next = clampIndex(index);
     var left = next * slideWidth();
@@ -308,17 +328,11 @@
 
     active = true;
     dragging = false;
+    axis = null;
     pointerId = event.pointerId;
     startX = event.clientX;
+    startY = event.clientY;
     startScroll = list.scrollLeft;
-    list.classList.add("is-dragging");
-    if (trackLine) {
-      trackLine.classList.add("is-dragging");
-    }
-
-    if (list.setPointerCapture) {
-      list.setPointerCapture(event.pointerId);
-    }
   }
 
   function onPointerMove(event) {
@@ -327,34 +341,70 @@
     }
 
     var dx = event.clientX - startX;
-    if (Math.abs(dx) > 4) {
+    var dy = event.clientY - startY;
+
+    if (!axis) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) {
+        return;
+      }
+      axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      if (axis === "y") {
+        /* 세로 스크롤은 Lenis/브라우저에 맡김 */
+        active = false;
+        pointerId = null;
+        return;
+      }
+
       dragging = true;
+      list.classList.add("is-dragging");
+      if (trackLine) {
+        trackLine.classList.add("is-dragging");
+      }
+      if (list.setPointerCapture) {
+        list.setPointerCapture(event.pointerId);
+      }
     }
 
-    list.scrollLeft = startScroll - dx;
-    syncTrackFromScroll(false);
+    if (axis !== "x") {
+      return;
+    }
+
+    pendingScrollLeft = startScroll - dx;
+    if (!rafId) {
+      rafId = window.requestAnimationFrame(flushScroll);
+    }
     event.preventDefault();
   }
 
   function onPointerUp(event) {
-    if (!active || event.pointerId !== pointerId) {
+    if (pointerId === null || event.pointerId !== pointerId) {
       return;
     }
 
+    var wasDragging = dragging && axis === "x";
     active = false;
     list.classList.remove("is-dragging");
+
+    if (rafId) {
+      window.cancelAnimationFrame(rafId);
+      rafId = 0;
+      flushScroll();
+    }
 
     if (list.releasePointerCapture && list.hasPointerCapture(pointerId)) {
       list.releasePointerCapture(pointerId);
     }
     pointerId = null;
+    axis = null;
 
-    if (!mq.matches) {
+    if (!mq.matches || !wasDragging) {
+      dragging = false;
       return;
     }
 
     var width = slideWidth();
     if (!width) {
+      dragging = false;
       return;
     }
 
@@ -363,13 +413,14 @@
     var threshold = Math.min(80, width * 0.18);
     var nextIndex = startIndex;
 
-    if (dragging && Math.abs(dx) > threshold) {
+    if (Math.abs(dx) > threshold) {
       nextIndex = dx < 0 ? startIndex + 1 : startIndex - 1;
     } else {
       nextIndex = Math.round(list.scrollLeft / width);
     }
 
     goTo(nextIndex, true);
+    dragging = false;
   }
 
   list.addEventListener("pointerdown", onPointerDown);

@@ -530,7 +530,8 @@
     overscroll-behavior-x: contain;
     scrollbar-width: none;
     cursor: grab;
-    touch-action: pan-x;
+    /* 세로 페이지 스크롤 허용 · 가로는 JS 드래그로 처리 */
+    touch-action: pan-y pinch-zoom;
   }
 
   .brand-features__list.is-dragging {
@@ -538,6 +539,7 @@
     scroll-snap-type: none;
     scroll-behavior: auto;
     user-select: none;
+    touch-action: none;
   }
 
   .brand-features__list::-webkit-scrollbar {
