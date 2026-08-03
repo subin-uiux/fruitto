@@ -27,48 +27,47 @@
     });
   }
 
+  function prepareSlideContent(slide) {
+    var brand = slide.querySelector(".kv__brand");
+    var product = slide.querySelector(".kv__product");
+    var tagline = slide.querySelector(".kv__tagline");
+
+    gsap.killTweensOf([brand, product, tagline]);
+    gsap.set(brand, { opacity: 0, scale: 0.97 });
+    gsap.set(product, { opacity: 0, y: 28, scale: 0.98 });
+    gsap.set(tagline, { opacity: 0, y: 12 });
+  }
+
   function animateSlideContent(slide) {
     var brand = slide.querySelector(".kv__brand");
     var product = slide.querySelector(".kv__product");
     var tagline = slide.querySelector(".kv__tagline");
 
     /* brand: opacity/scale만 — x/y transform 사용 금지(중앙 정렬 유지) */
-    gsap.fromTo(
-      brand,
-      { opacity: 0, scale: 0.9 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.9,
-        ease: "power3.out",
-        clearProps: "transform",
-      }
-    );
+    gsap.to(brand, {
+      opacity: 1,
+      scale: 1,
+      duration: 1.1,
+      ease: "sine.out",
+      clearProps: "transform",
+    });
 
-    gsap.fromTo(
-      product,
-      { opacity: 0, y: 60, scale: 0.92 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        delay: 0.08,
-        ease: "power3.out",
-      }
-    );
+    gsap.to(product, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 1.15,
+      delay: 0.06,
+      ease: "sine.out",
+    });
 
-    gsap.fromTo(
-      tagline,
-      { opacity: 0, y: 24 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        delay: 0.28,
-        ease: "power2.out",
-      }
-    );
+    gsap.to(tagline, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      delay: 0.18,
+      ease: "sine.out",
+    });
   }
 
   function goToSlide(index) {
@@ -78,15 +77,20 @@
 
     isAnimating = true;
     current = index;
+    prepareSlideContent(slides[current]);
 
     gsap.to(track, {
       xPercent: -((100 / total) * current),
-      duration: 0.85,
+      duration: 0.9,
       ease: "power2.inOut",
       onComplete: function () {
         isAnimating = false;
-        animateSlideContent(slides[current]);
       },
+    });
+
+    /* 슬라이드 이동과 겹쳐 부드럽게 등장 */
+    gsap.delayedCall(0.35, function () {
+      animateSlideContent(slides[current]);
     });
 
     setActiveDot(current);
@@ -123,6 +127,7 @@
 
   gsap.set(track, { xPercent: 0 });
   setActiveDot(0);
+  prepareSlideContent(slides[0]);
   animateSlideContent(slides[0]);
   restartAuto();
 
