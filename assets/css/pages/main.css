@@ -1344,6 +1344,11 @@
 
   .event__list {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .event__list .event-card:not(:first-child) {
+    display: none;
   }
 }
 
