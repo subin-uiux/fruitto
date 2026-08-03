@@ -53,7 +53,7 @@
   --container-max-width: 105rem; /* 1680px — 그리드 콘텐츠 영역 (1920 - margin 120×2) */
 
   /* Header */
-  --header-height: 4.375rem; /* 70px — Mobile / Tablet */
+  --header-height: 5rem; /* 80px — Mobile / Tablet */
   --header-z-index: 100;
   --header-transition: transform 0.3s ease;
   --header-logo-width: 2.25rem; /* 36px — Mobile/Tablet 축소 */

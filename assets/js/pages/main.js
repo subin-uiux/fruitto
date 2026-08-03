@@ -1,4 +1,24 @@
 /**
+ * Main page — AOS
+ */
+(function () {
+  "use strict";
+
+  if (typeof AOS === "undefined") {
+    return;
+  }
+
+  AOS.init({
+    duration: 800,
+    easing: "ease-out-cubic",
+    once: false,
+    mirror: true,
+    offset: 80,
+    disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  });
+})();
+
+/**
  * Main page — KV GSAP slider
  * Inspired by: https://codepen.io/yudizsolutions/pen/QWoqmWW
  */
