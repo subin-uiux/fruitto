@@ -42,18 +42,20 @@
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add(function (time) {
-      lenis.raf(time * 1000);
+      lenis.raf(time * 900);
     });
     gsap.ticker.lagSmoothing(0);
   }
 
-  /* AOS — Lenis와 함께 쓰므로 ScrollTrigger로 진입 시점을 맞춤 */
+  /* AOS — Lenis와 함께 쓰므로 ScrollTrigger로 진입 시점을 맞춤
+     스크롤 업/다운 시마다 다시 재생 */
   if (typeof AOS !== "undefined") {
     AOS.init({
-      duration: 900,
+      duration: 3000,
       easing: "ease-out-cubic",
-      once: true,
-      offset: 120,
+      once: false,
+      mirror: true,
+      offset: 200,
       disable: reduceMotion,
     });
 
@@ -62,9 +64,18 @@
         ScrollTrigger.create({
           trigger: el,
           start: "top 85%",
-          toggleActions: "play none none none",
+          end: "bottom 15%",
           onEnter: function () {
             el.classList.add("aos-animate");
+          },
+          onLeave: function () {
+            el.classList.remove("aos-animate");
+          },
+          onEnterBack: function () {
+            el.classList.add("aos-animate");
+          },
+          onLeaveBack: function () {
+            el.classList.remove("aos-animate");
           },
         });
       });
@@ -113,13 +124,22 @@
     }
   }
 
-  /* --- 이미지: 본문 리빌 완료 후 zoom-in (scrub과 분리) --- */
+  /* --- 이미지: 본문 리빌 후 zoom-in · 스크롤 업/다운 시 재재생 --- */
   if (mediaEl) {
     gsap.set(mediaEl, { scale: 0.78, opacity: 0 });
     mediaEl.classList.add("is-ready");
   }
 
   var mediaZoomed = false;
+
+  function resetMediaZoom() {
+    if (!mediaEl) {
+      return;
+    }
+    mediaZoomed = false;
+    gsap.killTweensOf(mediaEl);
+    gsap.set(mediaEl, { scale: 0.78, opacity: 0 });
+  }
 
   function playMediaZoom() {
     if (!mediaEl || mediaZoomed) {
@@ -151,6 +171,14 @@
       end: "center 35%",
       scrub: 0.5,
       markers: false,
+      onUpdate: function (self) {
+        if (self.progress >= 0.45) {
+          playMediaZoom();
+        } else if (mediaZoomed) {
+          resetMediaZoom();
+        }
+      },
+      onLeaveBack: resetMediaZoom,
     },
   });
 
@@ -169,7 +197,7 @@
     );
   }
 
-  /* 2) 본문 색상 reveal — 중후반부터 이미지 zoom-in */
+  /* 2) 본문 색상 reveal */
   if (textChars.length) {
     tl.to(
       textChars,
@@ -181,10 +209,6 @@
       },
       0.2
     );
-    /* 본문 리빌이 끝나기 전에 시작해 더 빠르게 등장 */
-    tl.call(playMediaZoom, null, 0.45);
-  } else {
-    tl.call(playMediaZoom, null, 0.35);
   }
 
   /* 첫 화면: 서브비주얼 아래 남은 뷰포트만큼 패드로 채워 intro가 보이지 않게 */

@@ -1,766 +1,701 @@
 ﻿<!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>프루또 FRUITTO</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css"
-    />
-    <link rel="stylesheet" href="assets/css/fonts.css" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/variables.css" />
-    <link rel="stylesheet" href="assets/css/common.css" />
-    <link rel="stylesheet" href="assets/css/components/button.css" />
-    <link rel="stylesheet" href="assets/css/components/card.css" />
-    <link rel="stylesheet" href="assets/css/components/header.css" />
-    <link rel="stylesheet" href="assets/css/components/footer.css" />
-    <link rel="stylesheet" href="assets/css/pages/main.css" />
-  </head>
-  <body>
-    <header class="header" id="site-header">
-      <div class="header__inner">
-        <a class="header__logo" href="index.html">
-          <img
-            class="header__logo-img"
-            src="assets/images/logo/logo.png"
-            alt="프루또"
-            width="40"
-            height="70"
-          />
-        </a>
-        <nav class="header__gnb" aria-label="주요 메뉴">
-          <ul class="header__gnb-list">
-            <li><a class="header__gnb-link" href="brand.html">브랜드스토리</a></li>
-            <li><a class="header__gnb-link" href="product.html">제품</a></li>
-            <li><a class="header__gnb-link" href="notice.html">공지</a></li>
-            <li><a class="header__gnb-link" href="store.html">입점처</a></li>
-            <li><a class="header__gnb-link" href="contact.html">문의</a></li>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>프루또 FRUITTO</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" />
+  <link rel="stylesheet" href="assets/css/fonts.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/common.css" />
+  <link rel="stylesheet" href="assets/css/components/button.css" />
+  <link rel="stylesheet" href="assets/css/components/card.css" />
+  <link rel="stylesheet" href="assets/css/components/header.css" />
+  <link rel="stylesheet" href="assets/css/components/footer.css" />
+  <link rel="stylesheet" href="assets/css/pages/main.css" />
+</head>
+
+<body>
+  <header class="header" id="site-header">
+    <div class="header__inner">
+      <a class="header__logo" href="index.html">
+        <img class="header__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="40" height="70" />
+      </a>
+      <nav class="header__gnb" aria-label="주요 메뉴">
+        <ul class="header__gnb-list">
+          <li><a class="header__gnb-link" href="brand.html">브랜드스토리</a></li>
+          <li><a class="header__gnb-link" href="product.html">제품</a></li>
+          <li><a class="header__gnb-link" href="notice.html">공지</a></li>
+          <li><a class="header__gnb-link" href="store.html">입점처</a></li>
+          <li><a class="header__gnb-link" href="contact.html">문의</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="header__menu-btn" data-nav-open aria-controls="nav-drawer" aria-expanded="false"
+        aria-label="메뉴 열기">
+        <span class="header__menu-btn-bar"></span>
+        <span class="header__menu-btn-bar"></span>
+        <span class="header__menu-btn-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-drawer-dim" id="nav-drawer-dim"></div>
+  <nav class="nav-drawer" id="nav-drawer" aria-hidden="true" aria-label="모바일 메뉴">
+    <div class="nav-drawer__top">
+      <a class="header__logo" href="index.html">
+        <img class="header__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="40" height="70" />
+      </a>
+      <button type="button" class="nav-drawer__close" data-nav-close aria-label="메뉴 닫기">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <ul class="nav-drawer__list">
+      <li class="nav-drawer__item">
+        <a class="nav-drawer__link" href="brand.html">브랜드스토리</a>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-product">
+          제품
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-product">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="product.html">All</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html">사계절</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html">봄</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html">여름</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html">가을</a></li>
+            <li><a class="nav-drawer__sub-link" href="product.html">겨울</a></li>
           </ul>
-        </nav>
-        <button
-          type="button"
-          class="header__menu-btn"
-          data-nav-open
-          aria-controls="nav-drawer"
-          aria-expanded="false"
-          aria-label="메뉴 열기"
-        >
-          <span class="header__menu-btn-bar"></span>
-          <span class="header__menu-btn-bar"></span>
-          <span class="header__menu-btn-bar"></span>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-notice">
+          공지
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
         </button>
+        <div class="nav-drawer__sub" id="nav-sub-notice">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="notice.html#notice">공지사항</a></li>
+            <li><a class="nav-drawer__sub-link" href="notice.html#event">이벤트</a></li>
+            <li><a class="nav-drawer__sub-link" href="notice.html#promotion">프로모션</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-store">
+          입점처
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-store">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="store.html#online">온라인</a></li>
+            <li><a class="nav-drawer__sub-link" href="store.html#offline">오프라인</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-drawer__item nav-drawer__item--has-sub">
+        <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false"
+          aria-controls="nav-sub-contact">
+          문의
+          <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-drawer__sub" id="nav-sub-contact">
+          <ul class="nav-drawer__sub-inner">
+            <li><a class="nav-drawer__sub-link" href="contact.html#faq">자주하는 질문</a></li>
+            <li><a class="nav-drawer__sub-link" href="contact.html#inquiry">문의</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- KV -->
+    <section class="kv" aria-label="메인 비주얼">
+      <div class="kv__track">
+        <!-- Slide 1 — Mango -->
+        <article class="kv__slide kv__slide--mango">
+          <div class="kv__bg" aria-hidden="true"></div>
+          <div class="kv__content">
+            <div class="kv__brand-wrap">
+              <p class="kv__brand" aria-hidden="true">FRUITTO</p>
+            </div>
+            <div class="kv__product-wrap">
+              <img class="kv__product" src="assets/images/main/banner-mango.png" alt="FRUITTO 망고 젤라또" />
+            </div>
+            <p class="kv__tagline">Rescued fruit, Reborn Gelato</p>
+          </div>
+        </article>
+
+        <!-- Slide 2 — Peach -->
+        <article class="kv__slide kv__slide--peach">
+          <div class="kv__bg" aria-hidden="true"></div>
+          <div class="kv__content">
+            <div class="kv__brand-wrap">
+              <p class="kv__brand" aria-hidden="true">FRUITTO</p>
+            </div>
+            <div class="kv__product-wrap">
+              <img class="kv__product" src="assets/images/main/banner-peach.png" alt="FRUITTO 피치 젤라또" />
+            </div>
+            <p class="kv__tagline">Rescued fruit, Reborn Gelato</p>
+          </div>
+        </article>
+
+        <!-- Slide 3 — Watermelon -->
+        <article class="kv__slide kv__slide--watermelon">
+          <div class="kv__bg" aria-hidden="true"></div>
+          <div class="kv__content">
+            <div class="kv__brand-wrap">
+              <p class="kv__brand" aria-hidden="true">FRUITTO</p>
+            </div>
+            <div class="kv__product-wrap">
+              <img class="kv__product" src="assets/images/main/banner-watermelon.png" alt="FRUITTO 수박 젤라또" />
+            </div>
+            <p class="kv__tagline">Rescued fruit, Reborn Gelato</p>
+          </div>
+        </article>
       </div>
-    </header>
 
-    <div class="nav-drawer-dim" id="nav-drawer-dim"></div>
-    <nav class="nav-drawer" id="nav-drawer" aria-hidden="true" aria-label="모바일 메뉴">
-      <div class="nav-drawer__top">
-        <a class="header__logo" href="index.html">
-          <img
-            class="header__logo-img"
-            src="assets/images/logo/logo.png"
-            alt="프루또"
-            width="40"
-            height="70"
-          />
-        </a>
-        <button type="button" class="nav-drawer__close" data-nav-close aria-label="메뉴 닫기">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          </svg>
-        </button>
+      <button type="button" class="kv__btn kv__btn--prev" data-kv-prev aria-label="이전 배너">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button type="button" class="kv__btn kv__btn--next" data-kv-next aria-label="다음 배너">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div class="kv__dots" role="tablist" aria-label="배너 페이지">
+        <button type="button" class="kv__dot is-active" aria-label="1번 배너"></button>
+        <button type="button" class="kv__dot" aria-label="2번 배너"></button>
+        <button type="button" class="kv__dot" aria-label="3번 배너"></button>
       </div>
-      <ul class="nav-drawer__list">
-        <li class="nav-drawer__item">
-          <a class="nav-drawer__link" href="brand.html">브랜드스토리</a>
-        </li>
-        <li class="nav-drawer__item nav-drawer__item--has-sub">
-          <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false" aria-controls="nav-sub-product">
-            제품
-            <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div class="nav-drawer__sub" id="nav-sub-product">
-            <ul class="nav-drawer__sub-inner">
-              <li><a class="nav-drawer__sub-link" href="product.html">All</a></li>
-              <li><a class="nav-drawer__sub-link" href="product.html">사계절</a></li>
-              <li><a class="nav-drawer__sub-link" href="product.html">봄</a></li>
-              <li><a class="nav-drawer__sub-link" href="product.html">여름</a></li>
-              <li><a class="nav-drawer__sub-link" href="product.html">가을</a></li>
-              <li><a class="nav-drawer__sub-link" href="product.html">겨울</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-drawer__item nav-drawer__item--has-sub">
-          <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false" aria-controls="nav-sub-notice">
-            공지
-            <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div class="nav-drawer__sub" id="nav-sub-notice">
-            <ul class="nav-drawer__sub-inner">
-              <li><a class="nav-drawer__sub-link" href="notice.html#notice">공지사항</a></li>
-              <li><a class="nav-drawer__sub-link" href="notice.html#event">이벤트</a></li>
-              <li><a class="nav-drawer__sub-link" href="notice.html#promotion">프로모션</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-drawer__item nav-drawer__item--has-sub">
-          <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false" aria-controls="nav-sub-store">
-            입점처
-            <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div class="nav-drawer__sub" id="nav-sub-store">
-            <ul class="nav-drawer__sub-inner">
-              <li><a class="nav-drawer__sub-link" href="store.html#online">온라인</a></li>
-              <li><a class="nav-drawer__sub-link" href="store.html#offline">오프라인</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-drawer__item nav-drawer__item--has-sub">
-          <button type="button" class="nav-drawer__link nav-drawer__toggle" aria-expanded="false" aria-controls="nav-sub-contact">
-            문의
-            <svg class="nav-drawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div class="nav-drawer__sub" id="nav-sub-contact">
-            <ul class="nav-drawer__sub-inner">
-              <li><a class="nav-drawer__sub-link" href="contact.html#faq">자주하는 질문</a></li>
-              <li><a class="nav-drawer__sub-link" href="contact.html#inquiry">문의</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav>
+    </section>
 
-    <main>
-      <!-- KV -->
-      <section class="kv" aria-label="메인 비주얼">
-        <div class="kv__track">
-          <!-- Slide 1 — Mango -->
-          <article class="kv__slide kv__slide--mango">
-            <div class="kv__bg" aria-hidden="true"></div>
-            <div class="kv__content">
-              <div class="kv__brand-wrap">
-                <p class="kv__brand" aria-hidden="true">FRUITTO</p>
-              </div>
-              <div class="kv__product-wrap">
-                <img
-                  class="kv__product"
-                  src="assets/images/main/banner-mango.png"
-                  alt="FRUITTO 망고 젤라또"
-                />
-              </div>
-              <p class="kv__tagline">Rescued fruit, Reborn Gelato</p>
-            </div>
-          </article>
-
-          <!-- Slide 2 — Peach -->
-          <article class="kv__slide kv__slide--peach">
-            <div class="kv__bg" aria-hidden="true"></div>
-            <div class="kv__content">
-              <div class="kv__brand-wrap">
-                <p class="kv__brand" aria-hidden="true">FRUITTO</p>
-              </div>
-              <div class="kv__product-wrap">
-                <img
-                  class="kv__product"
-                  src="assets/images/main/banner-peach.png"
-                  alt="FRUITTO 피치 젤라또"
-                />
-              </div>
-              <p class="kv__tagline">Rescued fruit, Reborn Gelato</p>
-            </div>
-          </article>
-
-          <!-- Slide 3 — Watermelon -->
-          <article class="kv__slide kv__slide--watermelon">
-            <div class="kv__bg" aria-hidden="true"></div>
-            <div class="kv__content">
-              <div class="kv__brand-wrap">
-                <p class="kv__brand" aria-hidden="true">FRUITTO</p>
-              </div>
-              <div class="kv__product-wrap">
-                <img
-                  class="kv__product"
-                  src="assets/images/main/banner-watermelon.png"
-                  alt="FRUITTO 수박 젤라또"
-                />
-              </div>
-              <p class="kv__tagline">Rescued fruit, Reborn Gelato</p>
-            </div>
-          </article>
+    <!-- Brand Story -->
+    <section class="story" aria-label="브랜드 스토리">
+      <div class="story__inner">
+        <div class="story__text">
+          <h2 class="story__title" data-aos="fade-down">Our story</h2>
+          <p class="story__desc">프루토 젤라또는 당신의 일상에 상큼한 즐거움을 더하고,
+            매 순간을 달콤하게 기억될 경험으로 만들어 드립니다.</p>
+          <a class="btn btn--lg btn--primary story__btn" href="brand.html">자세히보기</a>
         </div>
 
-        <button type="button" class="kv__btn kv__btn--prev" data-kv-prev aria-label="이전 배너">
-          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-        <button type="button" class="kv__btn kv__btn--next" data-kv-next aria-label="다음 배너">
-          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-        <div class="kv__dots" role="tablist" aria-label="배너 페이지">
-          <button type="button" class="kv__dot is-active" aria-label="1번 배너"></button>
-          <button type="button" class="kv__dot" aria-label="2번 배너"></button>
-          <button type="button" class="kv__dot" aria-label="3번 배너"></button>
-        </div>
-      </section>
-
-      <!-- Brand Story -->
-      <section class="story" aria-label="브랜드 스토리">
-        <div class="story__inner">
-          <div class="story__text">
-            <h2 class="story__title">Our story</h2>
-            <p class="story__desc">프루토 젤라또는 당신의 일상에 상큼한 즐거움을 더하고,
-매 순간을 달콤하게 기억될 경험으로 만들어 드립니다.</p>
-            <a class="btn btn--lg btn--primary story__btn" href="brand.html">자세히보기</a>
-          </div>
-
-          <div class="story__media">
-            <div class="story__viewport">
-              <div class="story__track">
-                <article class="story__slide">
-                  <picture class="story__picture">
-                    <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-rescue.png" />
-                    <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-rescue.png" />
-                    <img
-                      class="story__image"
-                      src="assets/images/main/main-rescue.png"
-                      alt="Rescue — 상처난 과일의 재발견"
-                    />
-                  </picture>
-                  <div class="story__caption">
-                    <p class="story__caption-en">Rescue</p>
-                    <p class="story__caption-ko">상처난 과일의 재발견</p>
-                  </div>
-                </article>
-                <article class="story__slide">
-                  <picture class="story__picture">
-                    <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-reborn.png" />
-                    <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-reborn.png" />
-                    <img
-                      class="story__image"
-                      src="assets/images/main/main-reborn.png"
-                      alt="Reborn — 과일의 재탄생"
-                    />
-                  </picture>
-                  <div class="story__caption">
-                    <p class="story__caption-en">Reborn</p>
-                    <p class="story__caption-ko">과일의 재탄생</p>
-                  </div>
-                </article>
-                <article class="story__slide">
-                  <picture class="story__picture">
-                    <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-Happiness.png" />
-                    <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-happiness.png" />
-                    <img
-                      class="story__image"
-                      src="assets/images/main/main-happiness.png"
-                      alt="Happiness — 소비자의 행복"
-                    />
-                  </picture>
-                  <div class="story__caption">
-                    <p class="story__caption-en">Happiness</p>
-                    <p class="story__caption-ko">소비자의 행복</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-
-            <div class="story__nav">
-              <button type="button" class="story__nav-btn" data-story-prev aria-label="이전 스토리">
-                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-              <button type="button" class="story__nav-btn" data-story-next aria-label="다음 스토리">
-                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-            </div>
-
-            <div class="story__dots" role="tablist" aria-label="스토리 페이지">
-              <button type="button" class="story__dot is-active" data-story-dot="0" aria-label="1번 스토리"></button>
-              <button type="button" class="story__dot" data-story-dot="1" aria-label="2번 스토리"></button>
-              <button type="button" class="story__dot" data-story-dot="2" aria-label="3번 스토리"></button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FRUITTO's Gelato -->
-      <section class="gelato" aria-label="프루또 젤라또">
-        <div class="gelato__inner">
-          <h2 class="gelato__title">FRUITTO's Gelato</h2>
-
-          <div class="gelato__wrap">
-            <div class="gelato__viewport">
-              <div class="gelato__track">
-                <div class="gelato__group">
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/kiwi.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">키위 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/melon.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">멜론 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/strawberry.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">딸기 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/apple.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">사과 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/peach.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">복숭아 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/grape.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">포도 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/mango.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">망고 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/lemon.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">레몬 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/banana.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">바나나 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/watermelon.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">수박 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/greenplum.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">매실 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/mandarin.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">귤 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/Pomegranate.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">석류 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/yuja.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">유자 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/cheonhyehyang.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">천혜향 젤라또</p>
-                  </article>
+        <div class="story__media">
+          <div class="story__viewport">
+            <div class="story__track">
+              <article class="story__slide">
+                <picture class="story__picture">
+                  <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-rescue.png" />
+                  <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-rescue.png" />
+                  <img class="story__image" src="assets/images/main/main-rescue.png" alt="Rescue — 상처난 과일의 재발견" />
+                </picture>
+                <div class="story__caption">
+                  <p class="story__caption-en">Rescue</p>
+                  <p class="story__caption-ko">상처난 과일의 재발견</p>
                 </div>
-                <div class="gelato__group" aria-hidden="true">
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/kiwi.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">키위 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/melon.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">멜론 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/strawberry.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">딸기 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/apple.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">사과 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/peach.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">복숭아 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/grape.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">포도 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/mango.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">망고 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/lemon.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">레몬 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/banana.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">바나나 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/watermelon.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">수박 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/greenplum.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">매실 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/mandarin.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">귤 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/Pomegranate.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">석류 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/yuja.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">유자 젤라또</p>
-                  </article>
-                  <article class="gelato__item">
-                    <img class="gelato__image" src="assets/images/product/cheonhyehyang.png" alt="" width="320" height="330" />
-                    <p class="gelato__name">천혜향 젤라또</p>
-                  </article>
+              </article>
+              <article class="story__slide">
+                <picture class="story__picture">
+                  <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-reborn.png" />
+                  <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-reborn.png" />
+                  <img class="story__image" src="assets/images/main/main-reborn.png" alt="Reborn — 과일의 재탄생" />
+                </picture>
+                <div class="story__caption">
+                  <p class="story__caption-en">Reborn</p>
+                  <p class="story__caption-ko">과일의 재탄생</p>
                 </div>
-              </div>
+              </article>
+              <article class="story__slide">
+                <picture class="story__picture">
+                  <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-Happiness.png" />
+                  <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-happiness.png" />
+                  <img class="story__image" src="assets/images/main/main-happiness.png" alt="Happiness — 소비자의 행복" />
+                </picture>
+                <div class="story__caption">
+                  <p class="story__caption-en">Happiness</p>
+                  <p class="story__caption-ko">소비자의 행복</p>
+                </div>
+              </article>
             </div>
           </div>
 
-          <a class="btn btn--lg btn--on-dark gelato__btn" href="product.html">
-            메뉴 보기
-            <span class="btn__icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <div class="story__nav">
+            <button type="button" class="story__nav-btn" data-story-prev aria-label="이전 스토리">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
-            </span>
+            </button>
+            <button type="button" class="story__nav-btn" data-story-next aria-label="다음 스토리">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="story__dots" role="tablist" aria-label="스토리 페이지">
+            <button type="button" class="story__dot is-active" data-story-dot="0" aria-label="1번 스토리"></button>
+            <button type="button" class="story__dot" data-story-dot="1" aria-label="2번 스토리"></button>
+            <button type="button" class="story__dot" data-story-dot="2" aria-label="3번 스토리"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRUITTO's Gelato -->
+    <section class="gelato" aria-label="프루또 젤라또">
+      <div class="gelato__inner">
+        <h2 class="gelato__title">FRUITTO's Gelato</h2>
+
+        <div class="gelato__wrap">
+          <div class="gelato__viewport">
+            <div class="gelato__track">
+              <div class="gelato__group">
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/kiwi.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">키위 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/melon.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">멜론 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/strawberry.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">딸기 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/apple.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">사과 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/peach.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">복숭아 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/grape.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">포도 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/mango.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">망고 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/lemon.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">레몬 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/banana.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">바나나 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/watermelon.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">수박 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/greenplum.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">매실 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/mandarin.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">귤 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/Pomegranate.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">석류 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/yuja.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">유자 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/cheonhyehyang.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">천혜향 젤라또</p>
+                </article>
+              </div>
+              <div class="gelato__group" aria-hidden="true">
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/kiwi.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">키위 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/melon.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">멜론 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/strawberry.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">딸기 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/apple.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">사과 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/peach.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">복숭아 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/grape.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">포도 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/mango.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">망고 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/lemon.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">레몬 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/banana.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">바나나 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/watermelon.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">수박 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/greenplum.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">매실 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/mandarin.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">귤 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/Pomegranate.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">석류 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/yuja.png" alt="" width="320" height="330" />
+                  <p class="gelato__name">유자 젤라또</p>
+                </article>
+                <article class="gelato__item">
+                  <img class="gelato__image" src="assets/images/product/cheonhyehyang.png" alt="" width="320"
+                    height="330" />
+                  <p class="gelato__name">천혜향 젤라또</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn btn--lg btn--on-dark gelato__btn" href="product.html">
+          메뉴 보기
+          <span class="btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Core value -->
+    <section class="core" aria-label="Core value">
+      <div class="core__inner">
+        <h2 class="core__title">Core value</h2>
+
+        <div class="core__slider">
+          <div class="core__viewport">
+            <div class="core__list">
+              <article class="core__item">
+                <div class="core__media">
+                  <picture class="core__picture">
+                    <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-belief.png?v=2" />
+                    <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-belief.png?v=2" />
+                    <img class="core__image" src="assets/images/main/belief.png" alt="" width="1064" height="646" />
+                  </picture>
+                  <p class="core__label">Belief</p>
+                </div>
+                <div class="core__detail">
+                  <p class="core__detail-en">Belief</p>
+                  <p class="core__detail-title">각 지역의 인증된 농가</p>
+                  <p class="core__detail-text">
+                    프루토는 품질이 검증된 지역 농가와 협력하여 신선하고 믿을 수 있는 과일을 공급받습니다.
+                  </p>
+                </div>
+              </article>
+
+              <article class="core__item">
+                <div class="core__media">
+                  <picture class="core__picture">
+                    <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-sanitation.png?v=2" />
+                    <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-sanitation.png?v=2" />
+                    <img class="core__image" src="assets/images/main/sanitation.png" alt="" width="1064" height="646" />
+                  </picture>
+                  <p class="core__label">Sanitation</p>
+                </div>
+                <div class="core__detail">
+                  <p class="core__detail-en">Sanitation</p>
+                  <p class="core__detail-title">꼼꼼한 세척 관리</p>
+                  <p class="core__detail-text">
+                    과일의 신선함을 유지하기 위해 입고 후 바로<br />세척하여 꼼꼼히 관리합니다.
+                  </p>
+                </div>
+              </article>
+
+              <article class="core__item">
+                <div class="core__media">
+                  <picture class="core__picture">
+                    <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-research.png?v=2" />
+                    <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-research.png?v=2" />
+                    <img class="core__image" src="assets/images/main/research.png" alt="" width="1064" height="646" />
+                  </picture>
+                  <p class="core__label">Research</p>
+                </div>
+                <div class="core__detail">
+                  <p class="core__detail-en">Research</p>
+                  <p class="core__detail-title">끊임없이 연구합니다</p>
+                  <p class="core__detail-text">
+                    더 맛있는 젤라또를 위해 새로운 레시피와<br />과일 조합을 꾸준히 테스트합니다.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="core__dots" role="tablist" aria-label="Core value 페이지">
+            <button type="button" class="core__dot is-active" data-core-dot="0" aria-label="1번 코어 밸류"></button>
+            <button type="button" class="core__dot" data-core-dot="1" aria-label="2번 코어 밸류"></button>
+            <button type="button" class="core__dot" data-core-dot="2" aria-label="3번 코어 밸류"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slogan marquee -->
+    <section class="slogan" aria-label="브랜드 슬로건">
+      <div class="slogan__viewport">
+        <div class="slogan__track">
+          <div class="slogan__group">
+            <span class="slogan__text slogan__text--fill">Rescued fruit, Reborn Gelato</span>
+            <span class="slogan__text slogan__text--stroke">Rescued fruit, Reborn Gelato</span>
+          </div>
+          <div class="slogan__group" aria-hidden="true">
+            <span class="slogan__text slogan__text--fill">Rescued fruit, Reborn Gelato</span>
+            <span class="slogan__text slogan__text--stroke">Rescued fruit, Reborn Gelato</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Market -->
+    <section class="market" aria-label="Open Market">
+      <div class="market__inner">
+        <h2 class="market__title">Open Market</h2>
+
+        <div class="market__toggle" role="tablist" aria-label="판매 채널">
+          <button type="button" class="market__toggle-btn is-active" role="tab" aria-selected="true"
+            data-market-tab="online">
+            온라인몰
+          </button>
+          <button type="button" class="market__toggle-btn" role="tab" aria-selected="false" data-market-tab="offline">
+            오프라인몰
+          </button>
+        </div>
+
+        <div class="market__panels">
+          <div class="market__panel is-active" data-market-panel="online" role="tabpanel" aria-label="온라인몰">
+            <ul class="market__logos market__logos--online">
+              <li class="market__logo">
+                <img src="assets/images/store/ssg-logo.png" alt="SSG" width="240" height="120" />
+              </li>
+              <li class="market__logo">
+                <img src="assets/images/store/bmart-logo.png" alt="B마트" width="240" height="120" />
+              </li>
+              <li class="market__logo">
+                <img src="assets/images/store/kurly-logo.png" alt="컬리" width="240" height="120" />
+              </li>
+              <li class="market__logo">
+                <img src="assets/images/store/coupang-logo.png" alt="쿠팡" width="240" height="120" />
+              </li>
+              <li class="market__logo">
+                <img src="assets/images/store/naver-logo.png" alt="네이버" width="240" height="120" />
+              </li>
+            </ul>
+          </div>
+
+          <div class="market__panel" data-market-panel="offline" role="tabpanel" aria-label="오프라인몰" hidden>
+            <ul class="market__logos market__logos--offline">
+              <li class="market__logo">
+                <img src="assets/images/store/seven-logo.png" alt="세븐일레븐" width="240" height="120" />
+              </li>
+              <li class="market__logo">
+                <img src="assets/images/store/cu-logo.png" alt="CU" width="240" height="120" />
+              </li>
+              <li class="market__logo">
+                <img src="assets/images/store/gsfresh-logo.png" alt="GS THE FRESH" width="240" height="120" />
+              </li>
+              <li class="market__logo">
+                <img src="assets/images/store/gs25-logo.png" alt="GS25" width="240" height="120" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event -->
+    <section class="event" aria-label="Event">
+      <div class="event__inner">
+        <div class="event__head">
+          <div class="event__head-text">
+            <h2 class="event__title">Event</h2>
+            <p class="event__desc">다양하게 진행되는 이벤트를 만나보세요!</p>
+          </div>
+          <a class="btn btn--md btn--outline event__more" href="notice.html#event">
+            More →
           </a>
         </div>
-      </section>
 
-      <!-- Core value -->
-      <section class="core" aria-label="Core value">
-        <div class="core__inner">
-          <h2 class="core__title">Core value</h2>
-
-          <div class="core__slider">
-            <div class="core__viewport">
-              <div class="core__list">
-                <article class="core__item">
-                  <div class="core__media">
-                    <picture class="core__picture">
-                      <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-belief.png?v=2" />
-                      <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-belief.png?v=2" />
-                      <img
-                        class="core__image"
-                        src="assets/images/main/belief.png"
-                        alt=""
-                        width="1064"
-                        height="646"
-                      />
-                    </picture>
-                    <p class="core__label">Belief</p>
-                  </div>
-                  <div class="core__detail">
-                    <p class="core__detail-en">Belief</p>
-                    <p class="core__detail-title">각 지역의 인증된 농가</p>
-                    <p class="core__detail-text">
-                      프루토는 품질이 검증된 지역 농가와 협력하여 신선하고 믿을 수 있는 과일을 공급받습니다.
-                    </p>
-                  </div>
-                </article>
-
-                <article class="core__item">
-                  <div class="core__media">
-                    <picture class="core__picture">
-                      <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-sanitation.png?v=2" />
-                      <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-sanitation.png?v=2" />
-                      <img
-                        class="core__image"
-                        src="assets/images/main/sanitation.png"
-                        alt=""
-                        width="1064"
-                        height="646"
-                      />
-                    </picture>
-                    <p class="core__label">Sanitation</p>
-                  </div>
-                  <div class="core__detail">
-                    <p class="core__detail-en">Sanitation</p>
-                    <p class="core__detail-title">꼼꼼한 세척 관리</p>
-                    <p class="core__detail-text">
-                      과일의 신선함을 유지하기 위해 입고 후 바로<br />세척하여 꼼꼼히 관리합니다.
-                    </p>
-                  </div>
-                </article>
-
-                <article class="core__item">
-                  <div class="core__media">
-                    <picture class="core__picture">
-                      <source media="(max-width: 47.9375rem)" srcset="assets/images/main/mo-research.png?v=2" />
-                      <source media="(max-width: 63.9375rem)" srcset="assets/images/main/tab-research.png?v=2" />
-                      <img
-                        class="core__image"
-                        src="assets/images/main/research.png"
-                        alt=""
-                        width="1064"
-                        height="646"
-                      />
-                    </picture>
-                    <p class="core__label">Research</p>
-                  </div>
-                  <div class="core__detail">
-                    <p class="core__detail-en">Research</p>
-                    <p class="core__detail-title">끊임없이 연구합니다</p>
-                    <p class="core__detail-text">
-                      더 맛있는 젤라또를 위해 새로운 레시피와<br />과일 조합을 꾸준히 테스트합니다.
-                    </p>
-                  </div>
-                </article>
-              </div>
+        <div class="event__list">
+          <a class="event-card" href="event-detail.html" aria-label="[EVENT] 다가오는 여름! 신메뉴 체험단 모집 상세 보기">
+            <div class="event-card__media">
+              <img class="card-media" src="assets/images/notice/event1.jpg?v=2" alt="" width="686" height="533" />
             </div>
-
-            <div class="core__dots" role="tablist" aria-label="Core value 페이지">
-              <button type="button" class="core__dot is-active" data-core-dot="0" aria-label="1번 코어 밸류"></button>
-              <button type="button" class="core__dot" data-core-dot="1" aria-label="2번 코어 밸류"></button>
-              <button type="button" class="core__dot" data-core-dot="2" aria-label="3번 코어 밸류"></button>
+            <div class="event-card__body">
+              <h3 class="event-card__title">[EVENT] 다가오는 여름! 신메뉴 체험단 모집 🍉</h3>
+              <p class="event-card__date">2026.06.12 - 2026.06.18</p>
             </div>
-          </div>
+          </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Slogan marquee -->
-      <section class="slogan" aria-label="브랜드 슬로건">
-        <div class="slogan__viewport">
-          <div class="slogan__track">
-            <div class="slogan__group">
-              <span class="slogan__text slogan__text--fill">Rescued fruit, Reborn Gelato</span>
-              <span class="slogan__text slogan__text--stroke">Rescued fruit, Reborn Gelato</span>
+    <!-- SNS -->
+    <section class="sns" aria-label="SNS">
+      <div class="sns__inner">
+        <h2 class="sns__title">#With FRUITTO</h2>
+
+        <div class="sns__viewport">
+          <div class="sns__track">
+            <div class="sns__group">
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta1.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta2.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta3.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta4.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta5.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
             </div>
-            <div class="slogan__group" aria-hidden="true">
-              <span class="slogan__text slogan__text--fill">Rescued fruit, Reborn Gelato</span>
-              <span class="slogan__text slogan__text--stroke">Rescued fruit, Reborn Gelato</span>
+            <div class="sns__group" aria-hidden="true">
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta1.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta2.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta3.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta4.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
+              <figure class="sns__item">
+                <img class="sns__image" src="assets/images/insta5.png" alt="" width="370" height="370" />
+                <figcaption class="sns__handle">@fruittogelato</figcaption>
+              </figure>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Open Market -->
-      <section class="market" aria-label="Open Market">
-        <div class="market__inner">
-          <h2 class="market__title">Open Market</h2>
-
-          <div class="market__toggle" role="tablist" aria-label="판매 채널">
-            <button
-              type="button"
-              class="market__toggle-btn is-active"
-              role="tab"
-              aria-selected="true"
-              data-market-tab="online"
-            >
-              온라인몰
-            </button>
-            <button
-              type="button"
-              class="market__toggle-btn"
-              role="tab"
-              aria-selected="false"
-              data-market-tab="offline"
-            >
-              오프라인몰
-            </button>
-          </div>
-
-          <div class="market__panels">
-            <div
-              class="market__panel is-active"
-              data-market-panel="online"
-              role="tabpanel"
-              aria-label="온라인몰"
-            >
-              <ul class="market__logos market__logos--online">
-                <li class="market__logo">
-                  <img src="assets/images/store/ssg-logo.png" alt="SSG" width="240" height="120" />
-                </li>
-                <li class="market__logo">
-                  <img src="assets/images/store/bmart-logo.png" alt="B마트" width="240" height="120" />
-                </li>
-                <li class="market__logo">
-                  <img src="assets/images/store/kurly-logo.png" alt="컬리" width="240" height="120" />
-                </li>
-                <li class="market__logo">
-                  <img src="assets/images/store/coupang-logo.png" alt="쿠팡" width="240" height="120" />
-                </li>
-                <li class="market__logo">
-                  <img src="assets/images/store/naver-logo.png" alt="네이버" width="240" height="120" />
-                </li>
-              </ul>
-            </div>
-
-            <div
-              class="market__panel"
-              data-market-panel="offline"
-              role="tabpanel"
-              aria-label="오프라인몰"
-              hidden
-            >
-              <ul class="market__logos market__logos--offline">
-                <li class="market__logo">
-                  <img src="assets/images/store/seven-logo.png" alt="세븐일레븐" width="240" height="120" />
-                </li>
-                <li class="market__logo">
-                  <img src="assets/images/store/cu-logo.png" alt="CU" width="240" height="120" />
-                </li>
-                <li class="market__logo">
-                  <img src="assets/images/store/gsfresh-logo.png" alt="GS THE FRESH" width="240" height="120" />
-                </li>
-                <li class="market__logo">
-                  <img src="assets/images/store/gs25-logo.png" alt="GS25" width="240" height="120" />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Event -->
-      <section class="event" aria-label="Event">
-        <div class="event__inner">
-          <div class="event__head">
-            <div class="event__head-text">
-              <h2 class="event__title">Event</h2>
-              <p class="event__desc">다양하게 진행되는 이벤트를 만나보세요!</p>
-            </div>
-            <a class="btn btn--md btn--outline event__more" href="notice.html#event">
-              More →
-            </a>
-          </div>
-
-          <div class="event__list">
-            <a class="event-card" href="event-detail.html" aria-label="[EVENT] 다가오는 여름! 신메뉴 체험단 모집 상세 보기">
-              <div class="event-card__media">
-                <img class="card-media" src="assets/images/notice/event1.jpg?v=2" alt="" width="686" height="533" />
-              </div>
-              <div class="event-card__body">
-                <h3 class="event-card__title">[EVENT] 다가오는 여름! 신메뉴 체험단 모집 🍉</h3>
-                <p class="event-card__date">2026.06.12 - 2026.06.18</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- SNS -->
-      <section class="sns" aria-label="SNS">
-        <div class="sns__inner">
-          <h2 class="sns__title">#With FRUITTO</h2>
-
-          <div class="sns__viewport">
-            <div class="sns__track">
-              <div class="sns__group">
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta1.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta2.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta3.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta4.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta5.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-              </div>
-              <div class="sns__group" aria-hidden="true">
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta1.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta2.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta3.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta4.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-                <figure class="sns__item">
-                  <img class="sns__image" src="assets/images/insta5.png" alt="" width="370" height="370" />
-                  <figcaption class="sns__handle">@fruittogelato</figcaption>
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer__inner">
-        <a class="footer__logo" href="index.html">
-          <img
-            class="footer__logo-img"
-            src="assets/images/logo/logo.png"
-            alt="프루또"
-            width="28"
-            height="50"
-          />
-        </a>
-        <div class="footer__row">
-          <div class="footer__content">
-            <p class="footer__policy">
-              <a class="footer__policy-link footer__policy-link--bold" href="#">개인정보처리방침</a>
-              <span class="footer__policy-sep" aria-hidden="true">|</span>
-              <a class="footer__policy-link" href="#">이메일 무단 수집 거부</a>
-            </p>
-            <div class="footer__info">
-              <p>
-                프루또 | 대표이사 : 000 | 사업자등록번호: 510-00-97913 | 서울특별시 강남구 강남대로 372 프루또
-              </p>
-              <p>
-                이메일: fruittogelato@naver.com | 마케팅 협업 제안: fruitto_creative@naver.com | 가맹문의 및 고객지원: 1811-0913
-              </p>
-            </div>
-            <p class="footer__copyright">Copyright ©프루또(주) All Rights Reserved.</p>
-          </div>
-          <div class="footer__sns">
-            <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="인스타그램">
-              <img class="footer__sns-icon" src="assets/images/icon/instagram.png" alt="" width="24" height="24" />
-            </a>
-            <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="카카오톡">
-              <img class="footer__sns-icon" src="assets/images/icon/kakao.png" alt="" width="24" height="24" />
-            </a>
           </div>
         </div>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="assets/js/common.js"></script>
-    <script src="assets/js/pages/main.js"></script>
-  </body>
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="footer__logo" href="index.html">
+        <img class="footer__logo-img" src="assets/images/logo/logo.png" alt="프루또" width="28" height="50" />
+      </a>
+      <div class="footer__row">
+        <div class="footer__content">
+          <p class="footer__policy">
+            <a class="footer__policy-link footer__policy-link--bold" href="#">개인정보처리방침</a>
+            <span class="footer__policy-sep" aria-hidden="true">|</span>
+            <a class="footer__policy-link" href="#">이메일 무단 수집 거부</a>
+          </p>
+          <div class="footer__info">
+            <p>
+              프루또 | 대표이사 : 000 | 사업자등록번호: 510-00-97913 | 서울특별시 강남구 강남대로 372 프루또
+            </p>
+            <p>
+              이메일: fruittogelato@naver.com | 마케팅 협업 제안: fruitto_creative@naver.com | 가맹문의 및 고객지원: 1811-0913
+            </p>
+          </div>
+          <p class="footer__copyright">Copyright ©프루또(주) All Rights Reserved.</p>
+        </div>
+        <div class="footer__sns">
+          <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="인스타그램">
+            <img class="footer__sns-icon" src="assets/images/icon/instagram.png" alt="" width="24" height="24" />
+          </a>
+          <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="카카오톡">
+            <img class="footer__sns-icon" src="assets/images/icon/kakao.png" alt="" width="24" height="24" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/pages/main.js"></script>
+</body>
+
 </html>

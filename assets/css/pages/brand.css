@@ -19,7 +19,8 @@
   justify-content: center;
   width: 100%;
   max-width: var(--layout-max-width);
-  min-height: 100vh;
+  height: auto;
+  min-height: 0;
   margin: 0 auto;
   padding: 6.25rem 0;
   background-color: var(--color-ivory1);
