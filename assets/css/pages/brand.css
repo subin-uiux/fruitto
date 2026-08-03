@@ -703,6 +703,11 @@
   text-align: left;
 }
 
+/* PC: 한 줄 / 태블릿·모바일: 지정 줄바꿈 */
+.ugly-fruit__label-break {
+  display: none;
+}
+
 .ugly-fruit__desc {
   margin: 3.75rem 0 0;
   max-width: 46rem;
@@ -732,8 +737,16 @@
   }
 
   .ugly-fruit__label {
+    left: 68%;
+    top: 26%;
+    width: 40%;
     font-size: 0.875rem; /* 14px */
     padding-left: 0.35rem;
+    white-space: normal;
+  }
+
+  .ugly-fruit__label-break {
+    display: block;
   }
 
   .ugly-fruit__desc {
@@ -758,9 +771,10 @@
   }
 
   .ugly-fruit__label {
+    left: 68%;
+    width: 44%;
     font-size: 0.75rem; /* 12px */
     white-space: normal;
-    max-width: 42%;
     padding-left: 0.25rem;
   }
 

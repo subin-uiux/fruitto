@@ -240,7 +240,19 @@
     }, 100);
   }
 
-  function initKakaoMap() {
+  function showMapError(message) {
+    if (!mapEl) {
+      return;
+    }
+    mapEl.innerHTML =
+      '<p style="display:flex;align-items:center;justify-content:center;height:100%;margin:0;padding:1rem;text-align:center;color:#555;font-size:0.875rem;line-height:1.5;">' +
+      message +
+      "</p>";
+  }
+
+  function initKakaoMap(retryCount) {
+    var retries = typeof retryCount === "number" ? retryCount : 0;
+
     if (!mapEl || mapReady) {
       if (mapInstance) {
         window.setTimeout(function () {
@@ -250,9 +262,23 @@
       return;
     }
 
+    if (window.__kakaoMapSdkFailed) {
+      showMapError(
+        "카카오맵 SDK를 불러오지 못했습니다.<br />현재 주소창 도메인이<br />카카오 JavaScript SDK 도메인에<br />등록돼 있는지 확인해 주세요.<br />(예: http://127.0.0.1:5503)"
+      );
+      return;
+    }
+
     if (typeof kakao === "undefined" || !kakao.maps) {
-      mapEl.innerHTML =
-        '<p style="display:flex;align-items:center;justify-content:center;height:100%;margin:0;padding:1rem;text-align:center;color:#555;font-size:0.875rem;">지도를 불러오는 중이거나<br />카카오맵 API 키/도메인 설정을 확인해 주세요.</p>';
+      if (retries < 20) {
+        window.setTimeout(function () {
+          initKakaoMap(retries + 1);
+        }, 100);
+        return;
+      }
+      showMapError(
+        "지도를 불러오지 못했습니다.<br />브라우저 주소가 등록한 도메인과<br />일치하는지 확인해 주세요.<br />(예: http://127.0.0.1:5503)"
+      );
       return;
     }
 
