@@ -89,42 +89,36 @@
 /* PC GNB — hover accordion dropdown */
 .header__gnb-panel {
   position: absolute;
-  top: 100%;
+  top: calc(100% - 0.125rem);
   left: 50%;
-  z-index: 1;
-  display: grid;
-  grid-template-rows: 0fr;
+  z-index: 30;
+  box-sizing: border-box;
+  width: max-content;
   min-width: 8.75rem;
+  max-height: 0;
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transform: translateX(-50%);
-  transition: grid-template-rows 0.35s ease;
-}
-
-.header__gnb-panel::before {
-  content: "";
-  position: absolute;
-  top: -0.75rem;
-  right: 0;
-  left: 0;
-  height: 0.75rem;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.2s ease,
+    visibility 0s linear 0.35s;
 }
 
 .header__gnb-sub {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  overflow: hidden;
-  min-height: 0;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 0;
   list-style: none;
   background-color: var(--color-ivory1);
   border: 0.0625rem solid var(--color-grey4);
+  border-top: 0;
   border-radius: 0 0 0.75rem 0.75rem;
   box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 8%);
-  visibility: hidden;
-  transition: visibility 0s linear 0.35s;
 }
 
 .header__gnb-sub-link {
@@ -147,20 +141,19 @@
   font-weight: var(--fw-semibold);
 }
 
-.header__gnb-item--has-sub:hover .header__gnb-panel,
-.header__gnb-item--has-sub:focus-within .header__gnb-panel {
-  grid-template-rows: 1fr;
-  pointer-events: auto;
-}
-
-.header__gnb-item--has-sub:hover .header__gnb-sub,
-.header__gnb-item--has-sub:focus-within .header__gnb-sub {
+/* hover 시에만 열림 — focus-within 제거(페이지 이동 후 잔상 방지) */
+.header__gnb-item--has-sub:hover .header__gnb-panel {
+  max-height: 24rem;
+  opacity: 1;
   visibility: visible;
-  transition-delay: 0s;
+  pointer-events: auto;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.2s ease,
+    visibility 0s linear 0s;
 }
 
-.header__gnb-item--has-sub:hover > .header__gnb-link,
-.header__gnb-item--has-sub:focus-within > .header__gnb-link {
+.header__gnb-item--has-sub:hover > .header__gnb-link {
   font-weight: var(--fw-semibold);
 }
 

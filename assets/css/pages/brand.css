@@ -48,6 +48,11 @@
   white-space: nowrap;
 }
 
+/* PC: 한 줄 / 태블릿·모바일: 콤마 이후 줄바꿈 */
+.brand-intro__slogan-break {
+  display: none;
+}
+
 .brand-intro__text {
   margin: 2.5rem 0 0;
   max-width: 52rem;
@@ -121,6 +126,14 @@
 
   .brand-intro {
     padding: 5rem 0;
+  }
+
+  .brand-intro__slogan-ko {
+    white-space: normal;
+  }
+
+  .brand-intro__slogan-break {
+    display: block;
   }
 
   .brand-intro__media {
