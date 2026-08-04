@@ -7,7 +7,7 @@
   width: 100%;
   max-width: var(--layout-max-width);
   margin: 0 auto;
-  height: max(0px, calc(100svh - var(--header-height) - 27.5rem - 3rem)); /* PC: media 440px + tabs 여백 */
+  height: max(0px, calc(100svh - var(--header-height) - 27.5rem - 3rem));
   background-color: var(--color-ivory1);
   pointer-events: none;
 }
@@ -19,8 +19,7 @@
   justify-content: center;
   width: 100%;
   max-width: var(--layout-max-width);
-  height: auto;
-  min-height: 0;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 6.25rem 0;
   background-color: var(--color-ivory1);
@@ -48,13 +47,8 @@
   white-space: nowrap;
 }
 
-/* PC: 한 줄 / 태블릿·모바일: 콤마 이후 줄바꿈 */
-.brand-intro__slogan-break {
-  display: none;
-}
-
 .brand-intro__text {
-  margin: 2.5rem 0 0;
+  margin: 5rem 0 0;
   max-width: 52rem;
   font-family: var(--font-ko);
   font-size: var(--fs-body03);
@@ -96,9 +90,12 @@
     opacity: 1;
   }
 
-  /* 초기엔 숨김 · 가시성은 GSAP zoom-in이 제어 */
   .brand-intro__media:not(.is-ready) {
     opacity: 0;
+  }
+
+  .brand-intro__media.is-ready {
+    opacity: 1;
   }
 }
 
@@ -119,21 +116,8 @@
 }
 
 @media (max-width: 63.9375rem) {
-  .brand-intro-pad {
-    /* 태블릿: sub-visual media 260px */
-    height: max(0px, calc(100svh - var(--header-height) - 16.25rem - 3rem));
-  }
-
   .brand-intro {
     padding: 5rem 0;
-  }
-
-  .brand-intro__slogan-ko {
-    white-space: normal;
-  }
-
-  .brand-intro__slogan-break {
-    display: block;
   }
 
   .brand-intro__media {
@@ -147,21 +131,15 @@
 }
 
 @media (max-width: 47.9375rem) {
-  .brand-intro-pad {
-    /* 모바일도 태블릿과 동일 media 높이(260px) 기준 */
-    height: max(0px, calc(100svh - var(--header-height) - 16.25rem - 3rem));
-  }
-
   .brand-intro {
     padding: 3.5rem 0;
   }
 
   .brand-intro__slogan-ko {
-    font-size: 1.375rem; /* 22px */
+    font-size: clamp(0.875rem, 3.8vw, 1.75rem);
   }
 
   .brand-intro__text {
-    margin-top: 1.5rem;
     font-size: var(--fs-body04);
   }
 
@@ -250,7 +228,7 @@
 .brand-story__text {
   margin: 1.5rem 0 0;
   font-family: var(--font-ko);
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.375rem; /* 22px */
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.01em;
@@ -290,7 +268,7 @@
 
   .brand-story__copy {
     max-width: none;
-    order: 2;
+    order: 1;
   }
 
   .brand-story__title {
@@ -302,14 +280,14 @@
   }
 
   .brand-story__text {
-    font-size: 1.25rem;
+    font-size: 20/18rem;
   }
 
   .brand-story__media {
     flex: none;
     width: 100%;
     max-width: none;
-    order: 1;
+    order: 2;
   }
 
   .brand-story__image {
@@ -344,614 +322,6 @@
   }
 
   .brand-story__text br {
-    display: none;
-  }
-}
-
-/* ========== Brand Features ========== */
-.brand-features {
-  width: 100%;
-  background-color: var(--color-ivory1);
-}
-
-.brand-features__banner {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.brand-features__banner picture {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.brand-features__banner-image {
-  display: block;
-  width: 100%;
-  max-width: none;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  object-fit: cover;
-}
-
-.brand-features__banner-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0 var(--grid-margin);
-  font-family: var(--font-en); /* SUIT */
-  font-size: 3.125rem; /* 50px */
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  text-align: center;
-  color: var(--color-ivory1);
-  pointer-events: none;
-}
-
-.brand-features__board {
-  width: 100%;
-}
-
-.brand-features__track {
-  display: none;
-}
-
-.brand-features__list {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  width: 100%;
-  margin: 0 auto;
-  padding: 6.25rem var(--grid-margin);
-  color: var(--color-primary);
-}
-
-.brand-feature {
-  flex: 0 1 auto;
-  max-width: 22.5rem;
-}
-
-.brand-feature__num {
-  margin: 0;
-  font-family: var(--font-en); /* SUIT */
-  font-size: 3rem; /* 48px */
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--color-primary);
-}
-
-.brand-feature__head {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: max-content;
-  max-width: 100%;
-  margin-top: 0.75rem;
-}
-
-.brand-feature__line {
-  display: block;
-  width: 7.25rem; /* 116px */
-  height: 0.125rem; /* 2px */
-  background-color: var(--color-primary);
-  transition: width 0.35s ease;
-}
-
-.brand-feature:hover .brand-feature__line,
-.brand-feature:focus-within .brand-feature__line {
-  width: 100%;
-}
-
-.brand-feature__title {
-  margin: 0.75rem 0 0;
-  font-family: var(--font-ko);
-  font-size: 2.25rem; /* 36px */
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
-  color: var(--color-primary);
-}
-
-.brand-feature__desc {
-  margin: 1rem 0 0;
-  font-family: var(--font-ko);
-  font-size: 1.25rem; /* 20px */
-  font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-  color: var(--color-primary);
-  word-break: keep-all;
-}
-
-@media (max-width: 63.9375rem) {
-  .brand-features__banner-text {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-  }
-
-  .brand-features__board {
-    position: relative;
-  }
-
-  .brand-features__track {
-    display: block;
-    position: absolute;
-    left: var(--grid-margin);
-    right: var(--grid-margin);
-    top: calc(5rem + 3rem + 0.75rem);
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .brand-feature__line--track {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 0.125rem;
-    background-color: transparent;
-    --active: 0;
-  }
-
-  .brand-feature__line--track::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 1px;
-    background-color: var(--color-grey4);
-    transform: translateY(-50%);
-  }
-
-  .brand-feature__line--track::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 33.333%;
-    height: 0.125rem;
-    background-color: var(--color-primary);
-    transform: translate3d(calc(var(--active) * 100%), -50%, 0);
-    transition: transform 0.35s ease;
-  }
-
-  .brand-feature__line--track.is-dragging::after {
-    transition: none;
-  }
-
-  .brand-features__list {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 0;
-    padding: 5rem 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
-    cursor: grab;
-    /* 세로 페이지 스크롤 허용 · 가로는 JS 드래그로 처리 */
-    touch-action: pan-y pinch-zoom;
-  }
-
-  .brand-features__list.is-dragging {
-    cursor: grabbing;
-    scroll-snap-type: none;
-    scroll-behavior: auto;
-    user-select: none;
-    touch-action: none;
-  }
-
-  .brand-features__list::-webkit-scrollbar {
-    display: none;
-  }
-
-  .brand-feature {
-    box-sizing: border-box;
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: none;
-    padding: 0 var(--grid-margin);
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-
-  .brand-feature__head {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    max-width: none;
-  }
-
-  .brand-feature .brand-feature__line {
-    width: 100%;
-    background-color: transparent;
-    visibility: hidden;
-    transition: none;
-  }
-
-  .brand-feature:hover .brand-feature__line,
-  .brand-feature:focus-within .brand-feature__line {
-    width: 100%;
-  }
-
-  .brand-feature__num {
-    font-size: 2.5rem;
-  }
-
-  .brand-feature__title {
-    font-size: 1.75rem;
-  }
-
-  .brand-feature__desc {
-    font-size: 1.125rem;
-  }
-}
-
-@media (max-width: 47.9375rem) {
-  .brand-features__banner-text {
-    font-size: 1.25rem;
-  }
-
-  .brand-features__list {
-    padding: 3.5rem 0;
-  }
-
-  .brand-features__track {
-    top: calc(3.5rem + 2.4rem + 0.75rem);
-  }
-
-  .brand-feature__num {
-    font-size: 2rem;
-  }
-
-  .brand-feature__title {
-    font-size: 1.375rem;
-  }
-
-  .brand-feature__desc {
-    font-size: 0.9375rem;
-  }
-
-  .brand-feature__desc br {
-    display: none;
-  }
-}
-
-/* ========== Ugly Fruit Project ========== */
-.ugly-fruit {
-  box-sizing: border-box;
-  width: 100%;
-  height: 65rem; /* 1040px */
-  padding: 5rem 0;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-}
-
-.ugly-fruit__inner {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 var(--grid-margin);
-  text-align: center;
-}
-
-.ugly-fruit__title {
-  margin: 0;
-  font-family: var(--font-ko);
-  font-size: 3rem; /* 48px */
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  color: var(--color-white);
-}
-
-.ugly-fruit__media {
-  position: relative;
-  width: min(100%, 53.3125rem); /* 853px */
-  margin: 3.75rem 0 0;
-}
-
-.ugly-fruit__image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.ugly-fruit__svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--color-white);
-  pointer-events: none;
-}
-
-.ugly-fruit__label {
-  position: absolute;
-  left: 67.4%;
-  top: 28.6%;
-  margin: 0;
-  transform: translateY(-50%);
-  padding-left: 0.5rem;
-  font-family: var(--font-ko);
-  font-size: 1rem; /* 16px */
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  color: var(--color-white);
-  white-space: nowrap;
-  text-align: left;
-}
-
-/* PC: 한 줄 / 태블릿·모바일: 지정 줄바꿈 */
-.ugly-fruit__label-break {
-  display: none;
-}
-
-.ugly-fruit__desc {
-  margin: 3.75rem 0 0;
-  max-width: 46rem;
-  font-family: var(--font-ko);
-  font-size: 1.375rem; /* 22px */
-  font-weight: 400;
-  line-height: 1.7;
-  letter-spacing: -0.01em;
-  color: var(--color-white);
-  word-break: keep-all;
-}
-
-@media (max-width: 63.9375rem) {
-  .ugly-fruit {
-    height: auto;
-    min-height: 0;
-    padding: 5rem 0;
-  }
-
-  .ugly-fruit__title {
-    font-size: 1.75rem; /* 28px */
-  }
-
-  .ugly-fruit__media {
-    width: min(100%, 32.5rem); /* ~520px — 사진·원·선 함께 축소 */
-    margin-top: 2.5rem;
-  }
-
-  .ugly-fruit__label {
-    left: 68%;
-    top: 26%;
-    width: 40%;
-    font-size: 0.875rem; /* 14px */
-    padding-left: 0.35rem;
-    white-space: normal;
-  }
-
-  .ugly-fruit__label-break {
-    display: block;
-  }
-
-  .ugly-fruit__desc {
-    margin-top: 2.5rem;
-    font-size: 1.125rem; /* 18px */
-  }
-}
-
-@media (max-width: 47.9375rem) {
-  .ugly-fruit {
-    height: auto;
-    padding: 3.5rem 0;
-  }
-
-  .ugly-fruit__title {
-    font-size: 1.5rem; /* 24px */
-  }
-
-  .ugly-fruit__media {
-    width: min(100%, 20.5rem); /* ~328px — 사진·원·선 함께 축소 */
-    margin-top: 2rem;
-  }
-
-  .ugly-fruit__label {
-    left: 68%;
-    width: 44%;
-    font-size: 0.75rem; /* 12px */
-    white-space: normal;
-    padding-left: 0.25rem;
-  }
-
-  .ugly-fruit__desc {
-    margin-top: 2rem;
-    font-size: 1rem; /* 16px */
-  }
-
-  .ugly-fruit__desc br {
-    display: none;
-  }
-}
-
-/* ========== Fruit Process ========== */
-.fruit-process {
-  width: 100%;
-  padding: 7.5rem 0;
-  background-color: var(--color-ivory2);
-}
-
-.fruit-process__inner {
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 var(--grid-margin);
-}
-
-.fruit-process__header {
-  margin: 0 0 4.5rem;
-  text-align: center;
-  color: var(--color-primary);
-}
-
-.fruit-process__eyebrow {
-  margin: 0;
-  font-family: var(--font-ko);
-  font-size: 1.75rem; /* 28px */
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-}
-
-.fruit-process__title {
-  margin: 0.5rem 0 0;
-  font-family: var(--font-ko);
-  font-size: 3.75rem; /* 60px */
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-}
-
-.fruit-process__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4.5rem 2rem;
-  padding-top: 1.5rem; /* step 배지 상단 걸침 여유 */
-}
-
-.fruit-process__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 0;
-}
-
-.fruit-process__media {
-  position: relative;
-  width: 100%;
-  overflow: visible;
-}
-
-.fruit-process__step {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem; /* 48px */
-  height: 3rem;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  font-family: var(--font-en); /* SUIT */
-  font-size: 1.25rem; /* 20px */
-  font-weight: 700;
-  line-height: 1;
-  transform: translate(-50%, -50%);
-}
-
-.fruit-process__image {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.fruit-process__caption {
-  margin: 1.25rem 0 1.25rem; /* bottom 20px */
-  font-family: var(--font-ko);
-  font-size: 1.25rem; /* 20px */
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  text-align: center;
-  color: var(--color-primary);
-  word-break: keep-all;
-}
-
-@media (max-width: 63.9375rem) {
-  .fruit-process {
-    padding: 5rem 0;
-  }
-
-  .fruit-process__header {
-    margin-bottom: 3.5rem;
-  }
-
-  .fruit-process__eyebrow {
-    font-size: 1.375rem;
-  }
-
-  .fruit-process__title {
-    font-size: 2.5rem;
-  }
-
-  .fruit-process__grid {
-    gap: 3.5rem 1.5rem;
-  }
-
-  .fruit-process__step {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.125rem;
-  }
-
-  .fruit-process__caption {
-    font-size: 1.125rem;
-  }
-}
-
-@media (max-width: 47.9375rem) {
-  .fruit-process {
-    padding: 3.5rem 0;
-  }
-
-  .fruit-process__header {
-    margin-bottom: 2.75rem;
-  }
-
-  .fruit-process__eyebrow {
-    font-size: 1.125rem;
-  }
-
-  .fruit-process__title {
-    font-size: 2rem;
-  }
-
-  .fruit-process__grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .fruit-process__step {
-    width: 2.25rem;
-    height: 2.25rem;
-    font-size: 1rem;
-  }
-
-  .fruit-process__caption {
-    margin-top: 1rem;
-    margin-bottom: 1.25rem; /* 20px */
-    font-size: 1rem;
-  }
-
-  .fruit-process__caption br {
     display: none;
   }
 }

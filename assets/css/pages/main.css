@@ -234,7 +234,7 @@
   width: 100%;
   height: 100%;
   padding: 6.25rem 0 6.25rem 7.5rem; /* 사용자 수정값 유지 */
-  gap: 23.75rem; /* 380px */
+  gap: 14rem; /* 380px */
 }
 
 .story__text {
@@ -707,16 +707,15 @@
   height: 100%;
 }
 
+/* 태광 Our Business와 동일: flex 균등 → hover 시 basis 확장 */
 .core__item {
   position: relative;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0%;
+  flex: 1 1 0%;
   min-width: 0;
   height: 100%;
   overflow: hidden;
   cursor: pointer;
-  transition: flex-grow 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: flex 500ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .core__media {
@@ -725,10 +724,14 @@
   overflow: hidden;
 }
 
+/* 이미지는 항상 펼침 너비 유지 → 축소 시 리샘플링 없이 크롭만 (화질 깨짐 방지) */
 .core__picture {
-  display: block;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--core-item-expand); /* 1064px */
   height: 100%;
+  transform: translate3d(-50%, 0, 0);
 }
 
 .core__item::after {
@@ -738,16 +741,11 @@
   z-index: 1;
   background-color: rgb(0 0 0 / 0%);
   pointer-events: none;
-  transition: background-color 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background-color 500ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-/* Hover: 1064 : 428 : 428 비율로 펼침/축소 */
-.core__list:hover .core__item {
-  flex-grow: 428;
-}
-
-.core__list:hover .core__item:hover {
-  flex-grow: 1064;
+.core__item:hover {
+  flex: 0 1 var(--core-item-expand); /* 1064px */
 }
 
 .core__item:hover::after {
@@ -760,11 +758,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.core__item:hover .core__image {
-  transform: scale(1.04);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .core__label {
@@ -781,7 +776,7 @@
   text-align: center;
   white-space: nowrap;
   transform: translateX(-50%);
-  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 500ms cubic-bezier(0.33, 1, 0.68, 1);
   pointer-events: none;
 }
 
@@ -799,8 +794,8 @@
   pointer-events: none;
   transform: translateY(1rem);
   transition:
-    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 500ms cubic-bezier(0.33, 1, 0.68, 1),
+    transform 500ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .core__detail-en {
@@ -869,19 +864,14 @@
   }
 
   .core__list {
+    display: flex;
     height: auto;
     will-change: transform;
-  }
-
-  .core__list:hover .core__item,
-  .core__list:hover .core__item:hover {
-    flex-grow: 0;
   }
 
   .core__item {
     display: flex;
     flex: 0 0 100%;
-    flex-shrink: 0;
     flex-direction: column;
     width: 100%;
     min-width: 100%;
@@ -890,6 +880,11 @@
     overflow: visible;
     cursor: grab;
     transition: none;
+    will-change: auto;
+  }
+
+  .core__item:hover {
+    flex: 0 0 100%;
   }
 
   .core__item::after {
@@ -903,8 +898,18 @@
     aspect-ratio: 648 / 646;
   }
 
-  .core__item:hover .core__image {
+  .core__picture {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
     transform: none;
+  }
+
+  .core__image {
+    transform: none;
+    backface-visibility: visible;
   }
 
   .core__label {
@@ -1099,8 +1104,12 @@
   background-color: var(--color-ivory2);
 }
 
+/* 공지사항(.notice-page)과 동일 여백 구조 */
 .market__inner {
+  box-sizing: border-box;
   width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
   padding: 6.25rem var(--grid-margin);
 }
 
@@ -1149,8 +1158,12 @@
   font-weight: var(--fw-bold);
 }
 
+/* 공지사항 컨텐츠(10컬럼 · 1396px)와 동일 */
 .market__panels {
-  margin-top: 3.75rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 87.25rem; /* 1396px */
+  margin: 3.75rem auto 0;
 }
 
 .market__panel {
@@ -1166,8 +1179,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 87.25rem; /* ~1396px */
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -1181,7 +1193,7 @@
 
 .market__logo img {
   display: block;
-  width: 15rem; /* 240px */
+  width: 10.625rem; /* 170px */
   max-width: 100%;
   height: auto;
   object-fit: contain;
@@ -1263,7 +1275,7 @@
   }
 
   .market__logo img {
-    width: 15rem; /* 240px 기준 · 컨테이너에 맞춰 축소 */
+    width: 10.625rem; /* 170px */
     max-width: 100%;
     height: auto;
   }
@@ -1285,12 +1297,15 @@
   padding: 6.25rem var(--grid-margin);
 }
 
+/* 카드 2열 폭(686×2 + gap 24 = 1396)에 헤더·리스트 맞춤 */
 .event__head {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-bottom: 3.75rem;
+  width: 100%;
+  max-width: calc(var(--event-card-width) * 2 + 1.5rem);
+  margin: 0 auto 3.75rem;
 }
 
 .event__head-text {
@@ -1323,9 +1338,11 @@
 
 .event__list {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
+  max-width: calc(var(--event-card-width) * 2 + 1.5rem);
+  margin: 0 auto;
 }
 
 .event__list .event-card {
