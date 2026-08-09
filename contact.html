@@ -341,9 +341,12 @@
         <div class="notice-page__panel" data-contact-panel="inquiry">
           <div class="inquiry">
             <h3 class="inquiry__title">오시는 길</h3>
-            <div class="inquiry__map" id="kakao-map" role="img"
-              aria-label="서울 강남구 강남대로 372 FINE TOWER 지도"
-              data-address="서울 강남구 강남대로 372"></div>
+            <div
+              class="inquiry__map"
+              id="kakao-map"
+              role="img"
+              aria-label="서울 강남구 강남대로 372 오시는 길 지도"
+            ></div>
 
             <h3 class="inquiry__title inquiry__title--form">문의접수</h3>
             <form class="inquiry-form-wrap" action="#" method="post" enctype="multipart/form-data" data-inquiry-form
@@ -500,9 +503,11 @@
 
   <script src="assets/js/common.js"></script>
   <script
-    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9d88335621143df39c1325afe0cbc8da&libraries=services&autoload=false"
+    type="text/javascript"
+    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9d88335621143df39c1325afe0cbc8da&autoload=false"
     data-kakao-map-sdk
-    onerror="window.__kakaoMapSdkFailed=true"></script>
+    onerror="window.__kakaoMapSdkFailed=true"
+  ></script>
   <script src="assets/js/pages/contact.js"></script>
 </body>
 

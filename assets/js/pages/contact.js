@@ -17,11 +17,9 @@
     inquiry: "",
   };
 
-  /* 서울 강남구 강남대로 372 — 주소 검색 실패 시 폴백 좌표 */
-  var FALLBACK_LAT = 37.4969;
-  var FALLBACK_LNG = 127.0282;
-  var MAP_ADDRESS = "서울 강남구 강남대로 372";
-  var MAP_LABEL = "FINE TOWER";
+  /* 오시는 길 — 위도 37.4959528 / 경도 127.029101 */
+  var MAP_LAT = 37.4959528;
+  var MAP_LNG = 127.029101;
 
   function activate(id) {
     tabs.forEach(function (tab) {
@@ -204,34 +202,27 @@
     });
   }
 
-  function placeMarker(map, coords) {
-    var marker = new kakao.maps.Marker({
-      map: map,
-      position: coords,
-    });
-    var infowindow = new kakao.maps.InfoWindow({
-      content:
-        '<div style="padding:6px 10px;font-size:13px;text-align:center;">' +
-        MAP_LABEL +
-        "<br />" +
-        MAP_ADDRESS +
-        "</div>",
-    });
-    infowindow.open(map, marker);
-    map.setCenter(coords);
-  }
-
-  function createMap(coords) {
-    if (!mapEl) {
+  function createMap() {
+    if (!mapEl || typeof kakao === "undefined" || !kakao.maps) {
       return;
     }
-    var options = {
+
+    var coords = new kakao.maps.LatLng(MAP_LAT, MAP_LNG);
+    var mapOption = {
       center: coords,
       level: 3,
     };
-    mapInstance = new kakao.maps.Map(mapEl, options);
-    placeMarker(mapInstance, coords);
+
+    mapInstance = new kakao.maps.Map(mapEl, mapOption);
+
+    var marker = new kakao.maps.Marker({
+      position: coords,
+    });
+    marker.setMap(mapInstance);
+
     mapReady = true;
+
+    /* 숨김 탭에서 생성 시 크기 재계산 */
     window.setTimeout(function () {
       if (mapInstance) {
         mapInstance.relayout();
@@ -282,19 +273,7 @@
       return;
     }
 
-    kakao.maps.load(function () {
-      var address = mapEl.getAttribute("data-address") || MAP_ADDRESS;
-      var geocoder = new kakao.maps.services.Geocoder();
-
-      geocoder.addressSearch(address, function (result, status) {
-        if (status === kakao.maps.services.Status.OK && result[0]) {
-          var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-          createMap(coords);
-        } else {
-          createMap(new kakao.maps.LatLng(FALLBACK_LAT, FALLBACK_LNG));
-        }
-      });
-    });
+    kakao.maps.load(createMap);
   }
 
   function syncFromHash() {

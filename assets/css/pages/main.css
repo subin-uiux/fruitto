@@ -1355,13 +1355,16 @@
     padding: 5rem var(--grid-margin);
   }
 
+  /* 1열 카드와 동일 폭 */
   .event__head {
+    max-width: var(--event-card-width);
     margin-bottom: 2.5rem;
   }
 
   .event__list {
     flex-direction: column;
     align-items: center;
+    max-width: var(--event-card-width);
   }
 
   .event__list .event-card:not(:first-child) {
