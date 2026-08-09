@@ -98,7 +98,7 @@
   margin-top: 1.25rem;
   width: 36.5rem; /* 584px */
   max-width: 100%;
-  transform-origin: center center;
+  will-change: opacity, filter;
 }
 
 .brand-intro__image {
@@ -162,7 +162,9 @@
   .falling-title,
   .brand-intro__media {
     opacity: 1;
+    filter: none;
     color: var(--color-primary);
+    will-change: auto;
   }
 
   .falling-title .char-inner {

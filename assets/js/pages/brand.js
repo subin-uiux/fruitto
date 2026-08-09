@@ -1,6 +1,6 @@
 /**
  * Brand Story — Lenis + sequential scroll animations (한 섹션 · 차례 재생)
- * 1) 슬로건 falling → 2) 본문 reveal → 3) 이미지 zoom
+ * 1) 슬로건 falling → 2) 본문 reveal → 3) 이미지 blur → clear
  */
 (function () {
   "use strict";
@@ -116,35 +116,35 @@
     }
   }
 
-  /* --- 이미지: 본문 리빌 후 zoom-in · 스크롤 업/다운 시 재재생 --- */
+  /* --- 이미지: 본문 리빌 후 blur → clear · 스크롤 업/다운 시 재재생 --- */
   if (mediaEl) {
-    gsap.set(mediaEl, { scale: 0.78, opacity: 0 });
+    gsap.set(mediaEl, { opacity: 0, filter: "blur(24px)" });
     mediaEl.classList.add("is-ready");
   }
 
-  var mediaZoomed = false;
+  var mediaRevealed = false;
 
-  function resetMediaZoom() {
+  function resetMediaReveal() {
     if (!mediaEl) {
       return;
     }
-    mediaZoomed = false;
+    mediaRevealed = false;
     gsap.killTweensOf(mediaEl);
-    gsap.set(mediaEl, { scale: 0.78, opacity: 0 });
+    gsap.set(mediaEl, { opacity: 0, filter: "blur(24px)" });
   }
 
-  function playMediaZoom() {
-    if (!mediaEl || mediaZoomed) {
+  function playMediaReveal() {
+    if (!mediaEl || mediaRevealed) {
       return;
     }
-    mediaZoomed = true;
+    mediaRevealed = true;
     gsap.fromTo(
       mediaEl,
-      { scale: 0.78, opacity: 0 },
+      { opacity: 0, filter: "blur(24px)" },
       {
-        scale: 1,
         opacity: 1,
-        duration: 0.55,
+        filter: "blur(0px)",
+        duration: 1.1,
         ease: "power2.out",
         overwrite: true,
       }
@@ -153,7 +153,7 @@
 
   /* --------------------------------------------------------------------------
      스크롤 타임라인 — 슬로건 → 본문
-     brand-intro__text 리빌이 끝나면 이미지 zoom-in
+     brand-intro__text 리빌이 끝나면 이미지 blur → clear
      -------------------------------------------------------------------------- */
   var tl = gsap.timeline({
     defaults: { ease: "none" },
@@ -165,12 +165,12 @@
       markers: false,
       onUpdate: function (self) {
         if (self.progress >= 0.45) {
-          playMediaZoom();
-        } else if (mediaZoomed) {
-          resetMediaZoom();
+          playMediaReveal();
+        } else if (mediaRevealed) {
+          resetMediaReveal();
         }
       },
-      onLeaveBack: resetMediaZoom,
+      onLeaveBack: resetMediaReveal,
     },
   });
 
