@@ -191,27 +191,22 @@
       </div>
     </section>
 
-    <!-- 브랜드 소개 — 패널별 풀스크린 -->
+    <!-- 첫 화면에서 brand-intro가 비치지 않도록 남은 뷰포트 채움 -->
+    <div class="brand-intro-pad" aria-hidden="true"></div>
+
+    <!-- 브랜드 소개 -->
     <section class="brand-intro" id="story" aria-label="브랜드 소개">
-      <div class="brand-intro__panel">
-        <h2 class="brand-intro__slogan falling-title">Rescued Fruit, Reborn Gelato</h2>
-      </div>
-
-      <div class="brand-intro__panel">
+      <div class="brand-intro__inner">
         <p class="brand-intro__slogan-ko falling-title">과일의 가치를 새롭게 발견해, 젤라또로 완성하다.</p>
-      </div>
 
-      <div class="brand-intro__panel">
         <p class="brand-intro__text reveal-type">
           우리는 완벽한 모양보다 진짜 맛에 집중합니다.
           표면에 작은 흠이 있거나, 모양이 고르지 않아도 과일이 가진 신선함과 달콤함은 사라지지 않습니다.
           프루토는 그렇게 지나쳐진 과일을 발견하고, 젤라또라는 새로운 형태로 다시 빛나게 합니다.
           버려질 뻔한 과일이 가장 맛있는 디저트로 다시 태어나는 순간, 프루토의 이야기가 시작됩니다.
         </p>
-      </div>
 
-      <div class="brand-intro__panel">
-        <div class="brand-intro__media" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+        <div class="brand-intro__media">
           <img
             class="brand-intro__image"
             src="assets/images/product/apple.png"
@@ -219,6 +214,250 @@
             width="584"
             height="600"
           />
+        </div>
+      </div>
+    </section>
+
+    <!-- 브랜드 스토리 본문 -->
+    <section class="brand-story" aria-label="브랜드 스토리">
+      <div class="brand-story__inner">
+        <article class="brand-story__row">
+          <div class="brand-story__copy" data-aos="fade-down" data-aos-duration="1000" data-aos-offset="100">
+            <h3 class="brand-story__title">Rescue</h3>
+            <p class="brand-story__subtitle">상처난 과일의 가치를 <strong>재발견</strong></p>
+            <p class="brand-story__text">
+              프루또는 작은 흠집이나 고르지 않은 외관 때문에<br />
+              상품성이 낮아진 과일에 주목합니다.<br />
+              겉모습은 조금 달라도 과일이 가진 신선함과 맛은 그대로이기에,<br />
+              우리는 그 안에 숨은 가치를 다시 발견합니다.
+            </p>
+          </div>
+          <div class="brand-story__media" data-aos="fade-left" data-aos-duration="1500">
+            <img
+              class="brand-story__image"
+              src="assets/images/story-rescue.png"
+              alt="상처난 과일"
+              width="900"
+              height="510"
+            />
+          </div>
+        </article>
+
+        <article class="brand-story__row brand-story__row--reverse">
+          <div class="brand-story__copy" data-aos="fade-right">
+            <h3 class="brand-story__title">Reborn</h3>
+            <p class="brand-story__subtitle">젤라또로 <strong>재탄생</strong></p>
+            <p class="brand-story__text">
+              정성스럽게 선별하고 손질한 과일은 프루또만의 방식으로<br />
+              부드럽고 진한 젤라또가 됩니다.<br />
+              버려질 뻔한 과일이 한 컵의 달콤한 디저트로 태어나는 순간,<br />
+              프루또의 새로운 이야기가 완성됩니다.
+            </p>
+          </div>
+          <div class="brand-story__media" data-aos="fade-down">
+            <img
+              class="brand-story__image"
+              src="assets/images/story-reborn.png"
+              alt="젤라또로 재탄생"
+              width="900"
+              height="510"
+            />
+          </div>
+        </article>
+
+        <article class="brand-story__row">
+          <div class="brand-story__copy" data-aos="fade-down">
+            <h3 class="brand-story__title">Happiness</h3>
+            <p class="brand-story__subtitle"><strong>소비자의 행복</strong>을 위한 젤라또</p>
+            <p class="brand-story__text">
+              프루또의 달콤함이 일상에 작은 여유와 기쁨을 더한다고 믿습니다.<br />
+              신선한 과일로 만든 젤라또를 통해 기분 좋은 행복을 전합니다.
+            </p>
+          </div>
+          <div class="brand-story__media" data-aos="fade-left">
+            <img
+              class="brand-story__image"
+              src="assets/images/story-happiness.png"
+              alt="소비자의 행복을 위한 젤라또"
+              width="900"
+              height="510"
+            />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 브랜드 특징 -->
+    <section class="brand-features" aria-label="브랜드 특징">
+      <div class="brand-features__banner">
+        <picture>
+          <source
+            media="(max-width: 47.9375rem)"
+            srcset="assets/images/mo-fruit.png"
+          />
+          <source
+            media="(max-width: 63.9375rem)"
+            srcset="assets/images/tab-fruit.png"
+          />
+          <img
+            class="brand-features__banner-image"
+            src="assets/images/fruit.png"
+            alt=""
+            width="1920"
+            height="640"
+            decoding="async"
+          />
+        </picture>
+        <p class="brand-features__banner-text">Fresh Fruit, Sweet Fruitto</p>
+      </div>
+      <div class="brand-features__board">
+        <div class="brand-features__track" aria-hidden="true">
+          <span class="brand-feature__line brand-feature__line--track"></span>
+        </div>
+        <div class="brand-features__list">
+          <article class="brand-feature">
+            <p class="brand-feature__num">01</p>
+            <div class="brand-feature__head">
+              <span class="brand-feature__line" aria-hidden="true"></span>
+              <h3 class="brand-feature__title">톡톡 씹히는 과육</h3>
+            </div>
+            <p class="brand-feature__desc">
+              과일을 잘라서 넣었기 때문에 과육이 살아있어<br />
+              더 생생한 식감을 느낄 수 있습니다.
+            </p>
+          </article>
+
+          <article class="brand-feature">
+            <p class="brand-feature__num">02</p>
+            <div class="brand-feature__head">
+              <span class="brand-feature__line" aria-hidden="true"></span>
+              <h3 class="brand-feature__title">과일 본연의 맛</h3>
+            </div>
+            <p class="brand-feature__desc">
+              과일이 가진 자연스러운 단맛을 살려<br />
+              깔끔하고 부담 없는 맛을 완성했습니다.
+            </p>
+          </article>
+
+          <article class="brand-feature">
+            <p class="brand-feature__num">03</p>
+            <div class="brand-feature__head">
+              <span class="brand-feature__line" aria-hidden="true"></span>
+              <h3 class="brand-feature__title">가볍게 즐기는 디저트</h3>
+            </div>
+            <p class="brand-feature__desc">
+              무겁지 않은 과일 베이스로 식후에도<br />
+              산뜻하게 즐길 수 있어요.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 못난이 과일 프로젝트 -->
+    <section class="ugly-fruit" aria-label="못난이 과일 프로젝트">
+      <div class="ugly-fruit__inner">
+        <h2 class="ugly-fruit__title">못생긴 과일 프로젝트</h2>
+
+        <figure class="ugly-fruit__media">
+          <img
+            class="ugly-fruit__image"
+            src="assets/images/ugly-fruit.png"
+            alt="상처가 있는 복숭아와 자른 복숭아"
+            width="853"
+            height="577"
+            decoding="async"
+          />
+          <svg
+            class="ugly-fruit__svg"
+            viewBox="0 0 853 577"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="250" cy="290" r="41" stroke="currentColor" stroke-width="1.5" />
+            <path d="M274 256 L382 151 L552 151" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" />
+          </svg>
+          <p class="ugly-fruit__label">상처난 과일, 상품 가치가 떨어지는 과일</p>
+        </figure>
+
+        <p class="ugly-fruit__desc">
+          맛은 좋지만 모양 때문에 외면당한 과일을 젤라또로 재탄생시켜,<br />
+          더 맛있고 지속가능한 소비를 제안합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 과일 선별 과정 -->
+    <section class="fruit-process" aria-label="과일 선별 과정">
+      <div class="fruit-process__inner">
+        <header class="fruit-process__header">
+          <p class="fruit-process__eyebrow">깨끗한 공정에서</p>
+          <h2 class="fruit-process__title">선별한 과일</h2>
+        </header>
+
+        <div class="fruit-process__grid">
+          <article class="fruit-process__item">
+            <div class="fruit-process__media">
+              <span class="fruit-process__step" aria-hidden="true">1</span>
+              <img
+                class="fruit-process__image"
+                src="assets/images/choice1.png"
+                alt="인증 농가에서 수확한 과일"
+                width="800"
+                height="500"
+              />
+            </div>
+            <p class="fruit-process__caption">
+              각 지역에서 인증된 농가에서<br />
+              수확된 못난이 과일
+            </p>
+          </article>
+
+          <article class="fruit-process__item">
+            <div class="fruit-process__media">
+              <span class="fruit-process__step" aria-hidden="true">2</span>
+              <img
+                class="fruit-process__image"
+                src="assets/images/choice2.png"
+                alt="수확 직후 운송"
+                width="800"
+                height="500"
+              />
+            </div>
+            <p class="fruit-process__caption">수확 직후 바로 운송</p>
+          </article>
+
+          <article class="fruit-process__item">
+            <div class="fruit-process__media">
+              <span class="fruit-process__step" aria-hidden="true">3</span>
+              <img
+                class="fruit-process__image"
+                src="assets/images/choice3.png"
+                alt="위생적인 세척 과정"
+                width="800"
+                height="500"
+              />
+            </div>
+            <p class="fruit-process__caption">
+              입고 된 과일은 위생적인<br />
+              세척 과정을 거쳐 사용됩니다.
+            </p>
+          </article>
+
+          <article class="fruit-process__item">
+            <div class="fruit-process__media">
+              <span class="fruit-process__step" aria-hidden="true">4</span>
+              <img
+                class="fruit-process__image"
+                src="assets/images/choice4.png"
+                alt="과일 그대로의 풍미"
+                width="800"
+                height="500"
+              />
+            </div>
+            <p class="fruit-process__caption">인공적인 향보다 과일 그대로의 풍미</p>
+          </article>
         </div>
       </div>
     </section>

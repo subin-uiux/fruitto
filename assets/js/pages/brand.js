@@ -37,52 +37,38 @@
     var lenis = new Lenis({
       duration: 1.1,
       smoothWheel: true,
+      touchMultiplier: 1.2,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add(function (time) {
-      lenis.raf(time * 900);
+      lenis.raf(time * 1000);
     });
-    gsap.ticker.lagSmoothing(0);
+    /* lagSmoothing(0)은 무거운 페인트 직후 스크롤이 튀며 버벅임 — 기본값 유지 */
   }
 
-  /* AOS — Lenis와 함께 쓰므로 ScrollTrigger로 진입 시점을 맞춤
-     스크롤 업/다운 시마다 다시 재생 */
+  /* AOS — 한 번만 재생 (mirror/재토글은 섹션 경계에서 스크롤 버벅임 유발) */
   if (typeof AOS !== "undefined") {
     AOS.init({
-      duration: 3000,
+      duration: 900,
       easing: "ease-out-cubic",
-      once: false,
-      mirror: true,
-      offset: 200,
+      once: true,
+      mirror: false,
+      offset: 120,
       disable: reduceMotion,
+      disableMutationObserver: true,
     });
 
     if (!reduceMotion) {
       gsap.utils.toArray("[data-aos]").forEach(function (el) {
-        var replay = !el.classList.contains("brand-feature");
-
         ScrollTrigger.create({
           trigger: el,
           start: "top 85%",
-          end: "bottom 15%",
+          once: true,
           onEnter: function () {
             el.classList.add("aos-animate");
           },
-          onLeave: replay
-            ? function () {
-                el.classList.remove("aos-animate");
-              }
-            : undefined,
-          onEnterBack: function () {
-            el.classList.add("aos-animate");
-          },
-          onLeaveBack: replay
-            ? function () {
-                el.classList.remove("aos-animate");
-              }
-            : undefined,
         });
       });
     }
@@ -264,6 +250,17 @@
   var pointerId = null;
   var rafId = 0;
   var pendingScrollLeft = null;
+
+  /* 태블릿/모바일에서만 Lenis 가로 제스처 충돌 방지 (PC는 세로 스크롤 끊김 방지) */
+  function syncLenisPrevent() {
+    if (mq.matches) {
+      list.setAttribute("data-lenis-prevent", "");
+    } else {
+      list.removeAttribute("data-lenis-prevent");
+    }
+  }
+
+  syncLenisPrevent();
 
   function slideCount() {
     return list.querySelectorAll(".brand-feature").length;
@@ -451,6 +448,7 @@
   );
 
   window.addEventListener("resize", function () {
+    syncLenisPrevent();
     if (!mq.matches) {
       list.classList.remove("is-dragging");
       if (trackLine) {
@@ -467,4 +465,35 @@
   });
 
   syncTrackFromScroll(false);
+})();
+
+/* 특징 → 못생긴 과일 경계: 이미지 선디코드로 진입 시 페인트 버벅임 완화 */
+(function () {
+  "use strict";
+
+  var features = document.querySelector(".brand-features");
+  var image = document.querySelector(".ugly-fruit__image");
+  if (!features || !image || typeof IntersectionObserver === "undefined") {
+    return;
+  }
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      if (!entries.some(function (entry) {
+        return entry.isIntersecting;
+      })) {
+        return;
+      }
+      var preload = new Image();
+      preload.decoding = "async";
+      preload.src = image.currentSrc || image.src;
+      if (preload.decode) {
+        preload.decode().catch(function () {});
+      }
+      observer.disconnect();
+    },
+    { rootMargin: "120% 0px" }
+  );
+
+  observer.observe(features);
 })();
