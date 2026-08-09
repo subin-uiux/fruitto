@@ -152,9 +152,14 @@
     });
   });
 
-  var hash = (location.hash || "#notice").replace(/^#/, "");
-  var valid = Array.prototype.some.call(tabs, function (tab) {
-    return tab.getAttribute("data-notice-tab") === hash;
-  });
-  activate(valid ? hash : "notice");
+  function syncFromHash() {
+    var hash = (location.hash || "#notice").replace(/^#/, "");
+    var valid = Array.prototype.some.call(tabs, function (tab) {
+      return tab.getAttribute("data-notice-tab") === hash;
+    });
+    activate(valid ? hash : "notice");
+  }
+
+  window.addEventListener("hashchange", syncFromHash);
+  syncFromHash();
 })();

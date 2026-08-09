@@ -57,11 +57,16 @@
       });
     });
 
-    var hash = (location.hash || "#all").replace(/^#/, "");
-    var valid = Array.prototype.some.call(tabs, function (tab) {
-      return tab.getAttribute("data-product-tab") === hash;
-    });
-    activate(valid ? hash : "all");
+    function syncFromHash() {
+      var hash = (location.hash || "#all").replace(/^#/, "");
+      var valid = Array.prototype.some.call(tabs, function (tab) {
+        return tab.getAttribute("data-product-tab") === hash;
+      });
+      activate(valid ? hash : "all");
+    }
+
+    window.addEventListener("hashchange", syncFromHash);
+    syncFromHash();
   }
 
   /* --------------------------------------------------------------------------

@@ -297,9 +297,14 @@
     });
   }
 
-  var hash = (location.hash || "#faq").replace(/^#/, "");
-  var valid = Array.prototype.some.call(tabs, function (tab) {
-    return tab.getAttribute("data-contact-tab") === hash;
-  });
-  activate(valid ? hash : "faq");
+  function syncFromHash() {
+    var hash = (location.hash || "#faq").replace(/^#/, "");
+    var valid = Array.prototype.some.call(tabs, function (tab) {
+      return tab.getAttribute("data-contact-tab") === hash;
+    });
+    activate(valid ? hash : "faq");
+  }
+
+  window.addEventListener("hashchange", syncFromHash);
+  syncFromHash();
 })();

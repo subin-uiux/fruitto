@@ -55,9 +55,14 @@
     });
   });
 
-  var hash = (location.hash || "#online").replace(/^#/, "");
-  var valid = Array.prototype.some.call(tabs, function (tab) {
-    return tab.getAttribute("data-store-tab") === hash;
-  });
-  activate(valid ? hash : "online");
+  function syncFromHash() {
+    var hash = (location.hash || "#online").replace(/^#/, "");
+    var valid = Array.prototype.some.call(tabs, function (tab) {
+      return tab.getAttribute("data-store-tab") === hash;
+    });
+    activate(valid ? hash : "online");
+  }
+
+  window.addEventListener("hashchange", syncFromHash);
+  syncFromHash();
 })();
