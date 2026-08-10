@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 
 <head>
@@ -244,7 +244,7 @@
         </article>
 
         <article class="brand-story__row brand-story__row--reverse">
-          <div class="brand-story__copy" data-aos="fade-right" data-aos-duration="1100">
+          <div class="brand-story__copy" data-aos="fade-right" data-aos-duration="1000">
             <h3 class="brand-story__title">Reborn</h3>
             <p class="brand-story__subtitle">젤라또로 <strong>재탄생</strong></p>
             <p class="brand-story__text">
@@ -254,7 +254,7 @@
               프루또의 새로운 이야기가 완성됩니다.
             </p>
           </div>
-          <div class="brand-story__media" data-aos="fade-down" data-aos-duration="1200">
+          <div class="brand-story__media" data-aos="fade-down" data-aos-duration="1100">
             <img
               class="brand-story__image"
               src="assets/images/story-reborn.png"
@@ -266,7 +266,7 @@
         </article>
 
         <article class="brand-story__row">
-          <div class="brand-story__copy" data-aos="fade-down" data-aos-duration="1300">
+          <div class="brand-story__copy" data-aos="fade-down" data-aos-duration="1100">
             <h3 class="brand-story__title">Happiness</h3>
             <p class="brand-story__subtitle"><strong>소비자의 행복</strong>을 위한 젤라또</p>
             <p class="brand-story__text">
@@ -274,7 +274,7 @@
               신선한 과일로 만든 젤라또를 통해 기분 좋은 행복을 전합니다.
             </p>
           </div>
-          <div class="brand-story__media" data-aos="fade-left" data-aos-duration="1400">
+          <div class="brand-story__media" data-aos="fade-left" data-aos-duration="1200">
             <img
               class="brand-story__image"
               src="assets/images/story-happiness.png"
@@ -327,7 +327,7 @@
             </p>
           </article>
 
-          <article class="brand-feature" data-aos="fade-down" data-aos-duration="900">
+          <article class="brand-feature" data-aos="fade-down" data-aos-duration="1000">
             <p class="brand-feature__num">02</p>
             <div class="brand-feature__head">
               <span class="brand-feature__line" aria-hidden="true"></span>
@@ -339,7 +339,7 @@
             </p>
           </article>
 
-          <article class="brand-feature" data-aos="fade-down" data-aos-duration="1000">
+          <article class="brand-feature" data-aos="fade-down" data-aos-duration="1200">
             <p class="brand-feature__num">03</p>
             <div class="brand-feature__head">
               <span class="brand-feature__line" aria-hidden="true"></span>
@@ -376,9 +376,26 @@
             aria-hidden="true"
           >
             <circle cx="250" cy="290" r="41" stroke="currentColor" stroke-width="1.5" />
-            <path d="M274 256 L382 151 L552 151" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" />
+            <!-- PC -->
+            <path
+              class="ugly-fruit__line ugly-fruit__line--pc"
+              d="M274 256 L382 151 L552 151"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="square"
+              stroke-linejoin="miter"
+            />
+            <!-- 태블릿·모바일: 대각선 더 길게 -->
+            <path
+              class="ugly-fruit__line ugly-fruit__line--touch"
+              d="M274 256 L430 2 L580 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="square"
+              stroke-linejoin="miter"
+            />
           </svg>
-          <p class="ugly-fruit__label">상처난 과일, 상품 가치가 떨어지는 과일</p>
+          <p class="ugly-fruit__label">상처난 과일, 상품 가치가<br class="ugly-fruit__label-break" />떨어지는 과일</p>
         </figure>
 
         <p class="ugly-fruit__desc">
