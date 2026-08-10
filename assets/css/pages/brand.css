@@ -36,10 +36,11 @@
 }
 
 .brand-intro__slogan-ko {
-  margin: 0;
+  margin: 0 auto;
   max-width: 100%;
   font-family: var(--font-ko);
-  font-size: clamp(1.25rem, 4.2vw, 5rem); /* 한 줄 유지 · 최대 80px */
+  font-size: clamp(1.25rem, 4.2vw, 5rem);
+  /* 한 줄 유지 · 최대 80px */
   font-weight: var(--fw-heavy);
   line-height: 1.4;
   text-align: center;
@@ -53,11 +54,11 @@
 }
 
 .brand-intro__text {
-  margin: 2.5rem 0 0;
-  max-width: 52rem;
+  margin: 6.25rem 0;
+  max-width: 90rem;
   font-family: var(--font-ko);
-  font-size: var(--fs-body03);
-  font-weight: var(--fw-regular);
+  font-size: var(--fs-body02);
+  font-weight: var(--fw-semibold);
   line-height: 1.8;
   text-align: center;
   color: var(--color-primary);
@@ -101,14 +102,15 @@
 
 .brand-intro__media {
   margin-top: 1.25rem;
-  width: 36.5rem; /* 584px */
+  width: 36.5rem;
+  /* 584px */
   max-width: 100%;
   will-change: opacity, filter;
 }
 
 .brand-intro__image {
   display: block;
-  width: 36.5rem; /* 584px */
+  width: 23rem;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
@@ -130,7 +132,8 @@
 
   .brand-intro__media,
   .brand-intro__image {
-    width: 22.4375rem; /* 359px */
+    width: 22.4375rem;
+    /* 359px */
   }
 }
 
@@ -144,7 +147,8 @@
   }
 
   .brand-intro__slogan-ko {
-    font-size: 1.375rem; /* 22px */
+    font-size: 1.375rem;
+    /* 22px */
     white-space: normal;
     max-width: 100%;
     box-sizing: border-box;
@@ -166,11 +170,13 @@
 
   .brand-intro__media,
   .brand-intro__image {
-    width: 15.4375rem; /* 247px */
+    width: 15.4375rem;
+    /* 247px */
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .brand-intro__text,
   .falling-title,
   .brand-intro__media {
@@ -224,8 +230,10 @@
 
 .brand-story__title {
   margin: 0;
-  font-family: var(--font-en); /* SUIT */
-  font-size: 3rem; /* 48px */
+  font-family: var(--font-en);
+  /* SUIT */
+  font-size: 3rem;
+  /* 48px */
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -234,7 +242,8 @@
 .brand-story__subtitle {
   margin: 0.75rem 0 0;
   font-family: var(--font-ko);
-  font-size: 2.25rem; /* 36px */
+  font-size: 2.25rem;
+  /* 36px */
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: -0.02em;
@@ -247,7 +256,8 @@
 .brand-story__text {
   margin: 1.5rem 0 0;
   font-family: var(--font-ko);
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
+  /* 20px */
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.01em;
@@ -255,7 +265,8 @@
 }
 
 .brand-story__media {
-  flex: 0 0 56.25rem; /* 900px */
+  flex: 0 0 56.25rem;
+  /* 900px */
   width: 56.25rem;
   max-width: 56.25rem;
   overflow: hidden;
@@ -264,7 +275,7 @@
 .brand-story__image {
   display: block;
   width: 100%;
-  height: 31.875rem; /* 510px */
+  height: auto;
   object-fit: cover;
 }
 
@@ -385,8 +396,10 @@
   justify-content: center;
   margin: 0;
   padding: 0 var(--grid-margin);
-  font-family: var(--font-en); /* SUIT */
-  font-size: 3.125rem; /* 50px */
+  font-family: var(--font-en);
+  /* SUIT */
+  font-size: 3.125rem;
+  /* 50px */
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -422,8 +435,10 @@
 
 .brand-feature__num {
   margin: 0;
-  font-family: var(--font-en); /* SUIT */
-  font-size: 3rem; /* 48px */
+  font-family: var(--font-en);
+  /* SUIT */
+  font-size: 3rem;
+  /* 48px */
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -441,8 +456,10 @@
 
 .brand-feature__line {
   display: block;
-  width: 7.25rem; /* 116px */
-  height: 0.125rem; /* 2px */
+  width: 7.25rem;
+  /* 116px */
+  height: 0.125rem;
+  /* 2px */
   background-color: var(--color-primary);
   transition: width 0.35s ease;
 }
@@ -455,7 +472,8 @@
 .brand-feature__title {
   margin: 0.75rem 0 0;
   font-family: var(--font-ko);
-  font-size: 2.25rem; /* 36px */
+  font-size: 2.25rem;
+  /* 36px */
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.02em;
@@ -465,7 +483,8 @@
 .brand-feature__desc {
   margin: 1rem 0 0;
   font-family: var(--font-ko);
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
+  /* 20px */
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.01em;
@@ -632,7 +651,8 @@
 .ugly-fruit {
   box-sizing: border-box;
   width: 100%;
-  height: 65rem; /* 1040px */
+  height: 65rem;
+  /* 1040px */
   padding: 5rem 0;
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -654,7 +674,8 @@
 .ugly-fruit__title {
   margin: 0;
   font-family: var(--font-ko);
-  font-size: 3rem; /* 48px */
+  font-size: 3rem;
+  /* 48px */
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -663,7 +684,8 @@
 
 .ugly-fruit__media {
   position: relative;
-  width: min(100%, 53.3125rem); /* 853px */
+  width: min(100%, 53.3125rem);
+  /* 853px */
   margin: 3.75rem 0 0;
 }
 
@@ -699,7 +721,8 @@
   transform: translateY(-50%);
   padding-left: 0.5rem;
   font-family: var(--font-ko);
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
+  /* 16px */
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.01em;
@@ -712,7 +735,8 @@
   margin: 3.75rem 0 0;
   max-width: 46rem;
   font-family: var(--font-ko);
-  font-size: 1.375rem; /* 22px */
+  font-size: 1.375rem;
+  /* 22px */
   font-weight: 400;
   line-height: 1.7;
   letter-spacing: -0.01em;
@@ -728,17 +752,20 @@
   }
 
   .ugly-fruit__title {
-    font-size: 1.75rem; /* 28px */
+    font-size: 1.75rem;
+    /* 28px */
   }
 
   .ugly-fruit__media {
-    width: min(100%, 32.5rem); /* ~520px */
+    width: min(100%, 32.5rem);
+    /* ~520px */
     margin-top: 2.5rem;
   }
 
   .ugly-fruit__svg {
     transform: scale(0.85);
-    transform-origin: 31.65% 63.8%; /* circle center */
+    transform-origin: 31.65% 63.8%;
+    /* circle center */
   }
 
   .ugly-fruit__line--pc {
@@ -752,7 +779,8 @@
   .ugly-fruit__label {
     top: 10%;
     left: 64%;
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem;
+    /* 14px */
     padding-left: 0.35rem;
     white-space: normal;
   }
@@ -763,7 +791,8 @@
 
   .ugly-fruit__desc {
     margin-top: 2.5rem;
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem;
+    /* 18px */
   }
 }
 
@@ -774,11 +803,13 @@
   }
 
   .ugly-fruit__title {
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.5rem;
+    /* 24px */
   }
 
   .ugly-fruit__media {
-    width: min(100%, 20.5rem); /* ~328px */
+    width: min(100%, 20.5rem);
+    /* ~328px */
     margin-top: 2rem;
   }
 
@@ -789,7 +820,8 @@
 
   .ugly-fruit__label {
     left: 62%;
-    font-size: 0.6875rem; /* 11px */
+    font-size: 0.6875rem;
+    /* 11px */
     white-space: normal;
     max-width: none;
     padding-left: 0.25rem;
@@ -797,7 +829,8 @@
 
   .ugly-fruit__desc {
     margin-top: 2rem;
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
+    /* 16px */
   }
 
   .ugly-fruit__desc br {
@@ -828,7 +861,8 @@
 .fruit-process__eyebrow {
   margin: 0;
   font-family: var(--font-ko);
-  font-size: 1.75rem; /* 28px */
+  font-size: 1.75rem;
+  /* 28px */
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.02em;
@@ -837,7 +871,8 @@
 .fruit-process__title {
   margin: 0.5rem 0 0;
   font-family: var(--font-ko);
-  font-size: 3.75rem; /* 60px */
+  font-size: 3.75rem;
+  /* 60px */
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.02em;
@@ -870,13 +905,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem; /* 48px */
+  width: 3rem;
+  /* 48px */
   height: 3rem;
   border-radius: 50%;
   background-color: var(--color-primary);
   color: var(--color-white);
-  font-family: var(--font-en); /* SUIT */
-  font-size: 1.25rem; /* 20px */
+  font-family: var(--font-en);
+  /* SUIT */
+  font-size: 1.25rem;
+  /* 20px */
   font-weight: 700;
   line-height: 1;
   transform: translate(-50%, -50%);
@@ -890,9 +928,11 @@
 }
 
 .fruit-process__caption {
-  margin: 1.25rem 0 1.25rem; /* bottom 20px */
+  margin: 1.25rem 0 1.25rem;
+  /* bottom 20px */
   font-family: var(--font-ko);
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
+  /* 20px */
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: -0.01em;
@@ -963,7 +1003,8 @@
 
   .fruit-process__caption {
     margin-top: 1rem;
-    margin-bottom: 1.25rem; /* 20px */
+    margin-bottom: 1.25rem;
+    /* 20px */
     font-size: 1rem;
   }
 

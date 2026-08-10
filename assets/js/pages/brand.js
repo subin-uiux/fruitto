@@ -53,7 +53,7 @@
     AOS.init({
       duration: 900,
       easing: "ease-out-cubic",
-      once: true,
+      once: false,
       mirror: false,
       offset: 120,
       disable: reduceMotion,
@@ -112,7 +112,7 @@
     var textSplit = new SplitType(textEl, { types: "chars" });
     if (textSplit.chars && textSplit.chars.length) {
       textChars = textSplit.chars;
-      gsap.set(textChars, { color: "#cccccc" });
+      gsap.set(textChars, { color: "#eeeeee" });
     }
   }
 
