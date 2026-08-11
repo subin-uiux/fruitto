@@ -160,6 +160,7 @@
  * Brand Story image slider
  * PC: 화살표 + 무한 루프
  * Tablet/Mobile: 스와이프 + 페이지네이션
+ * 공통: 자동 재생 (수동 조작 시 타이머 리셋)
  */
 (function () {
   "use strict";
@@ -203,6 +204,9 @@
   var axis = null;
   var dragBaseX = 0;
   var mq = window.matchMedia("(max-width: 63.9375rem)");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var autoTimer = null;
+  var AUTO_DELAY = 4500;
 
   function isMobileLayout() {
     return mq.matches;
@@ -239,6 +243,25 @@
     }
   }
 
+  function stopAuto() {
+    if (autoTimer) {
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function restartAuto() {
+    stopAuto();
+    if (reduceMotion) {
+      return;
+    }
+    autoTimer = window.setInterval(function () {
+      if (!isAnimating) {
+        move(1, true);
+      }
+    }, AUTO_DELAY);
+  }
+
   function setPosition(immediate) {
     var x = -getStep() * current;
     if (immediate) {
@@ -259,13 +282,16 @@
     });
   }
 
-  function move(direction) {
+  function move(direction, fromAuto) {
     if (isAnimating) {
       return;
     }
     isAnimating = true;
     current += direction;
     setPosition(false);
+    if (!fromAuto) {
+      restartAuto();
+    }
   }
 
   function goToOriginal(index) {
@@ -278,6 +304,7 @@
     isAnimating = true;
     current = total + index;
     setPosition(false);
+    restartAuto();
   }
 
   function onPointerDown(event) {
@@ -288,6 +315,7 @@
       return;
     }
 
+    stopAuto();
     pointerId = event.pointerId;
     startX = event.clientX;
     startY = event.clientY;
@@ -315,6 +343,7 @@
       axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
       if (axis === "y") {
         pointerId = null;
+        restartAuto();
         return;
       }
     }
@@ -344,6 +373,7 @@
     } else {
       isAnimating = true;
       setPosition(false);
+      restartAuto();
     }
   }
 
@@ -375,6 +405,7 @@
   viewport.addEventListener("pointercancel", onPointerUp);
 
   setPosition(true);
+  restartAuto();
 
   window.addEventListener("resize", function () {
     gsap.set(track, { x: -getStep() * current });

@@ -54,6 +54,43 @@
   padding-bottom: 2.5rem; /* 40px */
 }
 
+/* Open Market(.market__toggle)과 동일한 필 토글 */
+.notice-board__toggle {
+  display: flex;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.25rem;
+  border: 0.0625rem solid var(--color-primary);
+  border-radius: 999px;
+  background-color: var(--color-white);
+}
+
+.notice-board__toggle-btn {
+  min-width: 8.75rem;
+  padding: 0.75rem 1.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-ko);
+  font-size: var(--fs-body04);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+  white-space: nowrap;
+}
+
+.notice-board__toggle-btn.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--fw-bold);
+}
+
 .notice-board__grid {
   display: none;
   grid-template-columns: 1fr;
@@ -284,6 +321,12 @@
   .notice-page__toolbar {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .notice-board__toggle-btn {
+    min-width: 6.5rem;
+    padding: 0.625rem 1.25rem;
+    font-size: var(--fs-body06);
   }
 
   .notice-page__search {

@@ -139,7 +139,7 @@
 
         buttons.forEach(function (other) {
           var active = other === btn;
-          other.classList.toggle("toggle__item--active", active);
+          other.classList.toggle("is-active", active);
           other.setAttribute("aria-pressed", active ? "true" : "false");
         });
 
