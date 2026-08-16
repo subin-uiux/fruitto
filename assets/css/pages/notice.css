@@ -268,7 +268,7 @@
   margin: 0;
   padding: 2rem 6.5rem;
   font-family: var(--font-ko);
-  font-size: var(--fs-body05); /* Body05 */
+  font-size: 0.875rem; /* 14px */
   font-weight: var(--fw-regular);
   line-height: var(--lh-body);
   color: var(--color-ivory1);

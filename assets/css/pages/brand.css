@@ -170,7 +170,7 @@
 
   .brand-intro__media,
   .brand-intro__image {
-    width: 15.4375rem;
+    width: 12rem;
     /* 247px */
   }
 }
@@ -184,6 +184,10 @@
     filter: none;
     color: var(--color-primary);
     will-change: auto;
+  }
+
+  .brand-intro__text {
+    margin: 0rem;
   }
 
   .falling-title .char-inner {
