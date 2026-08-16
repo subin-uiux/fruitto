@@ -413,12 +413,14 @@
 
   .story__desc {
     font-size: 1.25rem; /* 20px — tablet */
+    white-space: nowrap;
   }
 
   .story__btn.btn--lg {
     min-height: var(--btn-height-md);
     padding: 0 var(--btn-padding-x-md);
     font-size: var(--btn-fs-md);
+    margin-top: 2rem;
   }
 
   .story__media {
@@ -507,6 +509,7 @@
 
   .story__desc {
     font-size: 1.125rem; /* 18px — mobile */
+    white-space: normal;
   }
 
   .story__caption {
@@ -1431,6 +1434,10 @@
   width: max-content;
   animation: sns-marquee 45s linear infinite;
   will-change: transform;
+}
+
+.sns__viewport:hover .sns__track {
+  animation-play-state: paused;
 }
 
 .sns__group {

@@ -53,11 +53,11 @@
   --container-max-width: 105rem; /* 1680px — 그리드 콘텐츠 영역 (1920 - margin 120×2) */
 
   /* Header */
-  --header-height: 5rem; /* 80px — Mobile / Tablet */
+  --header-height: 3.75rem; /* 60px — Mobile */
   --header-z-index: 100;
   --header-transition: transform 0.3s ease;
-  --header-logo-width: 2.25rem; /* 36px — Mobile/Tablet 축소 */
-  --header-logo-height: 4rem; /* 64px — header 70px 안에 맞춤 */
+  --header-logo-width: 1.6875rem; /* 27px — 80→60 비율 */
+  --header-logo-height: 3rem; /* 48px */
   --nav-drawer-width: 20rem; /* 320px */
   --nav-drawer-z-index: 110;
 
@@ -179,6 +179,11 @@
     --grid-columns: 6;
     --grid-gutter: 1.125rem; /* 18px */
     --grid-margin: 3.75rem; /* 60px */
+
+    /* Header — Tablet */
+    --header-height: 5rem; /* 80px */
+    --header-logo-width: 2.25rem; /* 36px */
+    --header-logo-height: 4rem; /* 64px */
 
     /* Typography — Font Size (Tablet) */
     --fs-xl: 2.5rem; /* 40px */

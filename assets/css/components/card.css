@@ -304,7 +304,7 @@ a.event-card:focus-visible {
 .event-card__title {
   margin: 0;
   font-size: var(--fs-body03); /* Body3 */
-  font-weight: var(--fw-extrabold);
+  font-weight: 500;
   line-height: var(--lh-title);
   color: var(--color-black);
 }

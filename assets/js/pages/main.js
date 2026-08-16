@@ -108,7 +108,6 @@
       },
     });
 
-    /* 슬라이드 이동과 겹쳐 부드럽게 등장 */
     gsap.delayedCall(0.35, function () {
       animateSlideContent(slides[current]);
     });
@@ -206,7 +205,7 @@
   var mq = window.matchMedia("(max-width: 63.9375rem)");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var autoTimer = null;
-  var AUTO_DELAY = 4500;
+  var AUTO_DELAY = 3200;
 
   function isMobileLayout() {
     return mq.matches;
@@ -272,7 +271,7 @@
 
     gsap.to(track, {
       x: x,
-      duration: 0.55,
+      duration: 0.4,
       ease: "power2.out",
       onComplete: function () {
         normalizeLoop();

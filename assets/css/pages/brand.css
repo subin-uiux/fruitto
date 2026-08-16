@@ -214,7 +214,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 7.5rem;
+  /* 1920px → 1024px : 120px → 40px */
+  gap: clamp(2.5rem, 8.93vw - 3.21rem, 7.5rem);
 }
 
 .brand-story__row--reverse {
@@ -222,7 +223,7 @@
 }
 
 .brand-story__copy {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
   max-width: none;
   color: var(--color-primary);
@@ -232,8 +233,7 @@
   margin: 0;
   font-family: var(--font-en);
   /* SUIT */
-  font-size: 3rem;
-  /* 48px */
+  font-size: clamp(2.5rem, 0.89vw + 1.93rem, 3rem); /* 48px → 40px */
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -242,8 +242,7 @@
 .brand-story__subtitle {
   margin: 0.75rem 0 0;
   font-family: var(--font-ko);
-  font-size: 2.25rem;
-  /* 36px */
+  font-size: clamp(1.75rem, 0.89vw + 1.18rem, 2.25rem); /* 36px → 28px */
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: -0.02em;
@@ -256,8 +255,7 @@
 .brand-story__text {
   margin: 1.5rem 0 0;
   font-family: var(--font-ko);
-  font-size: 1.25rem;
-  /* 20px */
+  font-size: clamp(1.125rem, 0.22vw + 0.98rem, 1.25rem); /* 20px → 18px */
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.01em;
@@ -265,10 +263,10 @@
 }
 
 .brand-story__media {
-  flex: 0 0 56.25rem;
-  /* 900px */
-  width: 56.25rem;
-  max-width: 56.25rem;
+  flex: 1.36 1 0; /* 900:660 — PC 최대 폭에서 900px */
+  width: auto;
+  min-width: 0;
+  max-width: 56.25rem; /* 900px */
   overflow: hidden;
 }
 
@@ -276,6 +274,7 @@
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 900 / 510;
   object-fit: cover;
 }
 
@@ -310,7 +309,7 @@
   }
 
   .brand-story__text {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 
   .brand-story__media {
@@ -735,7 +734,7 @@
   margin: 3.75rem 0 0;
   max-width: 46rem;
   font-family: var(--font-ko);
-  font-size: 1.375rem;
+  font-size: 1.8rem;
   /* 22px */
   font-weight: 400;
   line-height: 1.7;
@@ -779,7 +778,7 @@
   .ugly-fruit__label {
     top: 10%;
     left: 64%;
-    font-size: 0.875rem;
+    font-size: 1.3rem;
     /* 14px */
     padding-left: 0.35rem;
     white-space: normal;
@@ -820,6 +819,7 @@
 
   .ugly-fruit__label {
     left: 62%;
+    top: 18%;
     font-size: 0.6875rem;
     /* 11px */
     white-space: normal;

@@ -239,6 +239,10 @@
   margin-top: 2.5rem;
 }
 
+.inquiry-form__footer button {
+  padding: 1rem 3rem;
+}
+
 .inquiry-form__message {
   margin: 0;
   font-family: var(--font-ko);
