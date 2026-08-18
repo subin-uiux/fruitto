@@ -665,6 +665,15 @@
   .gelato__name {
     font-size: 1rem; /* 16px — mobile */
   }
+
+  .gelato__btn {
+    padding: 10px 22px;
+    
+  }
+
+  .gelato__btn > btn--lg {
+    min-height: none;
+  }
 }
 
 /* ==========================================================================
