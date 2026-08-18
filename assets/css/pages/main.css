@@ -214,6 +214,28 @@
   }
 }
 
+@media (max-width: 63.9375rem) {
+  .kv__product-wrap {
+    transform: scale(1.275); /* 0.75 × 1.7 */
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .kv {
+    height: calc(100vh - var(--header-height));
+    height: calc(100svh - var(--header-height));
+    margin-top: var(--header-height);
+  }
+
+  .kv__content {
+    padding-top: 1.5rem;
+  }
+
+  .kv__tagline {
+    bottom: 16%;
+  }
+}
+
 /* ==========================================================================
    Main — Brand Story Section
    ========================================================================== */
@@ -502,6 +524,7 @@
 }
 
 @media (max-width: 47.9375rem) {
+  
   .story__inner {
     gap: 2rem;
     padding: 3rem var(--grid-margin);

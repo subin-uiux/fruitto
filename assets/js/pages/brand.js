@@ -154,7 +154,41 @@
   /* --------------------------------------------------------------------------
      스크롤 타임라인 — 슬로건 → 본문
      brand-intro__text 리빌이 끝나면 이미지 blur → clear
+     태블릿/모바일: 첫 화면부터 intro가 보이므로 슬로건 drop은 로드 시 재생
      -------------------------------------------------------------------------- */
+  var isCompact = window.matchMedia("(max-width: 63.9375rem)").matches;
+
+  function playSloganDrop() {
+    if (!sloganInners.length) {
+      return;
+    }
+    gsap.fromTo(
+      sloganInners,
+      { yPercent: -120, opacity: 0 },
+      {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.03,
+        ease: "power3.out",
+        overwrite: true,
+      }
+    );
+  }
+
+  if (isCompact) {
+    var startSloganDrop = function () {
+      window.requestAnimationFrame(function () {
+        playSloganDrop();
+      });
+    };
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(startSloganDrop);
+    } else {
+      startSloganDrop();
+    }
+  }
+
   var tl = gsap.timeline({
     defaults: { ease: "none" },
     scrollTrigger: {
@@ -174,8 +208,8 @@
     },
   });
 
-  /* 1) 슬로건 falling */
-  if (sloganInners.length) {
+  /* 1) 슬로건 falling — PC는 스크롤, 태블릿/모바일은 로드 시 재생 */
+  if (!isCompact && sloganInners.length) {
     tl.to(
       sloganInners,
       {
@@ -203,11 +237,15 @@
     );
   }
 
-  /* 첫 화면: 서브비주얼 아래 남은 뷰포트만큼 패드로 채워 intro가 보이지 않게 */
+  /* 첫 화면: PC는 서브비주얼 아래를 패드로 채워 intro가 보이지 않게 */
   function updateIntroPad() {
     var pad = document.querySelector(".brand-intro-pad");
     var subVisual = document.querySelector(".sub-visual");
     if (!pad || !subVisual) {
+      return;
+    }
+    if (window.matchMedia("(max-width: 63.9375rem)").matches) {
+      pad.style.height = "0px";
       return;
     }
     var remaining = Math.max(0, window.innerHeight - subVisual.offsetHeight);

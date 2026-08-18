@@ -111,7 +111,7 @@
     gsap.to(brand, {
       opacity: 1,
       scale: 1,
-      duration: 1.1,
+      duration: 1,
       ease: "sine.out",
       clearProps: "transform",
     });
@@ -120,16 +120,16 @@
       opacity: 1,
       y: 0,
       scale: 1,
-      duration: 1.15,
-      delay: 0.06,
+      duration: 1.8,
+      delay: 0.3,
       ease: "sine.out",
     });
 
     gsap.to(tagline, {
       opacity: 1,
       y: 0,
-      duration: 0.9,
-      delay: 0.18,
+      duration: 1.8,
+      delay: 0.7,
       ease: "sine.out",
     });
   }

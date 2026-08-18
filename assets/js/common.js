@@ -123,6 +123,14 @@
 
   /* Accordion submenu — smooth slide */
   if (drawer) {
+    drawer.addEventListener("click", function (e) {
+      var link = e.target.closest("a[href]");
+      if (!link || !drawer.contains(link)) {
+        return;
+      }
+      closeNav();
+    });
+
     drawer.querySelectorAll(".nav-drawer__toggle").forEach(function (toggle) {
       toggle.addEventListener("click", function () {
         var item = toggle.closest(".nav-drawer__item");
