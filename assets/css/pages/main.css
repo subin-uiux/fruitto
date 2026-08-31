@@ -285,7 +285,7 @@
   line-height: var(--lh-body);
   text-align: left;
   color: var(--color-primary);
-  white-space: pre-line;
+  /* white-space: pre-line; */
 }
 
 .story__btn {
