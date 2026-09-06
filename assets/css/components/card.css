@@ -112,7 +112,7 @@
 .product-card__title {
   margin: 0;
   font-size: var(--product-card-fs-title);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-title);
   color: var(--color-primary);
 }
