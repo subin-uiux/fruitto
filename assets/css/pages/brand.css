@@ -130,6 +130,7 @@
   .brand-intro {
     min-height: 0;
     padding: 5rem 0;
+    /* 80px */
   }
 
   .brand-intro__media {
@@ -202,7 +203,8 @@
   }
 
   .brand-intro {
-    padding: 3.5rem 0;
+    padding: 3.125rem 0;
+    /* 50px */
   }
 
   .brand-intro__slogan-ko {
@@ -336,7 +338,8 @@
 
 @media (max-width: 63.9375rem) {
   .brand-story {
-    padding: 5rem 0 6rem;
+    padding: 5rem 0;
+    /* 80px */
   }
 
   .brand-story__inner {
@@ -390,7 +393,8 @@
 
 @media (max-width: 47.9375rem) {
   .brand-story {
-    padding: 3.5rem 0 4.5rem;
+    padding: 3.125rem 0;
+    /* 50px */
   }
 
   .brand-story__inner {
@@ -621,6 +625,7 @@
     max-width: 100%;
     min-width: 0;
     padding: 5rem 0;
+    /* 80px */
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
@@ -693,11 +698,12 @@
   }
 
   .brand-features__list {
-    padding: 3.5rem 0;
+    padding: 3.125rem 0;
+    /* 50px */
   }
 
   .brand-features__track {
-    top: 3.5rem;
+    top: 3.125rem;
   }
 
   .brand-feature__num {
@@ -722,7 +728,7 @@
   }
 
   .brand-story__text {
-    margin-top: 0.75  rem;
+    margin-top: 0.75rem;
   }
 }
 
@@ -828,6 +834,7 @@
     height: auto;
     min-height: 0;
     padding: 5rem 0;
+    /* 80px */
   }
 
   .ugly-fruit__title {
@@ -879,7 +886,8 @@
 @media (max-width: 47.9375rem) {
   .ugly-fruit {
     height: auto;
-    padding: 3.5rem 0;
+    padding: 3.125rem 0;
+    /* 50px */
   }
 
   .ugly-fruit__title {
@@ -1028,6 +1036,7 @@
 @media (max-width: 63.9375rem) {
   .fruit-process {
     padding: 5rem 0;
+    /* 80px */
   }
 
   .fruit-process__header {
@@ -1059,7 +1068,8 @@
 
 @media (max-width: 47.9375rem) {
   .fruit-process {
-    padding: 3.5rem 0;
+    padding: 3.125rem 0;
+    /* 50px */
   }
 
   .fruit-process__header {
@@ -1107,6 +1117,7 @@
   .brand-story__inner {
     overflow-x: clip;
     max-width: 100%;
+    gap: 3.125rem;
   }
 
   .brand-story__copy,
