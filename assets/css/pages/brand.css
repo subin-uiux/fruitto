@@ -461,7 +461,7 @@
   /* SUIT */
   font-size: 3.125rem;
   /* 50px */
-  font-weight: 700;
+  font-weight: 900;
   line-height: 1.3;
   letter-spacing: -0.02em;
   text-align: center;
@@ -500,9 +500,7 @@
   /* SUIT */
   font-size: 3rem;
   /* 48px */
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-weight: 900;
   color: var(--color-primary);
 }
 
@@ -531,7 +529,7 @@
 }
 
 .brand-feature__title {
-  margin: 0.75rem 0 0;
+  margin: 1rem 0 0;
   font-family: var(--font-ko);
   font-size: 2.25rem;
   /* 36px */
@@ -679,7 +677,7 @@
   .brand-feature__num {
     font-size: 1.75rem;
     /* 28px */
-    font-weight: bold;
+    font-weight: 900;
     padding-top: 1.25rem;
   }
 

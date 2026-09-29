@@ -212,6 +212,10 @@
     gap: 0.15rem;
   }
 
+  .product-page .product-card__body {
+    padding: 0.5rem; /* 8px */
+  }
+
   /* 카드 214px일 때 14px · 타이틀은 14px 이하로 축소 방지 */
   .product-page .product-card__title,
   .product-page .product-text-card__title {
@@ -220,17 +224,17 @@
 
   .product-page .product-card__text,
   .product-page .product-text-card__text {
-    font-size: clamp(0.6875rem, 6.54cqi, 0.875rem);
+    font-size: clamp(0.875rem, 6.54cqi, 0.875rem); /* 최소 14px 유지 */
   }
 
   .product-page .product-card__cta {
     min-height: clamp(2.25rem, 18.7cqi, 2.5rem);
-    font-size: clamp(0.75rem, 6.54cqi, 0.875rem); /* 최소 12px 유지 */
+    font-size: clamp(0.875rem, 6.54cqi, 0.875rem); /* 최소 14px 유지 */
   }
 
   .product-page .product-text-card__desc {
     max-width: 100%;
-    font-size: clamp(0.625rem, 5.61cqi, 0.75rem);
+    font-size: clamp(0.875rem, 5.61cqi, 0.875rem); /* 최소 14px 유지 */
   }
 }
 

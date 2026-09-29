@@ -34,7 +34,7 @@
   max-height: min(var(--product-popup-height-mobile), 90vh);
   overflow: auto;
   /* Mobile: 상하 유지 · 좌우 2.3rem */
-  padding: 3.375rem 2.3rem;
+  padding: 3.375rem 2.25 rem;
   gap: 2.375rem;
   border: 0.0625rem solid var(--color-grey4);
   border-radius: var(--product-popup-radius);
@@ -138,12 +138,14 @@
 
 .product-popup__table thead th {
   background-color: var(--color-grey4);
+  font-size: 1.125rem;
   font-weight: var(--fw-semibold); /* 성분 타이틀 조금 두껍게 */
   color: var(--color-primary);
   white-space: nowrap; /* 포화지방 등 헤더 줄바꿈 방지 */
 }
 
 .product-popup__table tbody td {
+  font-size: 1rem;
   font-weight: var(--fw-regular);
   white-space: nowrap;
 }
@@ -197,7 +199,7 @@
   .product-popup {
     max-width: var(--product-popup-width-tablet);
     max-height: 90vh;
-    padding: 3.375rem 2.3rem;
+    padding: 3.375rem 2.25rem;
   }
 }
 

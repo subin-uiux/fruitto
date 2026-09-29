@@ -213,6 +213,12 @@
   }
 }
 
+@media (max-width: 47.9375rem) {
+  .product-card__body {
+    padding: 0.5rem; /* 8px */
+  }
+}
+
 /* Product Card Hover Group — B 위에 C 설명 노출 */
 .product-card-group {
   position: relative;

@@ -12,7 +12,7 @@
   width: 100%;
   max-width: var(--layout-max-width);
   margin: 0 auto;
-  padding: 3rem var(--grid-margin) 2.5rem;
+  padding: 2.5rem;
 }
 
 .footer__logo {
