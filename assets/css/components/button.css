@@ -38,7 +38,7 @@
 .btn--md {
   min-height: var(--btn-height-md);
   padding: 0 var(--btn-padding-x-md);
-  font-size: var(--btn-fs-md);
+  font-size: 1.375rem;
 }
 
 /* Outline — Default: white + border + primary text */
