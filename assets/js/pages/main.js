@@ -730,4 +730,27 @@
   });
 })();
 
+/* ==========================================================================
+   Portfolio Notice Popup — 메인 진입 시 노출 (닫기는 common.js)
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var popupDim = document.getElementById("portfolio-popup");
+  if (!popupDim) {
+    return;
+  }
+
+  popupDim.hidden = false;
+  popupDim.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  requestAnimationFrame(function () {
+    popupDim.classList.add("is-open");
+    var confirmBtn = popupDim.querySelector(".product-popup__confirm");
+    if (confirmBtn) {
+      confirmBtn.focus();
+    }
+  });
+})();
+
 

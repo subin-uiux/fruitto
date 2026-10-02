@@ -212,3 +212,35 @@
     padding: 3.375rem 4.625rem;
   }
 }
+
+/* Notice — 메인 진입 안내 팝업 (소형) */
+.product-popup.product-popup--notice {
+  align-items: center;
+  max-width: 26.25rem; /* 420px */
+  height: auto;
+  max-height: 90vh;
+  padding: 3.5rem 2rem 2.5rem;
+  gap: 1.75rem;
+  border-radius: 1.875rem; /* 30px */
+  text-align: center;
+}
+
+.product-popup--notice .product-popup__header {
+  padding-right: 0;
+}
+
+.product-popup--notice .product-popup__title {
+  font-size: 1.5rem; /* 24px */
+}
+
+.product-popup--notice .product-popup__note {
+  margin-top: 0.75rem;
+  font-size: 1rem; /* 16px */
+  line-height: var(--lh-body);
+  word-break: keep-all;
+}
+
+.product-popup--notice .product-popup__confirm {
+  width: 100%;
+  max-width: 12.5rem; /* 200px */
+}

@@ -8,13 +8,24 @@
   <meta name="description" content="신선한 과일의 가치를 젤라또로 담아낸 프루또 공식 웹사이트입니다.">
   
   <!-- 네이버 서치어드바이저 사이트 인증 -->
-  <meta name="naver-site-verification" content="5af4449e7d050a88ce215bb12d7b212c52ab057d" />
+  <meta name="naver-site-verification" content="9785ae7cce557b891460ea96b15ffcd953163f7c" />
 
   <!-- 구글 서치콘솔 -->
-  <meta name="google-site-verification" content="cavCuKi_fNPMs3FpK9gifokBSRXjZaLks91GiVOnSoA" />
+  <meta name="google-site-verification" content="aroObNsThsDchi-DclhMlKXLjhSPlMxw5fdjuM5BgiE" />
   
   <title>프루또 FRUITTO</title>
   <link rel="canonical" href="https://fruitto.vercel.app/" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="프루또 FRUITTO" />
+  <meta property="og:description" content="신선한 과일의 가치를 젤라또로 담아낸 프루또 공식 웹사이트입니다." />
+  <meta property="og:url" content="https://fruitto.vercel.app/" />
+  <meta property="og:site_name" content="프루또 FRUITTO" />
+  <meta property="og:image" content="https://fruitto.vercel.app/assets/images/og-image.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1275" />
+  <meta property="og:image:alt" content="프루또 FRUITTO 과일 젤라또" />
 
 
 
@@ -38,6 +49,7 @@
   <link rel="stylesheet" href="assets/css/components/card.css" />
   <link rel="stylesheet" href="assets/css/components/header.css" />
   <link rel="stylesheet" href="assets/css/components/footer.css" />
+  <link rel="stylesheet" href="assets/css/components/product-popup.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="assets/css/pages/main.css" />
 </head>
@@ -768,6 +780,21 @@
     </div>
   </footer>
 
+  <div class="product-popup-dim" id="portfolio-popup" hidden aria-hidden="true">
+    <div class="product-popup product-popup--notice" role="dialog" aria-modal="true"
+      aria-labelledby="portfolio-popup-title" aria-describedby="portfolio-popup-desc">
+      <button type="button" class="product-popup__close" data-popup-close aria-label="닫기">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+      <header class="product-popup__header">
+        <h2 class="product-popup__title" id="portfolio-popup-title">안내</h2>
+        <p class="product-popup__note" id="portfolio-popup-desc">이 페이지는 포트폴리오용입니다.</p>
+      </header>
+      <button type="button" class="btn btn--md btn--primary product-popup__confirm" data-popup-close>확인</button>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
