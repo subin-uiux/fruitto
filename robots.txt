@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fruitto.netlify.app/sitemap.xml
+Sitemap: https://fruitto.vercel.app/sitemap.xml

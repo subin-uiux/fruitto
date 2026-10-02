@@ -3,49 +3,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-       <loc>https://fruitto.netlify.app/</loc>
+       <loc>https://fruitto.vercel.app/</loc>
        <lastmod>2026-08-19T01:38:13+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>1.0000</priority>
   </url>
   <url>
-       <loc>https://fruitto.netlify.app/brand</loc>
+       <loc>https://fruitto.vercel.app/brand.html</loc>
        <lastmod>2026-08-19T01:38:13+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://fruitto.netlify.app/product</loc>
+       <loc>https://fruitto.vercel.app/product.html</loc>
        <lastmod>2026-08-19T01:38:13+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://fruitto.netlify.app/notice</loc>
+       <loc>https://fruitto.vercel.app/notice.html</loc>
        <lastmod>2026-08-19T01:38:13+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://fruitto.netlify.app/store</loc>
+       <loc>https://fruitto.vercel.app/store.html</loc>
        <lastmod>2026-08-19T01:38:13+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://fruitto.netlify.app/contact</loc>
+       <loc>https://fruitto.vercel.app/contact.html</loc>
        <lastmod>2026-08-19T01:38:13+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://fruitto.netlify.app/event-anniversary</loc>
+       <loc>https://fruitto.vercel.app/event-anniversary.html</loc>
        <lastmod>2026-08-19T01:38:13+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://fruitto.netlify.app/event-detail</loc>
+       <loc>https://fruitto.vercel.app/event-detail.html</loc>
        <lastmod>2026-08-19T01:38:13+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.8000</priority>
